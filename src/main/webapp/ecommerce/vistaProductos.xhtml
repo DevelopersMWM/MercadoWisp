@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<h:outputStylesheet name="ecommerce/css/bootstrap.min.css" />
+	<title>JSF JPA Crud Example</title>
+	<style type="text/css">
+.tableUpdated {
+	width: 90% !important;
+	margin: 17px 58px 0 !important;
+}
+
+.btnSpace {
+	margin: 17px;
+}
+</style>
+
+</h:head>
+
+
+<h:body>
+	<center>
+		<h2>
+			<h:outputText value="Lista de Productos" />
+		</h2>
+	</center>
+	<h:form id="ProductoForm">
+		<h:dataTable id="schoolTable" binding="#{table}"
+			value="#{controllerProducto.listarProductos()}" var="pl"
+			styleClass="table table-striped table-bordered tableUpdated">
+			<h:column>
+				<f:facet name="header">Id</f:facet>
+				<h:outputText value="#{pl.idProdcutos}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nombre</f:facet>
+				<h:outputText value="#{pl.nombreProducto}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Categoria</f:facet>
+				<h:outputText value="#{pl.categoria}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Precio</f:facet>
+				<h:outputText value="#{pl.precio}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Descripcion</f:facet>
+				<h:outputText value="#{pl.descripcion}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Garantia</f:facet>
+				<h:outputText value="#{pl.tiempoGarantia}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Actualizar</f:facet>
+				<h:commandButton action="#{producto.editarProducto()}"
+					value="Actualizar" styleClass="btn btn-primary">
+					<f:param name="selectIdProduct" value="#{pl.idProdcutos}" />
+
+				</h:commandButton>
+
+			</h:column>
+			<h:column>
+				<f:facet name="header">Eliminar</f:facet>
+				<h:commandButton action="#{producto.deleteProduct(pl.idProdcutos)}"
+					value="Eliminar" styleClass="btn btn-danger" />
+			</h:column>
+		</h:dataTable>
+		<center>
+			<h:commandButton action="nuevoProducto.xhtml?faces-redirect=true"
+				value="Agregar Producto" styleClass="btn btn-success btnSpace" />
+		</center>
+	</h:form>
+</h:body>
+</html>
