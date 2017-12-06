@@ -19,12 +19,11 @@ public class ProductoServiceImpl implements ProductoService {
 	
 
 
-	@Transactional
+	@Transactional(readOnly=true, rollbackFor={Exception.class})
 	@Override
 	public List<Productos> listarProductos() {
 		return productoDaoImpl.listaProductos();
 	}
-	
 	
 
 }
