@@ -455,21 +455,21 @@
 						</div>
 						<!-- /.box-header -->
 						<div class="box-body table-responsive no-padding">
-							<c:if test="${!empty router.getRouterDetails()}">
+							<c:if test="${!empty routerMB.getRouterDetails()}">
 								<table class="table table-hover">
 									<tr>
 										<th>#</th>
-										<th>Id</th>
+										<!-- <th>Id</th> -->
 										<th>Nombre</th>
 										<th>Ip o DNS</th>
 										<th>Nombre de Usuario</th>
 										<th>Accion</th>
 									</tr>
-									<ui:repeat value="${router.getRouterDetails()}" var="routers"
+									<ui:repeat value="${routerMB.getRouterDetails()}" var="routers"
 										varStatus="status">
 										<tr>
 											<td>${status.index+1}</td>
-											<td>${routers.id}</td>
+											<!-- <td>${routers.id}</td> -->
 											<td>${routers.nombre}</td>
 											<td>${routers.ipDns}</td>
 											<td>${routers.nombreUser}</td>
