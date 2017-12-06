@@ -57,7 +57,7 @@
 <h:body class="hold-transition register-page">
 	<h2>Lista de Routers</h2>
 	<br />
-	<c:if test="${!empty router.getRouterDetails()}">
+	<c:if test="${!empty routerMB.getRouterDetails()}">
 		<table class="tg">
 			<tr>
 				<th width="80">N°</th>
@@ -66,13 +66,13 @@
 				<th width="120">Nombre de Usuario</th>
 				<th width="150">Accion</th>
 			</tr>
-			<ui:repeat value="${router.getRouterDetails()}" var="routers"
+			<ui:repeat value="${routerMB.getRouterDetails()}" var="routers"
 				varStatus="status">
 				<tr>
 					<td>${status.index+1}</td>
 					<td>${routers.nombre}</td>
 					<td>${routers.ipDns}</td>
-					<td>${routers.nombreUser}</td>
+					<td>${routers.nombreUsuario}</td>
 						<td><h:link outcome="index" value="Ingresar" class="btn btn-primary pull-left" /> 
 							<h:link outcome="login" class="fa fa-pencil-square fa-2x" />
 						</td>
