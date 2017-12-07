@@ -7,7 +7,13 @@
 <h:head>
 	<!-- <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
-
+	<style>
+       #map{
+        justify-content:center;
+        height: 360px;
+        width: block;
+       }
+    </style>
 	<meta name="robots" content="all,follow" />
 	<meta name="googlebot" content="index,follow,snippet,archive" />
 	<meta name="viewport"
@@ -348,7 +354,7 @@
           </a>
           <ul class="treeview-menu">
             <li class="active"><a href="simple.xhtml"><i class="fa fa-circle-o"></i> Routers</a></li>
-            <li><a href="data.xhtml"><i class="fa fa-circle-o"></i> Planes de Internet</a></li>
+            <li><a href="ListaPlanes.xhtml"><i class="fa fa-circle-o"></i> Planes de Internet</a></li>
             <li><a href="data.xhtml"><i class="fa fa-circle-o"></i> Zonas</a></li>
             <li><a href="data.xhtml"><i class="fa fa-desktop"></i> Monitoreo</a></li>
             <!--<li><a href="data.xhtml"><i class="fa fa-circle-o"></i> Data tables</a></li>-->
@@ -423,7 +429,7 @@
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
 			<h1>
-				Lista de Routers <small>Usted tiene estos routers</small>
+				Agregue <small>su nuevo Router</small>
 			</h1>
 			<ol class="breadcrumb">
 				<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -437,10 +443,6 @@
 			<section class="content"> <!-- /.row -->
 			<div class="row">
 			<div class="col-sm-6">
-		<!-- <section id="formulario" class="content"> -->
-		<!-- <div class="row"> -->
-			<!-- Horizontal Form -->
-			<!-- <div class="box box-info"> -->
 			<div class="box box-info">
 				<div class="box-header with-border">
 					<h3 class="box-title">Agregue Su Router</h3>
@@ -498,7 +500,7 @@
 						<h:link outcome="simple" value="Ver Routers" class="btn btn-primary" />
 
 					</div>
-					<div class="callout callout-success">
+					<div class="callout callout-info">
 						<h5><h:outputText id="saveResult" rendered="#{not empty CreadoRouterID}" value="!! Router Guardado Exitosamente !!" styleClass="successText pull-center" /></h5>
               		</div>
 					<!-- <h:outputText id="saveResult" rendered="#{not empty CreadoRouterID}" value="!! Router Guardado Exitosamente !!" styleClass="btn btn-succes pull-center" /> -->
@@ -506,6 +508,73 @@
 				</h:form>
 			</div>
 		</div>
+		<div class="col-md-6">
+          <div class="box box-default">
+            <div class="box-header with-border">
+              <i class="fa fa-map-marker"></i>
+
+              <h3 class="box-title">Seleccione la ubicacion de su router</h3>
+            </div>
+            <!-- /.box-header -->
+            <div id="map" class="box-body">
+            <script>
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: {lat: 19.296384, lng: -99.136624}
+        });
+        if(navigator.geolocation){
+        	navigator.geolocation.getCurrentPosition(function(position){
+        		var pos={lat: 19.296384, lng: -99.136624};
+        		var pos1={lat: 19.299878, lng: -99.147782};
+        		var pos2={lat: 19.299038, lng: -99.137913};
+        		
+        		//var image='imagenes/mapita.ico';
+        		
+        		var marker = new google.maps.Marker({
+        	          position: pos,
+        	          map: map,
+        	          draggable: true,
+        			  animation: google.maps.Animation.DROP,
+        			  label: 'RB1',
+        			  title: 'MWM'
+        	        });
+        		var marker = new google.maps.Marker({
+      	          position: pos1,
+      	          map: map,
+      	          draggable: true,
+      			  animation: google.maps.Animation.DROP,
+      			  label: 'RB2',
+      			  title: 'Empresa1'
+      	        });
+        		var marker = new google.maps.Marker({
+        	          position: pos2,
+        	          map: map,
+        	          draggable: true,
+        			  animation: google.maps.Animation.DROP,
+        			  label: 'RB3',
+            		  title: 'Empresa2'
+        	        });
+        	},function() {
+        		handleLocationError(true, infoWindow, map.getCenter());
+      		});	
+        }
+        else{
+      	  handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  		infoWindow.setPosition(pos);
+  		infoWindow.setContent(browserHasGeolocation ?
+          	'Error: The Geolocation service failed.' :
+              'Error: Your browser doesn\'t support geolocation.');
+		}          	  	
+    </script>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
 		</div>
 			</section>
 			<!-- /.content -->
@@ -708,5 +777,9 @@
 	<h:outputScript name="admin/js/adminlte.min.js" />
 	<!-- AdminLTE for demo purposes -->
 	<!-- <script src="/resources/admin/js/demo.js"></script> -->
+	<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7-SP_lJJqFRa9E7LXY1B70AEcfZqsc_E
+    &amp;callback=initMap">
+    </script>
 </body>
 </html>
