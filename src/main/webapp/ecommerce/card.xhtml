@@ -5,140 +5,81 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
-
-<h:head>
-
-	
+<h:head>	
 	<h:outputStylesheet name="ecommerce/css/bootstrap.min.css" />
+	<h:outputStylesheet name="ecommerce/css/estilosCard.css" />
 	<h:outputScript  name="ecommerce/js/jquery.min.js"></h:outputScript>
 	<h:outputScript  name="ecommerce/js/openpay.v1.min.js"></h:outputScript>
 	<h:outputScript  name="ecommerce/js/openpay-data.v1.min.js"></h:outputScript>
-
-	<script type="text/javascript">
+	<h:outputScript  name="ecommerce/js/card.js"></h:outputScript>
 	
-    
-        $(document).ready(function() {
-        	$("#payment-form\\:titular").attr("data-openpay-card","holder_name");
-        	$("#payment-form\\:tarjeta").attr("data-openpay-card","card_number");
-        	$("#payment-form\\:mes").attr("data-openpay-card","expiration_month");
-        	$("#payment-form\\:anio").attr("data-openpay-card","expiration_year");
-        	$("#payment-form\\:cvv").attr("data-openpay-card","cvv2");
-        	
-            OpenPay.setId('mexcviwsqt2snzeylcy5');
-            OpenPay.setApiKey('pk_41f1c1b5d9e3450a85f4e5e882c13ca7');
-            OpenPay.setSandboxMode(true);
-            //Se genera el id de dispositivo
-            var deviceSessionId = OpenPay.deviceData.setup("payment-form", "deviceIdHiddenFieldName");
-
-            
-/* $("#payment-form\\:pago").click(function(){
-	 alert("Hola");
-	   $("#payment-form\\:pago").prop("disabled", false);
-	 $("#payment-form\\:pay-button").click();
-	 });*/
- $("#payment-form\\:pay-button").click(function(event){
-	 event.preventDefault();
-	 alert("Hola");
-  	  $("#payment-form\\:pay-button").prop( "disabled", true);
-      OpenPay.token.extractFormAndCreate('payment-form', sucess_callbak, error_callbak); 
-	 });
-   
- 
-      
-
-            var sucess_callbak = function(response) {
-              var token_id = response.data.id;
-            
-              $('#payment-form\\:token_id').val(token_id);
-              $('#payment-form').submit();
-              alert(token_id);
-            };
-
-            var error_callbak = function(response) {
-                var desc = response.data.description != undefined ? response.data.description : response.message;
-                alert("ERROR [" + response.status + "] " + desc);
-                $("#pay-button").prop("disabled", false);
-            };
-
-        });
-    </script>
 </h:head>
-
 <h:body>
 	<div class="bkng-tb-cntnt">
 		<div class="pymnts">
-			<h:form action="#" id="payment-form">
-				
- 
+			<h:form action="#" id="payment-form">				 
 				<h:inputHidden  id="token_id" value="#{formCard.token}" />
 				<div class="pymnt-itm card active">
-					<h2>Tarjeta de crédito o débito</h2>
+					<h2>Tarjeta de crédito o débito</h2>					 
 					<div class="pymnt-cntnt">
 						<div class="card-expl">
 							<div class="credit">
 								<h4>Tarjetas de crédito</h4>
+								<h:graphicImage value="/resources/ecommerce/img/cards1.png" alt="MWM"/>
 							</div>
 							<div class="debit">
 								<h4>Tarjetas de débito</h4>
-							</div>
-						</div>
+								<h:graphicImage value="/resources/ecommerce/img/cards2.png" alt="MWM"/>
+							</div>   </div>				
 						<div class="sctn-row">
 							<div class="sctn-col l">
-								<label>Nombre del titular</label>
-								
-
-								<h:inputText id="titular"
+								<label>Nombre del titular</label>							
+								<h:inputText id="titular" a:placeholder="Como aparece en la tarjeta"
 								value="#{formCard.titularCard}"	data-openpay-card="holder_name" autocomplete="off" />
 							</div>
 							<div class="sctn-col">
-								<label>Número de tarjeta</label>
-									
+								<label>Número de tarjeta</label>									
 									<h:inputText id="tarjeta" autocomplete="off" value="#{formCard.numberCard}"/>
-							</div>
-						</div>
+							</div>  	</div>
 						<div class="sctn-row">
 							<div class="sctn-col l">
 								<label>Fecha de expiración</label>
-								<div class="sctn-col half l">
-									
-										
+								<div class="sctn-col half l">																		
 										<h:inputText id="mes"  a:placeholder="mes" value="#{formCard.mes}" />
 								</div>
-								<div class="sctn-col half l">
-									
-										
+								<div class="sctn-col half l col-md-3">																			
 										<h:inputText id="anio" a:placeholder="Año"
 										data-openpay-card="expiration_year" value="#{formCard.anio}"/>
-								</div>
-							</div>
+								</div>  	</div>							
 							<div class="sctn-col cvv">
 								<label>Código de seguridad</label>
-								<div class="sctn-col half l">
-									
-										<h:inputText value="#{formCard.codigoCard}" id="cvv" a:placeholder="3 dígitos" autocomplete="off"
-										  />
-										
+								<div class="sctn-col half l">									
+						<h:inputText value="#{formCard.codigoCard}" id="cvv" a:placeholder="3 dígitos" autocomplete="off"/>										
 								</div>
-							</div>
+								<div class="sctn-col half l">																						
+					<h:graphicImage value="/resources/ecommerce/img/cvv.png" class="cvv"/>
+								</div>																
+							</div>    </div>																										
+						<div class="row  openpay">						
+							<div class="col-md-5 logo">Transacciones realizadas vía:<h:graphicImage value="/resources/ecommerce/img/openpay.png"/>
+							</div>												  																			  													  											
+						<div class="col-md-7 text-left shield">	
+						<p:spacer width="1" height="72" style="position: relative; bottom: 10px;background-color: #A8A8A8; margin-left: 10px;margin-right: 10px" />																												
+						<h:graphicImage value="/resources/ecommerce/img/security.png" class="seurity" />												
+						Tus pagos se realizan de forma segura con encriptación de 256 bits			
 						</div>
-						<div class="openpay">
-							<div class="logo">Transacciones realizadas vía:</div>
-							<div class="shield">Tus pagos se realizan de forma segura
-								con encriptación de 256 bits</div>
 						</div>
-						<div class="sctn-row">
-						
-							<!-- <h:button id="pago" value="Pagar" ></h:button> -->
-							
-							<p:commandButton value="pagar" id="pay-button" ></p:commandButton>
-							<p:commandButton value="Confirmar" action="#{formCard.imprimir}"></p:commandButton>
-						</div>
+						<!-- Botones pagar y confirmar -->
+						<div class="sctn-row botones">												
+							<p:commandButton value="Pagar" class="pagar" id="pay-button" ></p:commandButton>
+							<p:commandButton class="confirmar" value="Confirmar" action="#{controller.imprimir}"></p:commandButton>
+
+
+						</div>						
 					</div>
 				</div>
 			</h:form>
 		</div>
-	</div>
-	
-	
+	</div>		
 </h:body>
 </html>

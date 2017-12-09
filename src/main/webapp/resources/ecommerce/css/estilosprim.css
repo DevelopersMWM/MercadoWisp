@@ -1,0 +1,67 @@
+@charset "ISO-8859-1";
+
+
+
+
+/*Estilos encabezado de los div*/
+.ui-panel .ui-panel-titlebar {
+    padding: .5em 1em .3em;
+    background: #4993e4;
+    text-transform:uppercase
+}
+/*Estilos del header del dataGrid*/
+.ui-datagrid .ui-datagrid-header {
+    border-bottom: 0 none;    
+    text-transform:uppercase;
+    
+}
+/*Estilos cuerpo del div*/
+.ui-panel .ui-panel-content {
+    border: 10px;
+    background: #eaeaff;
+    padding: .5em 1em;
+    border-color:red
+}
+/*Estilos del top de paginas*/
+.ui-paginator.ui-paginator-top {
+    border-bottom: 0 none;
+    
+}
+
+/*Estilos del top de paginas*/
+.ui-paginator.ui-paginator {
+    border-bottom: 0 none;
+    
+}
+
+/*Estilos letras del paginador*/
+.ui-paginator .ui-paginator-page, .ui-paginator .ui-paginator-next, .ui-paginator .ui-paginator-last, .ui-paginator .ui-paginator-first, .ui-paginator .ui-paginator-prev {
+    cursor: pointer;
+    
+}
+
+/*Estilos letras del paginador*/
+.ui-paginator .ui-paginator-page:hover, 
+.ui-paginator .ui-paginator-next:hover, 
+.ui-paginator .ui-paginator-last:hover,
+.ui-paginator .ui-paginator-first:hover,
+.ui-paginator .ui-paginator-prev:hover {
+ {
+    cursor: pointer;
+   background:#4993e4;
+   text-color:#fff; 
+}
+
+.ui-dialog-titlebar .ui-widget-header .ui-helper-clearfix .ui-corner-top .ui-draggable-handle{
+	background:yellow;
+}
+
+
+/*Estilos encabezado de ventana emergente*/
+.ui-dialog .ui-dialog-titlebar {
+    padding: .4em .4em .4em 1em;
+    position: relative;
+    border: 0;
+    background: red;
+}
+
