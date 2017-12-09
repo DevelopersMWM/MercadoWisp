@@ -6,4 +6,5 @@ import mx.com.mwisp.model.Router;
 
 public interface RouterDao {
 	public List<Router> routerList();
+	public void guardarRouterEnDB(Router router);
 }

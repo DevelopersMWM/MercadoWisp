@@ -61,6 +61,4 @@ public class ControllerProducto {
 		return productoServiceImpl.listarProductos();
 		
 	}
-	
-
 }

@@ -455,7 +455,7 @@
 						<div class="form-group has-feedback">
 							<label for="inputNombreRouter3" class="col-sm-5 control-label">Nombre para el Router</label>
 							 <div class="col-sm-5">
-								<h:inputText value="#{routerMB.nombre}" class="form-control"/>
+								<h:inputText value="#{routerController.nombre}" class="form-control"/>
 								<span class="glyphicon glyphicon-hdd form-control-feedback"></span>
 							</div>
 						 </div>
@@ -463,7 +463,7 @@
 						<div class="form-group has-feedback">
 							<label for="inputDirIporDns3" class="col-sm-5 control-label">Direccion IP o DNS</label>
 							 <div class="col-sm-5">
-								<h:inputText value="#{routerMB.ipDns}" class="form-control"/>
+								<h:inputText value="#{routerController.ipDns}" class="form-control"/>
 								<span class="fa fa-compass form-control-feedback"></span>
 							</div>
 						 </div>
@@ -471,7 +471,7 @@
 						 <div class="form-group has-feedback">
 							<label for="inputNomUser3" class="col-sm-5 control-label">Nombre de Usuario</label>
 							 <div class="col-sm-5">
-								<h:inputText value="#{routerMB.nombreUsuario}" class="form-control"/>
+								<h:inputText value="#{routerController.nombreUsuario}" class="form-control"/>
 								<span class="fa fa-user-circle form-control-feedback"></span>
 							</div>
 						 </div>
@@ -479,7 +479,7 @@
 						 <div class="form-group has-feedback">
 							<label for="inputContraseña3" class="col-sm-5 control-label">Contraseña</label>
 							 <div class="col-sm-5">
-								<h:inputText value="#{routerMB.llave}" class="form-control"/>
+								<h:inputText value="#{routerController.llave}" class="form-control"/>
 								<span class="fa fa-key form-control-feedback"></span>
 							</div>
 						 </div>
@@ -487,7 +487,7 @@
 						 <div class="form-group has-feedback">
 							<label for="inputUbicacion3" class="col-sm-5 control-label">Coordenadas de Ubicación</label>
 							 <div class="col-sm-5">
-								<h:inputText value="#{routerMB.ubicacion}" class="form-control"/>
+								<h:inputText value="#{routerController.ubicacion}" class="form-control"/>
 								<span class="glyphicon glyphicon-map-marker form-control-feedback"></span>
 							</div>
 						 </div>
@@ -496,7 +496,7 @@
 					<!-- /.box-body -->
 					<div class="box-footer">
 						<!-- <button type="submit" class="btn btn-danger">Cancelar</button> -->
-						<h:commandButton value="Agregar Router" action="#{adminController.guardarRouter}" styleClass="btn btn-info pull-right" />
+						<h:commandButton value="Agregar Router" action="#{routerController.guardarRouter(router)}" styleClass="btn btn-info pull-right" />
 						<h:link outcome="simple" value="Ver Routers" class="btn btn-primary" />
 
 					</div>

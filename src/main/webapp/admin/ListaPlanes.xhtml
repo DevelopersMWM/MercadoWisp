@@ -454,9 +454,10 @@
 						</div>
 						<!-- /.box-header -->
 						<div class="box-body table-responsive no-padding">
-							<c:if test="${!empty routerController.routerList()}">
+							<c:if test="${!empty planController.planList()}">
 								<table class="table table-hover">
 									<tr>
+										<th>#</th>
 										<th>Id</th>
 										<!-- <th>Id</th> -->
 										<th>Nombre</th>
@@ -466,12 +467,12 @@
 										<th>Precio</th>
 										<th>Acción</th>
 									</tr>
-									<!-- <ui:repeat value="${routerController.routerList()}" var="routers"
-										varStatus="status"> -->
+									 <ui:repeat value="${planController.planList()}" var="planes"
+										varStatus="status">
 										<tr>
-											<td>1</td>
-											<!-- <td>${routers.id}</td> -->
-											<td>Plan básico</td>
+											<td>${status.index+1}</td>
+											<td>${planes.id}</td>
+											<td>${planes.nombre}</td>
 											<td>10MBPS</td>
 											<td>5MBPS</td>
 											<td>Todos</td>
@@ -488,7 +489,7 @@
 												</div>
 											</td>
 										</tr>
-									<!-- </ui:repeat> -->
+									</ui:repeat>
 								</table>
 							</c:if>
 						</div>
@@ -498,7 +499,90 @@
 				</div>
 			</div>
 			<div>
-				<h:link outcome="planNuevo" value="Agregar Nuevo Plan" class="btn btn-primary pull-right" />
+				<!-- <h:link outcome="planNuevo" value="Agregar Nuevo Plan" class="btn btn-primary pull-right" /> -->
+				<button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#modal-default">
+                Agregar Nuevo Plan
+              </button>
+              <div class="modal fade" id="modal-default">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Agregue un Nuevo Plan de Internet</h4>
+              </div>
+              <div class="modal-body">
+                <!-- <p>One fine body&hellip;</p> -->
+                <div class="box box-success">
+				<div class="box-header with-border">
+					<h3 class="box-title">Agregue un Nuevo Plan de Internet</h3>
+				</div>
+				<!-- /.box-header -->
+				<!-- form start -->
+				<h:form class="form-horizontal">
+					<div class="box-body">
+					
+						<div class="form-group has-feedback">
+							<label for="inputNombreRouter3" class="col-sm-5 control-label">Nombre del Plan</label>
+							 <div class="col-sm-5">
+								<h:inputText value="#{routerMB.nombre}" class="form-control"/>
+								<span class="fa fa-columns form-control-feedback"></span>
+							</div>
+						 </div>
+						 
+						<div class="form-group has-feedback">
+							<label for="inputDirIporDns3" class="col-sm-5 control-label">Precio del Plan</label>
+							 <div class="col-sm-5">
+								<h:inputText value="#{routerMB.ipDns}" class="form-control"/>
+								<span class="fa fa-usd form-control-feedback"></span>
+							</div>
+						 </div>
+						 
+						 <div class="form-group has-feedback">
+							<label for="inputNomUser3" class="col-sm-5 control-label">Mbps o Kbps (Subida)</label>
+							 <div class="col-sm-5">
+								<h:inputText value="#{routerMB.nombreUsuario}" class="form-control"/>
+								<span class="fa fa-download form-control-feedback"></span>
+							</div>
+						 </div>
+						 
+						 <div class="form-group has-feedback">
+							<label for="inputContraseña3" class="col-sm-5 control-label">Mbps o Kbps (Bajada)</label>
+							 <div class="col-sm-5">
+								<h:inputText value="#{routerMB.llave}" class="form-control"/>
+								<span class="fa fa-upload form-control-feedback"></span>
+							</div>
+						 </div>
+						 
+						 <div class="form-group has-feedback">
+							<label for="inputUbicacion3" class="col-sm-5 control-label">Descripción</label>
+							 <div class="col-sm-5">
+								<h:inputText value="#{routerMB.ubicacion}" class="form-control"/>
+								<span class="fa fa-commenting form-control-feedback"></span>
+							</div>
+						 </div>
+						 
+					</div>
+					<!-- /.box-body -->
+					<div class="callout callout-success">
+						<h5><h:outputText id="saveResult" rendered="#{not empty CreadoRouterID}" value="!! Plan agregado Exitosamente !!" styleClass="successText pull-center" /></h5>
+              		</div>
+					<!-- <h:outputText id="saveResult" rendered="#{not empty CreadoRouterID}" value="!! Router Guardado Exitosamente !!" styleClass="btn btn-succes pull-center" /> -->
+					<!-- /.box-footer -->
+				</h:form>
+			</div>
+                
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                <h:commandButton value="Agregar Plan" action="#{adminController.guardarRouter}" styleClass="btn btn-primary" />
+                <!-- <button type="button" class="btn btn-primary">Agregar Plan</button>-->
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>  
 			</div>
 			</section>
 			<!-- /.content -->

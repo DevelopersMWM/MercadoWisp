@@ -14,8 +14,11 @@ import mx.com.mwisp.service.RouterService;
 @Controller
 @ManagedBean
 @RequestScoped
-public class RouterController {
-	
+public class RouterController{
+
+	/**
+	 * 
+	 */
 	@Autowired
 	RouterService routerService;
 	
@@ -26,10 +29,6 @@ public class RouterController {
 	private String ubicacion;
 	
 	//private List<Router> routerList;
-	
-	public RouterController() {
-	
-	}
 
 	public String getNombre() {
 		return nombre;
@@ -73,6 +72,10 @@ public class RouterController {
 	
 	public List<Router> routerList(){
 		return routerService.routerList();
+	}
+	public void guardarRouter(Router router) {
+		System.out.println("Guardando..");
+		routerService.guardar(router);
 	}
 	/*public List<Router> getRouterList() {
 		return routerList;
