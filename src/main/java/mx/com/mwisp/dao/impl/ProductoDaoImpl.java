@@ -39,5 +39,15 @@ public class ProductoDaoImpl implements ProductoDao {
 			return null;
 		}
 	}
+	@Override
+	public void insertarProducto(Productos productos) {
+		em.persist(productos);		
+	}
+
+	@Override
+	public void eliminarProducto(int id) {
+		Productos producto=em.find(Productos.class, id);
+		em.remove(producto);
+	}
 
 }

@@ -61,4 +61,13 @@ public class ControllerProducto {
 		return productoServiceImpl.listarProductos();
 		
 	}
+	
+	public String agregarProducto(ControllerProducto producto) {
+		productoServiceImpl.insertarProducto(new Productos(producto.getNombre(), producto.getCategoria(), producto.getPrecio(), producto.getDescripcion(), producto.getGarantia()));
+		return "vistaProductos.xhtml?faces-redirect=true";
+	}
+	
+	public void eliminarProducto(int id) {
+		productoServiceImpl.eliminarProducto(id);
+	}
 }

@@ -24,6 +24,19 @@ public class ProductoServiceImpl implements ProductoService {
 	public List<Productos> listarProductos() {
 		return productoDaoImpl.listaProductos();
 	}
+	@Transactional
+	@Override
+	public void insertarProducto(Productos productos) {
+		productoDaoImpl.insertarProducto(productos);
+		
+	}
+
+	@Transactional
+	@Override
+	public void eliminarProducto(int id) {
+		productoDaoImpl.eliminarProducto(id);
+		
+	}
 	
 
 }

@@ -75,7 +75,7 @@ public class FormCard {
 		this.codigoCard = codigoCard;
 	}
 	
-	public void imprimir() {
+	public  void enviar() {
 		log.info("Entrando al metodo"+ " imprimir()===cargo por tarjeta");
 		log.info("token generado"+token+"===========================");
 		log.info("nombre del titular"+titularCard);
@@ -83,7 +83,6 @@ public class FormCard {
 		CargoTarjeta cargoT=new CargoTarjeta();
 		cargoT.cargoT(token, "card", 100, "MXN", "Compra TP-link", "1rvGhOGaFgPwNbrtefA4IwPZbMRjsQpe", "Jorge", "Damian", "9581318869", "coco_dava@hotmail.com");
 		
-	
 	}
 	
 
