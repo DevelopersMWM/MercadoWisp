@@ -24,6 +24,7 @@ public class RouterServiceImpl implements RouterService {
 		return routerDaoImpl.routerList();
 	}
 
+	
 	@Override
 	public Router guardar(Router router) {
 		// TODO Auto-generated method stub

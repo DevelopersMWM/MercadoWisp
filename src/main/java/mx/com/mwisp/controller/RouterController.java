@@ -16,6 +16,7 @@ import mx.com.mwisp.service.RouterService;
 @RequestScoped
 public class RouterController{
 
+	
 	/**
 	 * 
 	 */

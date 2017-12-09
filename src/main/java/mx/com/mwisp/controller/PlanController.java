@@ -23,6 +23,7 @@ public class PlanController {
 	private String bajada;
 	private String router;
 	
+	
 	public String getId() {
 		return id;
 	}

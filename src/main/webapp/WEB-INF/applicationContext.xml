@@ -55,4 +55,6 @@
 	<context:component-scan base-package="mx.com.mwisp.dao.impl"></context:component-scan>
 	<context:component-scan base-package="mx.com.mwisp.service.impl"></context:component-scan>
 	
+	
+	
 </beans>
