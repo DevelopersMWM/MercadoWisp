@@ -25,6 +25,7 @@ public class ControllerProducto {
 	private float precio;
 	private String descripcion;
 	private String garantia;
+	
 	public String getNombre() {
 		return nombre;
 	}
