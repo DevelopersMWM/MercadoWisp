@@ -9,6 +9,7 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 
 import mx.com.mwisp.dao.ProductoDao;
+import mx.com.mwisp.model.Categoria;
 import mx.com.mwisp.model.Productos;
 
 @Repository
@@ -41,6 +42,8 @@ public class ProductoDaoImpl implements ProductoDao {
 	}
 	@Override
 	public void insertarProducto(Productos productos) {
+		Categoria categoria=em.find(Categoria.class, 1);
+		productos.setCategoria(categoria);
 		em.persist(productos);		
 	}
 

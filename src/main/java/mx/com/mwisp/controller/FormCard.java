@@ -1,6 +1,7 @@
 package mx.com.mwisp.controller;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 
 import org.apache.log4j.Logger;
@@ -22,6 +23,9 @@ public class FormCard {
 	private String mes;
 	private String anio;
 	private String codigoCard;
+	
+	@ManagedProperty(value="#{controllerProducto}")
+	private ControllerProducto cproducto;
 	
 	public FormCard() {
 		
@@ -74,14 +78,22 @@ public class FormCard {
 	public void setCodigoCard(String codigoCard) {
 		this.codigoCard = codigoCard;
 	}
+	public void setCproducto(ControllerProducto cproducto) {
+		this.cproducto = cproducto;
+	}
+	public ControllerProducto getCproducto() {
+		return cproducto;
+	}
+	
 	
 	public  void enviar() {
 		log.info("Entrando al metodo"+ " imprimir()===cargo por tarjeta");
 		log.info("token generado"+token+"===========================");
 		log.info("nombre del titular"+titularCard);
+		float precio=Float.parseFloat(cproducto.getEnviarPrecio());
 	
 		CargoTarjeta cargoT=new CargoTarjeta();
-		cargoT.cargoT(token, "card", 100, "MXN", "Compra TP-link", "1rvGhOGaFgPwNbrtefA4IwPZbMRjsQpe", "Jorge", "Damian", "9581318869", "coco_dava@hotmail.com");
+		cargoT.cargoT(token, "card",precio, "MXN", "Compra TP-link", "1rvGhOGaFgPwNbrtefA4IwPZbMRjsQpe", "Jorge", "Damian", "9581318869", "coco_dava@hotmail.com");
 		
 	}
 	

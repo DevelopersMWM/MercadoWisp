@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,10 +22,12 @@ public class ControllerProducto {
 	
 	
 	private String nombre;
-	private String categoria;
 	private float precio;
 	private String descripcion;
 	private String garantia;
+	
+	//variable que pasa el precio
+	private String enviarPrecio;
 	
 	public String getNombre() {
 		return nombre;
@@ -32,12 +35,7 @@ public class ControllerProducto {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public String getCategoria() {
-		return categoria;
-	}
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
-	}
+	
 	public float getPrecio() {
 		return precio;
 	}
@@ -56,6 +54,13 @@ public class ControllerProducto {
 	public void setGarantia(String garantia) {
 		this.garantia = garantia;
 	}
+	public String getEnviarPrecio() {
+		return enviarPrecio;
+	}
+	public void setEnviarPrecio(String enviarPrecio) {
+		this.enviarPrecio = enviarPrecio;
+	}
+	
 	
 	//este metodo retorna una lista de productos. y es llamado desde la vista ListProduct.xhtml a través del MB ComtrollerProduct
 	public List<Productos> listarProductos(){
@@ -64,11 +69,15 @@ public class ControllerProducto {
 	}
 	
 	public String agregarProducto(ControllerProducto producto) {
-		productoServiceImpl.insertarProducto(new Productos(producto.getNombre(), producto.getCategoria(), producto.getPrecio(), producto.getDescripcion(), producto.getGarantia()));
+		productoServiceImpl.insertarProducto(new Productos(producto.getNombre(),producto.getPrecio(), producto.getDescripcion(), producto.getGarantia()));
 		return "vistaProductos.xhtml?faces-redirect=true";
 	}
 	
 	public void eliminarProducto(int id) {
 		productoServiceImpl.eliminarProducto(id);
+	}
+	public String pagar() {
+		enviarPrecio=FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("selectedPrecio");
+		return "card";
 	}
 }

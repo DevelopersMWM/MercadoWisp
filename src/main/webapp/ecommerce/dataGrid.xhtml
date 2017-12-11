@@ -32,7 +32,9 @@
 					<h:outputText value="#{producto.descripcion}" />
 					  
 					<h:outputText value="$#{producto.precio}" />
-					<p:commandButton value="Comprar" ></p:commandButton>
+					<p:commandButton value="Comprar"  action="#{controllerProducto.pagar()}">
+					<f:param name="selectedPrecio" value="#{producto.precio}"></f:param>
+					</p:commandButton>
 					
 					
 				</h:panelGrid>

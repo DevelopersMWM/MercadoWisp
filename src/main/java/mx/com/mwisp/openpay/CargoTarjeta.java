@@ -9,7 +9,7 @@ public class CargoTarjeta {
 	
 	
 
-	public void cargoT (String tokenId,String metodo,int monto, String currency, String descripcion,String deviceId,
+	public void cargoT (String tokenId,String metodo,float	monto, String currency, String descripcion,String deviceId,
 			String clienteName,String lastName,String numberPhone, String email) {
 		
 		try {

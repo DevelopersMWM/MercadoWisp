@@ -18,7 +18,8 @@
 <h:body>
 	<div class="bkng-tb-cntnt">
 		<div class="pymnts">
-			<h:form action="#" id="payment-form">				 
+			<h:form action="#" id="payment-form">		
+				<h:inputHidden value="#{formCard.cproducto.enviarPrecio}"/>	 
 				<h:inputHidden  id="token_id" value="#{formCard.token}" />
 				<div class="pymnt-itm card active">
 					<h2>Tarjeta de crédito o débito</h2>					 
