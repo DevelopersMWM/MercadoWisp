@@ -37,6 +37,12 @@ public class ProductoServiceImpl implements ProductoService {
 		productoDaoImpl.eliminarProducto(id);
 		
 	}
+	@Transactional
+	@Override
+	public Productos encontrarProductoPorId(int id) {
+		// TODO Auto-generated method stub
+		return productoDaoImpl.encontrarProductoPorId(id);
+	}
 	
 
 }

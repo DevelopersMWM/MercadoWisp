@@ -53,4 +53,10 @@ public class ProductoDaoImpl implements ProductoDao {
 		em.remove(producto);
 	}
 
+	@Override
+	public Productos encontrarProductoPorId(int id) {
+		Productos producto=em.find(Productos.class, id);
+		return producto;
+	}
+
 }

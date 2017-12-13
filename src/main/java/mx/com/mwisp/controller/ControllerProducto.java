@@ -1,14 +1,13 @@
 package mx.com.mwisp.controller;
 
+
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
 import mx.com.mwisp.model.Productos;
 import mx.com.mwisp.service.ProductoService;
 
@@ -20,7 +19,6 @@ public class ControllerProducto {
 	@Autowired
 	ProductoService productoServiceImpl;
 	
-	
 	private String nombre;
 	private float precio;
 	private String descripcion;
@@ -28,6 +26,10 @@ public class ControllerProducto {
 	
 	//variable que pasa el precio
 	private String enviarPrecio;
+	
+	//obtenert el id
+	private String obtenerId;
+	
 	
 	public String getNombre() {
 		return nombre;
@@ -61,6 +63,12 @@ public class ControllerProducto {
 		this.enviarPrecio = enviarPrecio;
 	}
 	
+	public String getObtenerId() {
+		return obtenerId;
+	}
+	public void setObtenerId(String obtenerId) {
+		this.obtenerId = obtenerId;
+	}
 	
 	//este metodo retorna una lista de productos. y es llamado desde la vista ListProduct.xhtml a través del MB ComtrollerProduct
 	public List<Productos> listarProductos(){
@@ -80,4 +88,17 @@ public class ControllerProducto {
 		enviarPrecio=FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("selectedPrecio");
 		return "card";
 	}
+	public String editarProducto() {
+		obtenerId=FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("selectIdProduct");
+		 int id=Integer.parseInt(obtenerId);
+		 Productos producto=new Productos();
+		 producto=productoServiceImpl.encontrarProductoPorId(id);
+		 nombre=producto.getNombreProducto();
+		 precio=producto.getPrecio();
+		 descripcion=producto.getDescripcion();
+		 garantia=producto.getTiempoGarantia();
+		 
+		return "editarProducto";
+	}
+	
 }

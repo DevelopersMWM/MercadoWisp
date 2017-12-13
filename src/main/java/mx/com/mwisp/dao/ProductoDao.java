@@ -10,5 +10,7 @@ public interface ProductoDao {
 	public void insertarProducto(Productos productos);
 
 	public void eliminarProducto(int id);
+	
+	public Productos encontrarProductoPorId(int id);
 
 }
