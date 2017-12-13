@@ -23,13 +23,11 @@ public class RouterServiceImpl implements RouterService {
 		// TODO Auto-generated method stub
 		return routerDaoImpl.routerList();
 	}
-
 	
+	@Transactional
 	@Override
-	public Router guardar(Router router) {
-		// TODO Auto-generated method stub
+	public void agregarRouter(Router router) {
 		routerDaoImpl.guardarRouterEnDB(router);
-		return guardar(router); 
 	}
 
 }

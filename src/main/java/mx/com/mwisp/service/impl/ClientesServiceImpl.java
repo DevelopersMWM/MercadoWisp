@@ -20,11 +20,11 @@ public class ClientesServiceImpl implements ClientesService {
 		List<Map<String, String>> rs;
 		try {
 //			con=ApiConnection.connect("mercadowispmexico.dyndns.org");
-			con=ApiConnection.connect("10.1.1.1");
-			con.login("admin","");
+			con=ApiConnection.connect("mercadowispmexico.dyndns.org");
+			con.login("sistema","isc2017");
 //			con.login("sistema","isc2017");
 //			rs = con.execute("/ip/firewall/address-list/print where list=1-MOROSO");
-			rs = con.execute("/ip/firewall/address-list/print");
+			rs = con.execute("/ip/firewall/address-list/print where comment!=null");
 			List<ClientesController> listClientes= new ArrayList<ClientesController>();
 			for (Map<String,String> map : rs) {
 				ClientesController clientes= new ClientesController();

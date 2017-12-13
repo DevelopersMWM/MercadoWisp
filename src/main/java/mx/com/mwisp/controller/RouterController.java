@@ -23,6 +23,8 @@ public class RouterController{
 	@Autowired
 	RouterService routerService;
 	
+	private Router router =new Router();
+	
 	private String nombre;
 	private String ipDns;
 	private String nombreUsuario;
@@ -30,6 +32,14 @@ public class RouterController{
 	private String ubicacion;
 	
 	//private List<Router> routerList;
+
+	public Router getRouter() {
+		return router;
+	}
+
+	public void setRouter(Router router) {
+		this.router = router;
+	}
 
 	public String getNombre() {
 		return nombre;
@@ -74,9 +84,13 @@ public class RouterController{
 	public List<Router> routerList(){
 		return routerService.routerList();
 	}
-	public void guardarRouter(Router router) {
+	/*public void guardarRouter(Router router) {
 		System.out.println("Guardando..");
 		routerService.guardar(router);
+	}*/
+	public String guardarRouter(RouterController router) {
+		routerService.agregarRouter(new Router(router.getNombre(),router.getIpDns(),router.getNombreUsuario(),router.getLlave(),router.getUbicacion()));
+		return "simple.xhtml?faces-redirect=true";
 	}
 	/*public List<Router> getRouterList() {
 		return routerList;

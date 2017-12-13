@@ -1,6 +1,8 @@
 package mx.com.mwisp.dao.impl;
 
 import java.util.List;
+import java.util.Optional;
+
 import com.google.common.collect.Lists;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -55,16 +57,14 @@ public class RouterDaoImpl implements RouterDao {
 	@Transactional
 	public void guardarRouterEnDB(Router router) {
 		em.persist(router);
-		/*et=em.getTransaction();
-		et.begin();
-		try{
-			em.persist(router);
-			et.commit();
-		}catch (Exception e) {
-			e.printStackTrace();
-			et.rollback();
-		}*/
 		System.out.println("Router Guardado");
+	}
+
+
+	@Override
+	public Router findByNombre(String nombre) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
