@@ -18,16 +18,7 @@ h1 {
   font-weight: 700;
   font-size: 40px;
 }
-#top {
-  background: #555555;
-  padding: 10px 0;
-}
-#top .offer {
-  color: #fff;
-}
-#top .offer .btn {
-  text-transform: uppercase;
-}
+
 @media (max-width: 991px) {
   #top .offer {
     margin-bottom: 10px;
@@ -68,12 +59,15 @@ h1 {
 #top ul.menu > .active {
   color: #999999;
 }
+/*Color de fondo encabezado "Inicie sesion"*/
 #top #login-modal .modal-header {
   background: #4993e4;
 }
+/*Color de letrero "Inicie sesion"*/
 #top #login-modal .modal-header h4 {
   color: #fff;
 }
+/*Color de letrero "Regístrate ahora"*/
 #top #login-modal a {
   color: #4993e4;
 }
@@ -87,13 +81,11 @@ h1 {
     color: black;    
 }
 #top #login-modal .close:hover{
-    color: red;        
+    color: #fff;        
 }
-
 #top #agregar-car  {  
     width: inherit;
 }
-
 #top #agregar-car p {
   font-weight: bold;    
   margin-bottom: 20px;
@@ -108,10 +100,12 @@ h1 {
 #top #agregar-car .modal-header {
   background: #4993e4;
 }
+.navbar-brand{
+	color:red;
+}
 
 
-
-
+/*Borde inferior de los submenús del encabezado*/
 .navbar .yamm-content h5 {
   font-size: 18px;
   font-weight: 400;
@@ -415,7 +409,7 @@ h1 {
   font-size: 12px;
 }
 #content .panel.sidebar-menu .panel-body label:hover {
-  color: #555555;
+  color: red;
 }
 #content .panel.sidebar-menu h3 {
   padding: 5px 0;
@@ -907,29 +901,28 @@ h1 {
   font-size: 18px;
   font-weight: 300;
 }
-
 #footer {
-  background: #0F0F0F;
-  padding: 15px 0px;
-}
+  background: #333;
+  padding: 5px 0px;    
+} 	
 #footer .social  {
   text-align: center;
 }
 #footer .parrafo {
   text-align: center;
     color: white;
-    font-size: 10px;
+    font-size: 15px;
     padding: 5px;
 }
 #footer .social a {
   margin: 0 10px 0 0;
   color: #fff;
   display: inline-block;
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 50px;
   border-radius: 20px;
-  line-height: 26px;
-  font-size: 15px;
+  line-height: 40px;
+  font-size: 30px;
   text-align: center;
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
@@ -1049,7 +1042,7 @@ h1 {
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
   color: #555555;
-  background-color: #f0f0f0;
+  background-color: red;
   border: 1px solid #dddddd;
 }
 .nav-pills > li > a {
@@ -1158,15 +1151,24 @@ h1 {
 @media (min-width: 768px) {
   .navbar > .container .navbar-brand,
   .navbar > .container-fluid .navbar-brand {
-    margin-left: -15px;
+    margin-left: -50px;
   }
 }
+@media (min-width:300px){
 .navbar-toggle {
-  padding: 9px 10px !important;
-  margin-right: 15px;
-  border-radius: 4px;
-  margin-top: 18px;
-  margin-bottom: 18px;
+	color:red;
+}   		                 
+            }		              
+
+/*ESTILOS BOTONES VISTA MOVIL: BUSCAR, MENU, CAR*/
+.navbar-toggle {
+	font-size:25px;
+      padding: 1px 10px !important;	  
+  margin-left: -30px;    
+   margin-top: 18px;
+margin-bottom: 3px;
+        color:#4993e4;
+       border:none;  
 }
 @media (max-width: 767px) {
   .navbar-toggle {
@@ -1249,10 +1251,19 @@ h1 {
     margin-right: 0;
   }
 }
+/*Color de fondo del menú*/
 .navbar-default {
-  background-color: #ffffff;
+  background-color: #333;
   border-bottom-color: #e6e6e6;
+  padding: 1rem 0;
+   -webkit-transition: all .5s ease;
+  transition: all .5s ease;   
 }
+/*Color del fondo de menú, con la clase navbar-fixed-top*/
+.navbar-default.fondo-menu {
+  background: #064e4e;
+  padding: 1rem 0; }
+
 .navbar-default .navbar-brand {
   color: #777777;
 }
@@ -1264,12 +1275,17 @@ h1 {
 .navbar-default .navbar-text {
   color: #777777;
 }
+
+/*Color de las letras del menú*/
 .navbar-default .navbar-nav > li > a {
-  color: #777777;
+  color: #4993e4;
 }
+
+
+/*Color de las letras del menú en estado hover y focus*/
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: #333333;
+  color: white;
   background-color: transparent;
 }
 .navbar-default .navbar-nav > .active > a,
@@ -1289,19 +1305,20 @@ h1 {
 }
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
-  background-color: #dddddd;
+  background-color: transparent ;
 }
 .navbar-default .navbar-toggle .icon-bar {
-  background-color: #888888;
+  background-color: transparent;
 }
 .navbar-default .navbar-collapse {
   border-color: #e6e6e6;
 }
+/*Estilos del menú, en estado hover y focus*/
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
   background-color: #4993e4;
-  color: #555555;
+  color: #fff;
 }
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
@@ -1362,12 +1379,24 @@ hr {
   border: 0;
   border-top: 1px solid #eeeeee;
 }
+.navbar-header .img{
+width: 200px;
+height: 45px;
+}
+.navbar-header .imagen{
+width: 200px;
+height: 40px;
+}
+#all{
+	   position: relative;
+  top: 100px;}
 /* breadcrumbs */
 .breadcrumb {
   padding: 8px 15px;
   margin-bottom: 20px;
   background-color: #ffffff;
-  border-radius: 0;
+  border-radius: 0;  
+ 
 }
 .breadcrumb > li + li:before {
   content: ">\00a0";
@@ -1387,23 +1416,25 @@ hr {
   font-weight: normal;
   font-family: "Roboto", Helvetica, Arial, sans-serif;
   padding: 6px 12px;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.42857143;
   border-radius: 3px;
 }
 .btn-primary {
+	margin-left:-25px;
   color: #ffffff;
-  background-color: #4993e4;
-  border-color: #3386e1;
+  background-color: transparent;
+  border-color: transparent;
 }
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active,
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
+  margin-left:-25px;
   color: #ffffff;
-  background-color: #257edf;
-  border-color: #1c68bb;
+  background-color: transparent;
+  border-color: transparent;
 }
 .btn-primary:active,
 .btn-primary.active,
