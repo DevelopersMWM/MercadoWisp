@@ -89,6 +89,13 @@ public class Router implements java.io.Serializable{
 		this.ubicacion = ubicacion;
 	}
 
+	@Override
+	public String toString() {
+		return "Router [id=" + id + ", nombre=" + nombre + ", ipDns=" + ipDns + ", nombreUser=" + nombreUser
+				+ ", llave=" + llave + ", ubicacion=" + ubicacion + "]";
+	}
+
+	
 	/*public List<Router> getRouterList() {
 		return routerList;
 	}

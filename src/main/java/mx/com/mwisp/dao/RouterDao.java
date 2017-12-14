@@ -10,4 +10,5 @@ public interface RouterDao{
 	public List<Router> routerList();
 	public void guardarRouterEnDB(Router router);
 	public Router findByNombre(String nombre);
+	public void eliminarRouterEnDB(int id);
 }

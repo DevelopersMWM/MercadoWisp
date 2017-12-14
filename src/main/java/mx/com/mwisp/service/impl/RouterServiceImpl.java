@@ -30,4 +30,10 @@ public class RouterServiceImpl implements RouterService {
 		routerDaoImpl.guardarRouterEnDB(router);
 	}
 
+	@Override
+	public void eliminarRouter(int id) {
+		routerDaoImpl.eliminarRouterEnDB(id);
+		
+	}
+
 }

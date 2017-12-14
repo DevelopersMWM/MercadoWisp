@@ -67,4 +67,11 @@ public class RouterDaoImpl implements RouterDao {
 		return null;
 	}
 
+
+	@Override
+	public void eliminarRouterEnDB(int id) {
+		Router router=em.find(Router.class, id);
+		em.remove(router);
+	}
+
 }

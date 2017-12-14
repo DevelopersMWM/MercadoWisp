@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.model.SelectItem;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,23 @@ import mx.com.mwisp.service.ClientesService;
 @RequestScoped
 @ManagedBean
 public class ClientesController {
+	/*private SelectItem[] opciones = new SelectItem[]{new SelectItem("01", "Opción 1"),
+	        new SelectItem("02", "Opción 2"),
+	        new SelectItem("03", "Opción 3")};*/
+	 
+	    private String opcionActual;
+	 
+	    /*public SelectItem[] getOpciones() {
+	        return opciones;
+	    }*/
+	 
+	    public String getOpcionActual() {
+	        return opcionActual;
+	    }
+	 
+	    public void setOpcionActual(String opcionActual) {
+	        this.opcionActual = opcionActual;
+	    }
 	
 	@Autowired
 	ClientesService serviceCliente;
@@ -23,6 +41,9 @@ public class ClientesController {
 	private String ip;
 	private String fecha;
 	private String plan;
+	
+	private List<ClientesController> listaClient;
+	
 	public String getId() {
 		return id;
 	}
@@ -54,8 +75,23 @@ public class ClientesController {
 		this.plan = plan;
 	}
 	
+	public List<ClientesController> getListaClient() {
+		return listaClient;
+	}
+	public void setListaClient(List<ClientesController> listaClient) {
+		this.listaClient = listaClient;
+	}
 	public List<ClientesController> clientesList(){
 		return serviceCliente.listaClientes();
+	}
+	
+	public List<ClientesController> listByNombre(){
+		listaClient = serviceCliente.listaClientes();
+		for(ClientesController client: listaClient){
+			nombre= client.getNombre();
+			System.out.println("\n nombre " + nombre);
+		}
+		return listaClient;
 	}
 	
 	
