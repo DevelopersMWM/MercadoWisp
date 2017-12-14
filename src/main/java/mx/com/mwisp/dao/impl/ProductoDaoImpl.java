@@ -59,4 +59,13 @@ public class ProductoDaoImpl implements ProductoDao {
 		return producto;
 	}
 
+	@Override
+	public void ActualizarProducto(int id, Productos producto) {
+		Categoria categoria=em.find(Categoria.class, 1);
+		producto.setIdProdcutos(id);
+		producto.setCategoria(categoria);
+		em.merge(producto);
+		
+	}
+
 }
