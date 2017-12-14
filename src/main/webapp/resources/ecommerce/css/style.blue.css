@@ -104,7 +104,6 @@ h1 {
 	color:red;
 }
 
-
 /*Borde inferior de los submenús del encabezado*/
 .navbar .yamm-content h5 {
   font-size: 18px;
@@ -1418,14 +1417,22 @@ height: 40px;
   padding: 6px 12px;
   font-size: 18px;
   line-height: 1.42857143;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 .btn-primary {
-	margin-left:-25px;
+  margin-left:-25px;
   color: #ffffff;
   background-color: transparent;
   border-color: transparent;
 }
+
+.btn-primary2 {
+  color: #fff;
+  background-color: #4993e4;
+  border-color: #4993e4;
+}
+
+
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active,

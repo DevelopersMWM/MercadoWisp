@@ -311,6 +311,7 @@ SECCION TU MEJOR ELECCIÓN
 					     height: 4.7rem;
 					line-height: 4.7rem;
 					      color: #fff; 
+					      text-align:center;
 					          }
 					          
 .tu-mejor-eleccion ul li .contenedor-eleccion h4 {
@@ -478,12 +479,13 @@ EMPIEZAN LAS MEDIAS QUERIES
 @media (min-width:321px){
 .encabezado {
              padding: 1rem 0;
+             width:500px;
             }		              
 	
 .boton-login,
 .boton-buscar,
 .boton-menu {					        
-			margin-left:1rem;	     					        
+			margin-left:.2rem;	     					        
                 padding: 0rem .2rem;	                							       			    					     
             }
 .encabezado .logo img {
