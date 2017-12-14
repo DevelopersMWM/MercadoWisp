@@ -11,5 +11,6 @@ public interface ProductoService {
 	public void insertarProducto(Productos productos);
 	public void eliminarProducto(int id);
 	public Productos encontrarProductoPorId(int id);
+	public void ActualizarProducto(int id, Productos producto);
 
 }

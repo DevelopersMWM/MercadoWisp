@@ -43,6 +43,12 @@ public class ProductoServiceImpl implements ProductoService {
 		// TODO Auto-generated method stub
 		return productoDaoImpl.encontrarProductoPorId(id);
 	}
+	@Transactional
+	@Override
+	public void ActualizarProducto(int id, Productos producto) {
+		productoDaoImpl.ActualizarProducto(id, producto);
+		
+	}
 	
 
 }

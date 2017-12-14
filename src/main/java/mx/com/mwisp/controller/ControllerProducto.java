@@ -100,5 +100,10 @@ public class ControllerProducto {
 		 
 		return "editarProducto";
 	}
+	public String actualizarProducto (ControllerProducto producto) {
+		int id=Integer.parseInt(producto.getObtenerId());
+		productoServiceImpl.ActualizarProducto(id,new Productos(producto.getNombre(), producto.getPrecio(), producto.getDescripcion(), producto.getGarantia()));
+		return "vistaProductos.xhtml?faces-redirect=true";
+	}
 	
 }
