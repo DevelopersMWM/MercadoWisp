@@ -1,5 +1,6 @@
 package mx.com.mwisp.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -23,6 +24,11 @@ public class ClientesController {
 	private String ip;
 	private String fecha;
 	private String plan;
+	private Date diaCorte;
+	private String sector;
+	private String opcionActual;
+	private List<ClientesController> listaClient;
+	
 	public String getId() {
 		return id;
 	}
@@ -53,10 +59,49 @@ public class ClientesController {
 	public void setPlan(String plan) {
 		this.plan = plan;
 	}
-	
+
+	public List<ClientesController> getListaClient() {
+		return listaClient;
+	}
+	public void setListaClient(List<ClientesController> listaClient) {
+		this.listaClient = listaClient;
+	}
+	public String getSector() {
+		return sector;
+	}
+
+	public void setSector(String sector) {
+		this.sector = sector;
+	}
+
+	public Date getDiaCorte() {
+		return diaCorte;
+	}
+
+	public void setDiaCorte(Date diaCorte) {
+		this.diaCorte = diaCorte;
+	}
+
+	public String getOpcionActual() {
+		return opcionActual;
+	}
+	public void setOpcionActual(String opcionActual) {
+		this.opcionActual = opcionActual;
+	}
 	public List<ClientesController> clientesList(){
 		return serviceCliente.listaClientes();
 	}
 	
+	public List<ClientesController> listByNombre(){
+		listaClient = serviceCliente.listaClientes();
+		for(ClientesController client: listaClient){
+			nombre= client.getNombre();
+			System.out.println("\n nombre " + nombre);
+		}
+		return listaClient;
+	}
 	
+	public void insertarCliente(ClientesController cliente) {
+		serviceCliente.insertarUsuario(cliente);
+	}
 }
