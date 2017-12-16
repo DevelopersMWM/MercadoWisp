@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+
+    <h:outputStylesheet  name="ecommerce/css/style.blue.css" id="theme-stylesheet"/>  
+</h:head>
+<body>
+	<h:form>
+
+		<p:growl id="growl" sticky="true" showDetail="true" />
+
+		<p:wizard widgetVar="myWizard" flowListener="#{mbPagos.onFlowProcess}" showNavBar="false">
+			<p:tab id="personal" title="Personal">
+				<p:panel header="Datos Personales">
+					<p:messages />
+					<h:panelGrid columns="2" columnClasses="label, value">
+						<h:outputText value="Nombre: *" />
+						<p:inputText value="#{mbPagos.personaForm.name}" required="true"
+							label="Nombre" />
+
+						<h:outputText value="Apellido Paterno: *" />
+						<p:inputText value="#{mbPagos.personaForm.apellidoPaterno}"
+							required="true" label="apellido" />
+
+						<h:outputText value="Apellido Materno: " />
+						<p:inputText label="apellidoMaterno"
+							value="#{mbPagos.personaForm.apellidoMaterno}" required="true" />
+
+						<h:outputText value="Telefono: " />
+						<p:inputText value="#{mbPagos.personaForm.numeroTelefono}" />
+
+
+						<h:outputText value="Skip to last: " />
+						<h:selectBooleanCheckbox value="#{mbPagos.skip}" />
+					</h:panelGrid>
+					
+				</p:panel>
+			</p:tab>
+
+			<p:tab id="address" title="Dirección">
+				<p:panel header="Address Details">
+					<p:messages />
+					<h:panelGrid columns="2" columnClasses="label, value">
+						<h:outputText value="Calle: " />
+						<p:inputText value="#{mbPagos.personaForm.calle}" />
+
+						<h:outputText value="Numero Exterior" />
+						<p:inputText value="#{mbPagos.personaForm.numeroExterior}"></p:inputText>
+
+						<h:outputText value="Numero Interior" />
+						<p:inputText value="#{mbPagos.personaForm.numeroInterior}"></p:inputText>
+
+						<h:outputText value="Codigo Postal: " />
+						<p:inputText value="#{mbPagos.personaForm.codigoPostal}" />
+
+						<h:outputText value="Colonia:" />
+						<p:inputText value="#{mbPagos.personaForm.colonia}"></p:inputText>
+
+						<h:outputText value="Estado" />
+						<p:inputText value="#{mbPagos.personaForm.estado}"></p:inputText>
+
+						<h:outputText value="Ciudad: " />
+						<p:inputText value="#{mbPagos.personaForm.municipio}" />
+
+						<h:outputText value="Skip to last: " />
+						<h:selectBooleanCheckbox value="#{mbPagos.skip}" />
+					</h:panelGrid>
+				</p:panel>
+			</p:tab>
+
+			<p:tab id="contact" title="Formas de Pago">
+				<p:panel header="Contact Information">
+					<!-- 					<p:messages /> -->
+					<!-- 					<h:panelGrid columns="2" columnClasses="label, value"> -->
+					<!-- 						<h:outputText value="Email: *" /> -->
+					<!-- 						<p:inputText value="#{userWizard.user.email}" required="true" -->
+					<!-- 							label="Email" /> -->
+
+					<!-- 						<h:outputText value="Phone: " /> -->
+					<!-- 						<p:inputText value="#{userWizard.user.phone}" /> -->
+
+					<!-- 						<h:outputText value="Additional Info: " /> -->
+					<!-- 						<p:inputText value="#{userWizard.user.info}" /> -->
+					<!-- 					</h:panelGrid> -->
+
+					<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+						<p:outputLabel for="console" value="Console:" />
+						<p:selectOneRadio id="console"
+							value="#{mbPagos.personaForm.formaDePago}">
+							<f:selectItem itemLabel="TARJETAS DE CRÉDITO Y DÉBIDO"
+								itemValue="TARJETAS" />
+							<f:selectItem itemLabel="EFECTIVO" itemValue="Pago en tiendas" />
+							<f:selectItem itemLabel="TRANSFERENCIA BANCARIA"
+								itemValue="Pago en Bancos" />
+						</p:selectOneRadio>
+					</h:panelGrid>
+				</p:panel>
+			</p:tab>
+
+			<p:tab id="confirm" title="Confirmación">
+				<p:panel header="Confirmation">
+					<h:panelGrid id="confirmation" columns="3"
+						columnClasses="grid,grid,grid">
+						<h:panelGrid columns="2" columnClasses="label, value">
+							<h:outputText value="NOmbre: " />
+							<h:outputText value="#{mbPagos.personaForm.name}"
+								styleClass="outputLabel" />
+
+							<h:outputText value="Apellido: " />
+							<h:outputText value="#{mbPagos.personaForm.apellidoPaterno}"
+								styleClass="outputLabel" />
+
+							<h:outputText value="Telefono: " />
+							<h:outputText value="#{mbPagos.personaForm.numeroTelefono}"
+								styleClass="outputLabel" />
+						</h:panelGrid>
+
+						<h:panelGrid columns="2" columnClasses="label, value">
+							<h:outputText value="Calle: " />
+							<h:outputText value="#{mbPagos.personaForm.calle}"
+								styleClass="outputLabel" />
+
+							<h:outputText value="Codigo Postal: " />
+							<h:outputText value="#{mbPagos.personaForm.codigoPostal}"
+								styleClass="outputLabel" />
+
+							<h:outputText value="Ciudad: " />
+							<h:outputText value="#{mbPagos.personaForm.municipio}"
+								styleClass="outputLabel" />
+						</h:panelGrid>
+
+						<h:panelGrid columns="2" columnClasses="label, value">
+							<h:outputText value="Forma de pago: " />
+							<h:outputText value="#{mbPagos.personaForm.formaDePago}"
+								styleClass="outputLabel" />
+							<h:outputText />
+							<h:outputText />
+						</h:panelGrid>
+					</h:panelGrid>
+					
+					<h:commandLink class="btn btn-primary2" value="Pagar" actionListener="#{mbPagos.pagar}" target = "_ blank" type = "submit"></h:commandLink>
+
+					
+				</p:panel>
+			</p:tab>
+		</p:wizard >
+		<p:commandButton value="Atras" icon="ui-icon-arrow-1-w" iconPos="right" onclick="PF('myWizard').back()" />
+		<p:commandButton  value="Siguiente" icon="ui-icon-arrow-1-e" iconPos="left" onclick="PF('myWizard').next();" />
+
+	</h:form>
+</body>
+</html>

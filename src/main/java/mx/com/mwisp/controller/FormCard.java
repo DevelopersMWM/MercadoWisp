@@ -7,6 +7,8 @@ import javax.faces.bean.RequestScoped;
 import org.apache.log4j.Logger;
 
 import mx.com.mwisp.openpay.CargoTarjeta;
+import mx.com.mwisp.openpay.ClienteOpenpay;
+import mx.com.mwisp.openpay.ObjetoPeticionCard;
 
 
 
@@ -91,9 +93,10 @@ public class FormCard {
 		log.info("token generado"+token+"===========================");
 		log.info("nombre del titular"+titularCard);
 		float precio=Float.parseFloat(cproducto.getEnviarPrecio());
-	
+		ClienteOpenpay clienteOpenpay=new ClienteOpenpay("lauris","Mayis","velis", "alicia@gmail.com");
+		ObjetoPeticionCard objetoPeticionCard=new ObjetoPeticionCard(token, "card",precio, "MXN","Compra TP-link","1rvGhOGaFgPwNbrtefA4IwPZbMRjsQpe", clienteOpenpay);
 		CargoTarjeta cargoT=new CargoTarjeta();
-		cargoT.cargoT(token, "card",precio, "MXN", "Compra TP-link", "1rvGhOGaFgPwNbrtefA4IwPZbMRjsQpe", "Jorge", "Damian", "9581318869", "coco_dava@hotmail.com");
+		cargoT.cargoT(objetoPeticionCard);
 		
 	}
 	

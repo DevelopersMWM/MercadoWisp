@@ -86,7 +86,7 @@ public class ControllerProducto {
 	}
 	public String pagar() {
 		enviarPrecio=FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("selectedPrecio");
-		return "card";
+		return "card.xhtml?faces-redirect=true";
 	}
 	public String editarProducto() {
 		obtenerId=FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("selectIdProduct");
