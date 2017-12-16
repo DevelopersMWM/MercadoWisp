@@ -2,24 +2,20 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
-    
 <h:head>
-        <title>Ejemplo Combo Cambia Texto</title>
-    </h:head>
-    
+        <title>Ejemplo Combo Cambia Texto</title>    
+</h:head>
 <h:body>
         <h:form>
-            Opciones: <h:selectOneMenu
-			value="#{routerController.opcionActual}">
-                <f:selectItems value="#{routerController.listByNombre()}" />
-			<f:ajax render="opcionActual" />
-            </h:selectOneMenu>
- 
-            <h:commandButton value="Mostrar" />
-             
- 
-            Opción seleccionada: <h:outputText id="opcionActual"
-			value="#{routerController.opcionActual}" />
+            Opciones: 
+				<h:selectOneMenu value="#{routerController.opcionActual}">
+	                <f:selectItems value="#{routerController.routerList()}" var="entry"
+        itemValue="#{entry.ipDns}" itemLabel="#{entry.nombre}"/>
+					<f:ajax render="opcionActual" />
+            	</h:selectOneMenu>
+ 				<h:commandButton value="Mostrar" />
+             Opción seleccionada: 
+				<h:outputText id="opcionActual" value="#{routerController.opcionActual}" />
         </h:form>
     </h:body>
 </html>

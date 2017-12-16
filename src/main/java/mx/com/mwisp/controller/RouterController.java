@@ -16,14 +16,13 @@ import mx.com.mwisp.service.RouterService;
 @RequestScoped
 public class RouterController{
 
-	
+	//Map<String, Router> routerByNombre = toMapBy(routerList(), Router::getNombre);
+	private String opcionActual;
 	/**
 	 * 
 	 */
 	@Autowired
 	RouterService routerService;
-	
-	private Router router =new Router();
 	
 	private String nombre;
 	private String ipDns;
@@ -31,15 +30,7 @@ public class RouterController{
 	private String llave;
 	private String ubicacion;
 	
-	//private List<Router> routerList;
-
-	public Router getRouter() {
-		return router;
-	}
-
-	public void setRouter(Router router) {
-		this.router = router;
-	}
+	private List<Router> listaRouter;
 
 	public String getNombre() {
 		return nombre;
@@ -80,7 +71,22 @@ public class RouterController{
 	public void setUbicacion(String ubicacion) {
 		this.ubicacion = ubicacion;
 	}
-	
+
+	public String getOpcionActual() {
+		return opcionActual;
+	}
+
+	public void setOpcionActual(String opcionActual) {
+		this.opcionActual = opcionActual;
+	}
+
+	public List<Router> getListaRouter() {
+		return listaRouter;
+	}
+
+	public void setListaRouter(List<Router> listaRouter) {
+		this.listaRouter = listaRouter;
+	}
 	public List<Router> routerList(){
 		return routerService.routerList();
 	}
@@ -91,6 +97,19 @@ public class RouterController{
 	public String guardarRouter(RouterController router) {
 		routerService.agregarRouter(new Router(router.getNombre(),router.getIpDns(),router.getNombreUsuario(),router.getLlave(),router.getUbicacion()));
 		return "simple.xhtml?faces-redirect=true";
+	}
+	
+	public void eliminarRouter(int id) {
+		routerService.eliminarRouter(id);
+	}
+	
+	public List<Router> listaNombre(){
+		listaRouter=routerService.routerList();
+		for(Router selected: listaRouter) {
+			nombre=selected.getNombre();
+		}
+		return listaRouter;
+		
 	}
 	/*public List<Router> getRouterList() {
 		return routerList;
