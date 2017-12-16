@@ -3,8 +3,8 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:p="http://primefaces.org/ui"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
 	<!-- <meta charset="utf-8">
@@ -32,6 +32,7 @@
 	<h:outputStylesheet name="admin/Ionicons/css/ionicons.min.css" />
 	<h:outputStylesheet name="admin/css/dataTables.bootstrap.min.css" />
 	<h:outputStylesheet name="admin/css/AdminLTE.min.css" />
+	<h:outputStylesheet name="admin/css/bootstrap-datepicker.min.css" />
 	<h:outputStylesheet name="admin/css/skins/_all-skins.min.css" />
 	<!-- <h:outputStylesheet name="admin/css/morris.css"/>
   <h:outputStylesheet name="admin/css/jquery-jvectormap.css"/>
@@ -495,9 +496,31 @@
 																	class="col-sm-5 control-label">Nombre del
 																	Cliente:</label>
 																<div class="col-sm-5">
-																	<h:inputText value="#{routerMB.nombre}"
+																	<h:inputText value="#{clientesController.nombre}"
 																		pt:placeholder="Juan" class="form-control" />
 																	<span class="fa fa-columns form-control-feedback"></span>
+																</div>
+															</div>
+
+															<div class="form-group has-feedback">
+																<label for="inputNombreRouter"
+																	class="col-sm-5 control-label">Router:</label>
+																<div class="col-sm-5">
+																
+																	<h:selectOneMenu
+																		value="#{clientesController.opcionActual}"
+																		class="form-control">
+															                <f:selectItems
+																			value="#{routerController.routerList()}" var="entry"
+																			itemValue="#{entry.ipDns}"
+																			itemLabel="#{entry.nombre}" />
+																		<!-- <f:ajax render="opcionActual" /> -->
+            															</h:selectOneMenu>
+																	 
+																	<!-- <h:commandButton value="Mostrar" />
+																		<h:outputText id="opcionActual" value="#{routerController.opcionActual}" /> -->
+																	        
+																	
 																</div>
 															</div>
 
@@ -505,14 +528,10 @@
 																<label for="inputNomUser3"
 																	class="col-sm-5 control-label">Sector:</label>
 																<div class="col-sm-5">
-																	<p:selectOneMenu id="router"
-																		value="#{routerController.routerList()}"
-																		style="width:100%">
-																		<f:selectItems itemLabel="Select One" itemValue="router.nombre" />
-																	</p:selectOneMenu>
-																	<!-- <h:inputText value="#{routerMB.nombreUsuario}"
-																		pt:placeholder="Seleccione un Sector" class="form-control" />
-																	<span class="fa fa-download form-control-feedback"></span> -->
+																	<h:inputText value="#{clientesController.sector}"
+																		pt:placeholder="Seleccione un Sector"
+																		class="form-control" />
+																	<span class="fa fa-download form-control-feedback"></span>
 																</div>
 															</div>
 
@@ -520,7 +539,7 @@
 																<label for="inputDirIporDns3"
 																	class="col-sm-5 control-label">Direccion Ip:</label>
 																<div class="col-sm-5">
-																	<h:inputText value="#{routerMB.ipDns}"
+																	<h:inputText value="#{clientesController.ip}"
 																		pt:placeholder="192.168.10.2" class="form-control" />
 																	<span class="fa fa-usd form-control-feedback"></span>
 																</div>
@@ -528,32 +547,46 @@
 
 															<div class="form-group has-feedback">
 																<label for="inputContraseña3"
+																	class="col-sm-5 control-label">Dia de Corte:</label>
+																<div class="col-sm-5">
+																	<div class="input-group date">
+																		<p:calendar value="#{clientesController.diaCorte}"
+																			pattern="MM/dd/yyyy" />
+																		<!-- <h:inputText id="datepicker" value="#{clientescontroller.diacorte}" styleclass="form-control pull-right datepicker"/> -->
+																		<!-- <input value="#{clientescontroller.diacorte}" type="text" class="form-control pull-right" id="datepicker"/> -->
+																		<div class="input-group-addon">
+																			<i class="fa fa-calendar"></i>
+																		</div>
+																	</div>
+																</div>
+															</div>
+
+															<div class="form-group has-feedback">
+																<label for="inputContraseña3"
 																	class="col-sm-5 control-label">Plan:</label>
 																<div class="col-sm-5">
-																	<h:inputText value="#{routerMB.llave}"
+																	<h:inputText value="#{clientesController.plan}"
 																		pt:placeholder="Seleccione un plan"
 																		class="form-control" />
 																	<span class="fa fa-upload form-control-feedback"></span>
 																</div>
 															</div>
-
-															<!-- <div class="form-group has-feedback">
-																<label for="inputUbicacion3"
-																	class="col-sm-5 control-label">Descripción</label>
-																<div class="col-sm-5">
-																	<h:inputText value="#{routerMB.ubicacion}"
-																		class="form-control" />
-																	<span class="fa fa-commenting form-control-feedback"></span>
-																</div>
-															</div> -->
-
 														</div>
 														<!-- /.box-body -->
+														<div class="box-footer">
+															<!-- <button type="submit" class="btn btn-danger">Cancelar</button> -->
+															<h:commandButton value="Agregar Cliente"
+																action="#{clientesController.insertarCliente(clientesController)}"
+																styleClass="btn btn-info pull-right" />
+															<!-- <h:link outcome="simple" value="Ver Routers"
+																class="btn btn-primary" /> -->
+														</div>
+
 														<div class="callout callout-success">
 															<h5>
 																<h:outputText id="saveResult"
-																	rendered="#{not empty CreadoRouterID}"
-																	value="!! Plan agregado Exitosamente !!"
+																	rendered="#{not empty CreadoClienteNombre}"
+																	value="!! Cliente agregado !!"
 																	styleClass="successText pull-center" />
 															</h5>
 														</div>
@@ -561,15 +594,15 @@
 														<!-- /.box-footer -->
 													</h:form>
 												</div>
-
 											</div>
 											<div class="modal-footer">
 												<button type="button" class="btn btn-default pull-left"
 													data-dismiss="modal">Cerrar</button>
-												<h:commandButton value="Agregar Plan"
-													action="#{adminController.guardarRouter}"
-													styleClass="btn btn-primary" />
-												<!-- <button type="button" class="btn btn-primary">Agregar Plan</button>-->
+												
+												<!-- <h:commandButton value="Agregar Cliente"
+																action="#{clientesController.insertarCliente(clientesController)}"
+																styleClass="btn btn-primary pull-right" /> -->
+												<!-- <button type="button" class="btn btn-primary">Agregar Plan</button> -->
 											</div>
 										</div>
 										<!-- /.modal-content -->
@@ -843,6 +876,7 @@
 	<h:outputScript name="admin/js/dataTables.bootstrap.min.js" />
 	<h:outputScript name="admin/jquery/jquery.slimscroll.min.js" />
 	<h:outputScript name="admin/js/fastclick.js" />
+	<h:outputScript name="admin/js/bootstrap-datepicker.min.js" />
 	<h:outputScript name="admin/js/adminlte.min.js" />
 
 	<!-- jQuery 3 -->
@@ -861,7 +895,7 @@ AdminLTE App
 	<!-- AdminLTE for demo purposes -->
 	<!-- <script src="../../dist/js/demo.js"></script> -->
 	<!-- page script -->
-	<script>
+	<script type="text/javascript">
 		$(function() {
 			$('#example1').DataTable()
 			$('#example2').DataTable({
@@ -871,6 +905,10 @@ AdminLTE App
 				'ordering' : true,
 				'info' : true,
 				'autoWidth' : false
+			})
+			// Datepicker
+			$('#datepicker').datepicker({
+				autoclose : true
 			})
 		})
 	</script>
