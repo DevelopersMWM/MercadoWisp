@@ -1,248 +1,252 @@
 <!DOCTYPE html  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" >
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" 
-	xmlns:h="http://java.sun.com/jsf/html" 
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
-    xmlns:p="http://primefaces.org/ui"
+	xmlns:p="http://primefaces.org/ui"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
-    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-	
-<h:head>    
-    <meta name="robots" content="all,follow"/>
-    <meta name="googlebot" content="index,follow,snippet,archive"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content="Obaju e-commerce template"/>
-    <meta name="author" content="Ondrej Svestka | ondrejsvestka.cz"/>
-    <meta name="keywords" content=""/>
-<title>MWM E-commerce</title>
-    <meta name="keywords" content=""/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'/>
-    <!-- Estilos -->
-    <h:outputStylesheet name="ecommerce/css/bootstrap.min.css" />
-    <h:outputStylesheet name="ecommerce/css/font-awesome.css" />
-    <h:outputStylesheet name="ecommerce/css/font-awesome.min.css" />
-    <h:outputStylesheet name="ecommerce/css/animate.min.css" />
-    <h:outputStylesheet name="ecommerce/css/owl.carousel.css" />
-    <h:outputStylesheet name="ecommerce/css/owl.theme.css" />  
-    <h:outputStylesheet name="ecommerce/css/style.blue.css" id="theme-stylesheet"/>  
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
-    <!-- your stylesheet with modifications -->
-    
-    <h:outputScript name="ecommerce/js/jquery.min.js" />
-    <h:outputStylesheet name="ecommerce/css/custom.css" />
-    <h:outputScript name="ecommerce/js/respond.min.js" />
-    <h:outputScript name="ecommerce/js/validacion.js" />
+<h:head>
+	<meta name="robots" content="all,follow" />
+	<meta name="googlebot" content="index,follow,snippet,archive" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="Obaju e-commerce template" />
+	<meta name="author" content="Ondrej Svestka | ondrejsvestka.cz" />
+	<meta name="keywords" content="" />
+	<title>MWM E-commerce</title>
+	<meta name="keywords" content="" />
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link
+		href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100'
+		rel='stylesheet' type='text/css' />
+	<!-- Estilos -->
+	<h:outputStylesheet name="ecommerce/css/bootstrap.min.css" />
+	<h:outputStylesheet name="ecommerce/css/font-awesome.css" />
+	<h:outputStylesheet name="ecommerce/css/font-awesome.min.css" />
+	<h:outputStylesheet name="ecommerce/css/animate.min.css" />
+	<h:outputStylesheet name="ecommerce/css/owl.carousel.css" />
+	<h:outputStylesheet name="ecommerce/css/owl.theme.css" />
+	<h:outputStylesheet name="ecommerce/css/style.blue.css"
+		id="theme-stylesheet" />
+
+	<!-- your stylesheet with modifications -->
+
+	<h:outputScript name="ecommerce/js/jquery.min.js" />
+	<h:outputStylesheet name="ecommerce/css/custom.css" />
+	<h:outputScript name="ecommerce/js/respond.min.js" />
+	<h:outputScript name="ecommerce/js/validacion.js" />
 </h:head>
 <h:body>
-    <ui:include src="/ecommerce/encabezado.xhtml"/>
-   
-    <div id="all">
+	<ui:include src="/ecommerce/encabezado.xhtml" />
 
-        <div id="content">
-            <div class="container">
+	<div id="all">
 
-                <div class="col-md-12">
-                    <ul class="breadcrumb">
-                        <li><a href="#">Inicio</a>
-                        </li>
-                        <li>Datos de envío</li>
-                    </ul>
-                </div>
+		<div id="content">
+			<div class="container">
 
-                <div class="col-md-9" id="checkout">
+				<div class="col-md-12">
+					<ul class="breadcrumb">
+						<li><a href="#">Inicio</a></li>
+						<li>Datos de envío</li>
+					</ul>
+				</div>
 
-                    <div class="box">
-                        <h:form method="post" action="checkout3.xhtml" id="formReg">
-                            <h1>Datos de envío</h1>
-                            <ul class="nav nav-pills nav-justified">
-                            <li ><a href="checkout2.xhtml"><i class="fa fa-truck"></i><br></br>Método de entrega</a>
-                                </li>
-                                <li class="active"><a href="#"><i class="fa fa-map-marker"></i><br></br>Datos de envío</a>
-                                </li>                                                                
-                                <li class="disabled"><a href="#"><i class="fa fa-money"></i><br></br>Método de pago</a>
-                                </li>
-                                <li class="disabled"><a href="#"><i class="fa fa-eye"></i><br></br>Revisar compra</a>
-                                </li>
-                            </ul>
+				<div class="col-md-9" id="checkout">
 
-                            <div class="content">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="firstname">Nombre(s)</label>
-                                            <h:inputText class="form-control" id="nombre"/>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="lastname">Apellidos</label>
-                                            <h:inputText class="form-control" id="apellidos"/>                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /.row -->
+					<div class="box">
+						<h:form method="post" action="checkout3.xhtml" id="formReg">
+							<h1>Datos de envío</h1>
+							<ul class="nav nav-pills nav-justified">
+								<li><a href="checkout2.xhtml"><i class="fa fa-truck"></i><br></br>Método
+										de entrega</a></li>
+								<li class="active"><a href="#"><i
+										class="fa fa-map-marker"></i><br></br>Datos de envío</a></li>
+								<li class="disabled"><a href="#"><i class="fa fa-money"></i><br></br>Método
+										de pago</a></li>
+								<li class="disabled"><a href="#"><i class="fa fa-eye"></i><br></br>Revisar
+										compra</a></li>
+							</ul>
 
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="company">Empresa</label>
-                                            <h:inputText class="form-control" id="empresa"/>                                            
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="street">Calle</label>
-                                            <h:inputText class="form-control" id="calle"/>                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /.row -->
+							<div class="content">
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label for="firstname">Nombre(s)</label>
+											<h:inputText class="form-control" id="nombre" />
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label for="lastname">Apellidos</label>
+											<h:inputText class="form-control" id="apellidos" />
+										</div>
+									</div>
+								</div>
+								<!-- /.row -->
 
-                                <div class="row">
-                                    <div class="col-sm-6 col-md-4">
-                                        <div class="form-group">
-                                            <label for="city">Colonia</label>
-                                            <h:inputText class="form-control" id="colonia"/>                                            
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-md-3">
-                                        <div class="form-group">
-                                            <label for="zip">Código Postal</label>
-                                            <h:inputText class="form-control" id="cp"/>                                            
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-md-4">
-                                        <div class="form-group">
-                                            <label for="state">Estado</label>
-                                            <h:inputText class="form-control" id="estado"/>                                            
-                                        </div>
-                                    </div>                                    
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="phone">Teléfono</label>
-                                            <h:inputText class="form-control" id="telefono"/>                                            
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="email">Email</label>
-                                            <h:inputText type="email" class="form-control" id="email"/>                                            
-                                        </div>
-                                    </div>
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label for="company">Empresa</label>
+											<h:inputText class="form-control" id="empresa" />
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label for="street">Calle</label>
+											<h:inputText class="form-control" id="calle" />
+										</div>
+									</div>
+								</div>
+								<!-- /.row -->
 
-                                </div>
-                                <!-- /.row -->
-                            </div>
+								<div class="row">
+									<div class="col-sm-6 col-md-4">
+										<div class="form-group">
+											<label for="city">Colonia</label>
+											<h:inputText class="form-control" id="colonia" />
+										</div>
+									</div>
+									<div class="col-sm-6 col-md-3">
+										<div class="form-group">
+											<label for="zip">Código Postal</label>
+											<h:inputText class="form-control" id="cp" />
+										</div>
+									</div>
+									<div class="col-sm-6 col-md-4">
+										<div class="form-group">
+											<label for="state">Estado</label>
+											<h:inputText class="form-control" id="estado" />
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label for="phone">Teléfono</label>
+											<h:inputText class="form-control" id="telefono" />
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label for="email">Email</label>
+											<h:inputText type="email" class="form-control" id="email" />
+										</div>
+									</div>
 
-                            <div class="box-footer">
-                                <div class="pull-left">                                                                                                       
-                                    <h:commandButton value="Volver al carrito" type="submit" action="basket.xhtml" class="btn btn-default"/>
-                                </div>                               
-                                <div class="pull-right">                                     
-                                     <h:commandButton value="Elegir Método de pago" type="submit" id="siguiente" action="checkout3.xhtml" class="btn btn-primary2"/>                                                                             
-                                </div>
-                            </div>
-                        </h:form>
-                        
-                        
-                    </div>
-                    <!-- /.box -->
+								</div>
+								<!-- /.row -->
+							</div>
+
+							<div class="box-footer">
+								<div class="pull-left">
+									<h:commandButton value="Volver al carrito" type="submit"
+										action="basket.xhtml" class="btn btn-default" />
+								</div>
+								<div class="pull-right">
+									<h:commandButton value="Elegir Método de pago" type="submit"
+										id="siguiente" action="checkout3.xhtml"
+										class="btn btn-primary2" />
+								</div>
+							</div>
+						</h:form>
 
 
-                </div>
-                <!-- /.col-md-9 -->
+					</div>
+					<!-- /.box -->
 
-                    <div class="col-md-3">
-                    <div class="box" id="order-summary">
-                        <div class="box-header">
-                            <h3>Resúmen de orden</h3>
-                        </div>
-                        <p class="text-muted">El envío y los costos adicionales se calculan en función de los valores que ingresó.</p>
 
-                        <div class="table-responsive">
-                            <table class="table">
-                                <tbody>
-                                    <tr>
-                                        <td>Subtotal</td>
-                                        <th>$446.00</th>
-                                    </tr>
-                                    <tr>
-                                        <td>Envío</td>
-                                        <th>$10.00</th>
-                                    </tr>
-                                    <tr>
-                                        <td>I.V.A.</td>
-                                        <th>$0.00</th>
-                                    </tr>
-                                    <tr class="total">
-                                        <td>Total</td>
-                                        <th>$456.00</th>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+				</div>
+				<!-- /.col-md-9 -->
 
-                    </div>                    
-                </div>
-                <!-- /.col-md-3 -->
+				<div class="col-md-3">
+					<div class="box" id="order-summary">
+						<div class="box-header">
+							<h3>Resúmen de orden</h3>
+						</div>
+						<p class="text-muted">El envío y los costos adicionales se
+							calculan en función de los valores que ingresó.</p>
 
-            </div>
-            <!-- /.container -->
-        </div>
-        <!-- /#content -->
+						<div class="table-responsive">
+							<table class="table">
+								<tbody>
+									<tr>
+										<td>Subtotal</td>
+										<th>$446.00</th>
+									</tr>
+									<tr>
+										<td>Envío</td>
+										<th>$10.00</th>
+									</tr>
+									<tr>
+										<td>I.V.A.</td>
+										<th>$0.00</th>
+									</tr>
+									<tr class="total">
+										<td>Total</td>
+										<th>$456.00</th>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 
-        <!-- *** FOOTER ***
+					</div>
+				</div>
+				<!-- /.col-md-3 -->
+
+			</div>
+			<!-- /.container -->
+		</div>
+		<!-- /#content -->
+
+		<!-- *** FOOTER ***
  _________________________________________________________ -->
-     <div class="box marcas">    
-    <div class="row">
-        <div class="col-sm-12">
-                    <p class="font-weight-bold text-center">LAS MEJORES MARCAS</p>            
-        </div>        
-    </div>    
-    <div class="row">                
-        <div class="col-sm-3 "></div>
-        <div class="col-sm-1 col-xs-2">
-        <h:graphicImage value="/resources/ecommerce/img/marca1.png" alt="Ubiquiti" class="img-responsive"/>                        
-        </div>
-        <div class="col-sm-1 col-xs-2">
-        <h:graphicImage value="/resources/ecommerce/img/marca2.png" alt="Mimosa" class="img-responsive"/>                         
-        </div>
-        <div class="col-sm-1 col-xs-2">
-        <h:graphicImage value="/resources/ecommerce/img/marca3.png" alt="Epcom" class="img-responsive"/>                        
-        </div>
-        <div class="col-sm-1 col-xs-2">
-        <h:graphicImage value="/resources/ecommerce/img/marca4.png" alt="HikVision" class="img-responsive"/>                        
-        </div>   
-        <div class="col-sm-1 col-xs-2">
-        <h:graphicImage value="/resources/ecommerce/img/marca5.png" alt="Honeywell" class="img-responsive"/>                        
-        </div>
-        <div class="col-sm-2 col-xs-2   ">
-        <h:graphicImage value="/resources/ecommerce/img/marca6.png" alt="Cambium Networks" class="img-responsive"/>                         
-        </div>                  
-        <div class="col-sm-2"></div>
-    </div>        
-</div>  
-
-        <div id="footer" data-animate="fadeInUp">
-            
-                <p class="parrafo">2017 © Mercado Wisp México Todos los derechos reservados</p>            
-                        <p class="social">
-                            <a href="https://www.facebook.com/groups/1429817027341749/" class="facebook external" data-animate-hover="shake"><i class="fa fa-facebook"></i></a>
-                            <a href="#" class="twitter external" data-animate-hover="shake"><i class="fa fa-twitter"></i></a>                            
-                            <a href="#" class="email external" data-animate-hover="shake"><i class="fa fa-whatsapp" ></i></a>
-                        </p>
-          </div>   
-    </div>      
-    <!-- *** SCRIPTS TO INCLUDE ***
+		<div class="box marcas">
+			<div class="row">
+				<div class="col-sm-12">
+					<p class="font-weight-bold text-center">LAS MEJORES MARCAS</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-3 "></div>
+				<div class="col-sm-1 col-xs-2">
+					<h:graphicImage value="/resources/ecommerce/img/marca1.png"
+						alt="Ubiquiti" class="img-responsive" />
+				</div>
+				<div class="col-sm-1 col-xs-2">
+					<h:graphicImage value="/resources/ecommerce/img/marca2.png"
+						alt="Mimosa" class="img-responsive" />
+				</div>
+				<div class="col-sm-1 col-xs-2">
+					<h:graphicImage value="/resources/ecommerce/img/marca3.png"
+						alt="Epcom" class="img-responsive" />
+				</div>
+				<div class="col-sm-1 col-xs-2">
+					<h:graphicImage value="/resources/ecommerce/img/marca4.png"
+						alt="HikVision" class="img-responsive" />
+				</div>
+				<div class="col-sm-1 col-xs-2">
+					<h:graphicImage value="/resources/ecommerce/img/marca5.png"
+						alt="Honeywell" class="img-responsive" />
+				</div>
+				<div class="col-sm-2 col-xs-2   ">
+					<h:graphicImage value="/resources/ecommerce/img/marca6.png"
+						alt="Cambium Networks" class="img-responsive" />
+				</div>
+				<div class="col-sm-2"></div>
+			</div>
+		</div>
+    <ui:include src="/ecommerce/piePag.xhtml"/>
+	</div>
+	<!-- *** SCRIPTS TO INCLUDE ***
  _________________________________________________________ -->
-<h:outputScript  name="ecommerce/js/jquery-1.11.0.min.js" />
-<h:outputScript  name="ecommerce/js/bootstrap.min.js" />
-<h:outputScript  name="ecommerce/js/jquery.cookie.js" />        
-<h:outputScript  name="ecommerce/js/waypoints.min.js" />    
-<h:outputScript  name="ecommerce/js/modernizr.js" />    
-<h:outputScript  name="ecommerce/js/bootstrap-hover-dropdown.js" />    
-<h:outputScript  name="ecommerce/js/owl.carousel.min.js" />    
-<h:outputScript  name="ecommerce/js/front.js" />  
+	<h:outputScript name="ecommerce/js/jquery-1.11.0.min.js" />
+	<h:outputScript name="ecommerce/js/bootstrap.min.js" />
+	<h:outputScript name="ecommerce/js/jquery.cookie.js" />
+	<h:outputScript name="ecommerce/js/waypoints.min.js" />
+	<h:outputScript name="ecommerce/js/modernizr.js" />
+	<h:outputScript name="ecommerce/js/bootstrap-hover-dropdown.js" />
+	<h:outputScript name="ecommerce/js/owl.carousel.min.js" />
+	<h:outputScript name="ecommerce/js/front.js" />
 
 </h:body>
 

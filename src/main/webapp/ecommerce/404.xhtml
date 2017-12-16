@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'/>
 
-    <!-- Estilos -->    
+    <!-- Estilos -->   
     <h:outputStylesheet  name="ecommerce/css/bootstrap.min.css" />
     <h:outputStylesheet  name="ecommerce/css/font-awesome.css" />
     <h:outputStylesheet  name="ecommerce/css/font-awesome.min.css" />
@@ -27,6 +27,7 @@
     <h:outputStylesheet  name="ecommerce/css/style.blue.css" id="theme-stylesheet"/>  
 
     <!-- your stylesheet with modifications -->
+    
     <h:outputStylesheet  name="ecommerce/css/custom.css" />
     <h:outputScript  name="ecommerce/js/respond.min.js" />		
 </h:head>
@@ -35,7 +36,7 @@
 <ui:include src="/ecommerce/encabezado.xhtml"/>
 
     <!-- *** NAVBAR END *** -->
-
+<div>
     <div id="all">
 
         <div id="content">
@@ -48,8 +49,6 @@
                         </li>
                         <li>Página no encontrada</li>
                     </ul>
-
-
                     <div class="row" id="error-page">
                         <div class="col-sm-6 col-sm-offset-3">
                             <div class="box">
@@ -70,21 +69,12 @@
                 </div>                                                              
             </div>                                               
         </div>
-   <div>
-   
-<div id="footer" data-animate="fadeInUp">
-            
-                <p class="parrafo">2017 © Mercado Wisp México Todos los derechos reservados</p>            
-                        <p class="social">
-                            <a href="https://www.facebook.com/groups/1429817027341749/" class="facebook external" data-animate-hover="shake"><i class="fa fa-facebook"></i></a>
-                            <a href="#" class="twitter external" data-animate-hover="shake"><i class="fa fa-twitter"></i></a>                            
-                            <a href="#" class="email external" data-animate-hover="shake"><i class="fa fa-whatsapp" ></i></a>
-                        </p>
-            </div>   
-    </div>        </div>     
-                    
-          <!-- *** FOOTER ***-->
+        </div>
         
+<!-- PIE DE PAGINA -->
+<ui:include src="/ecommerce/piePag.xhtml"/>  
+          </div>     
+
     <!-- *** SCRIPTS TO INCLUDE ***
  _________________________________________________________ -->
 <h:outputScript  name="ecommerce/js/jquery-1.11.0.min.js" />

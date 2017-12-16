@@ -1,4 +1,3 @@
-
 <ui:composition lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
@@ -11,15 +10,12 @@
 	<h:outputScript  name="ecommerce/js/jquery.min.js"></h:outputScript>
 	<h:outputScript  name="ecommerce/js/openpay.v1.min.js"></h:outputScript>
 	<h:outputScript  name="ecommerce/js/openpay-data.v1.min.js"></h:outputScript>
-	<!-- falta incluir el js del formulario -->
-	<h:outputScript  name="ecommerce/js/card.js"></h:outputScript>
-	
+<h:outputScript  name="ecommerce/js/card.js"></h:outputScript>
 </h:head>
 <h:body>
 	<div class="bkng-tb-cntnt">
 		<div class="pymnts">
-			<h:form action="#" id="payment-form">		
-				<h:inputHidden value="#{formCard.cproducto.enviarPrecio}"/>	 
+			<h:form action="#" id="payment-form">				 
 				<h:inputHidden  id="token_id" value="#{formCard.token}" />
 				<div class="pymnt-itm card active">
 					<h2>Tarjeta de crédito o débito</h2>					 
@@ -27,11 +23,11 @@
 						<div class="card-expl">
 							<div class="credit">
 								<h4>Tarjetas de crédito</h4>
-								<h:graphicImage value="/resources/ecommerce/img/cards1.png" alt="MWM" class="cards1"/>
+								<h:graphicImage value="/resources/ecommerce/img/cards1.png" alt="MWM"/>
 							</div>
 							<div class="debit">
 								<h4>Tarjetas de débito</h4>
-								<h:graphicImage value="/resources/ecommerce/img/cards2.png" alt="MWM" class="cards2"/>
+								<h:graphicImage value="/resources/ecommerce/img/cards2.png" alt="MWM"/>
 							</div>   </div>				
 						<div class="sctn-row">
 							<div class="sctn-col l">
@@ -74,9 +70,7 @@
 						<!-- Botones pagar y confirmar -->
 						<div class="sctn-row botones">												
 							<p:commandButton value="Pagar" class="pagar" id="pay-button" ></p:commandButton>
-							<p:commandButton class="confirmar" value="Confirmar" action="#{formCard.enviar()}"></p:commandButton>
-
-
+							<p:commandButton class="confirmar" value="Confirmar" action="#{controller.imprimir}"></p:commandButton>
 						</div>						
 					</div>
 				</div>

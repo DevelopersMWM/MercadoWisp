@@ -1,214 +1,212 @@
 <!DOCTYPE html  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" >
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" 
-	xmlns:h="http://java.sun.com/jsf/html" 
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
-    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:head>
-    <meta name="robots" content="all,follow"/>
-    <meta name="googlebot" content="index,follow,snippet,archive"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content="Obaju e-commerce template"/>
-    <meta name="author" content="Ondrej Svestka | ondrejsvestka.cz"/>
-    <meta name="keywords" content=""/>
+	<meta name="robots" content="all,follow" />
+	<meta name="googlebot" content="index,follow,snippet,archive" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="Obaju e-commerce template" />
+	<meta name="author" content="Ondrej Svestka | ondrejsvestka.cz" />
+	<meta name="keywords" content="" />
 
-    <title>MWM E-commerce</title>
+	<title>MWM E-commerce</title>
 
-    <meta name="keywords" content=""/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'/>
+	<meta name="keywords" content="" />
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link
+		href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100'
+		rel='stylesheet' type='text/css' />
 
-    <!-- Estilos -->
-    <h:outputStylesheet name="ecommerce/css/bootstrap.min.css" />
-    <h:outputStylesheet name="ecommerce/css/font-awesome.css" />
-    <h:outputStylesheet name="ecommerce/css/font-awesome.min.css" />
-    <h:outputStylesheet name="ecommerce/css/animate.min.css" />
-    <h:outputStylesheet name="ecommerce/css/owl.carousel.css" />
-    <h:outputStylesheet name="ecommerce/css/owl.theme.css" />   
-    <h:outputStylesheet name="ecommerce/css/style.blue.css" id="theme-stylesheet"/>  
+	<!-- Estilos -->
+	<h:outputStylesheet name="ecommerce/css/bootstrap.min.css" />
+	<h:outputStylesheet name="ecommerce/css/font-awesome.css" />
+	<h:outputStylesheet name="ecommerce/css/font-awesome.min.css" />
+	<h:outputStylesheet name="ecommerce/css/animate.min.css" />
+	<h:outputStylesheet name="ecommerce/css/owl.carousel.css" />
+	<h:outputStylesheet name="ecommerce/css/owl.theme.css" />
+	<h:outputStylesheet name="ecommerce/css/style.blue.css"
+		id="theme-stylesheet" />
 
-    <!-- your stylesheet with modifications -->
-    <h:outputStylesheet name="ecommerce/css/custom.css" />
-    <h:outputScript name="ecommerce/js/respond.min.js" />
+	<!-- your stylesheet with modifications -->
+	<h:outputStylesheet name="ecommerce/css/custom.css" />
+	<h:outputScript name="ecommerce/js/respond.min.js" />
 </h:head>
 
 <h:body>
 
-   <ui:include src="/ecommerce/encabezado.xhtml"/>
+	<ui:include src="/ecommerce/encabezado.xhtml" />
 
-    <div id="all">
+	<div id="all">
 
-        <div id="content">
-            <div class="container">
+		<div id="content">
+			<div class="container">
 
-                <div class="col-md-12">
+				<div class="col-md-12">
 
-                    <ul class="breadcrumb">
-                        <li><a href="#">Inicio</a>
-                        </li>
-                        <li>Mis compras</li>
-                    </ul>
+					<ul class="breadcrumb">
+						<li><a href="#">Inicio</a></li>
+						<li>Mis compras</li>
+					</ul>
 
-                </div>
+				</div>
 
-                <div class="col-md-3">
-                    <!-- *** CUSTOMER MENU ***
+				<div class="col-md-3">
+					<!-- *** CUSTOMER MENU ***
  _________________________________________________________ -->
-                    <div class="panel panel-default sidebar-menu">
+					<div class="panel panel-default sidebar-menu">
 
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Sección del cliente</h3>
-                        </div>
+						<div class="panel-heading">
+							<h3 class="panel-title">Sección del cliente</h3>
+						</div>
 
-                        <div class="panel-body">
+						<div class="panel-body">
 
-                            <ul class="nav nav-pills nav-stacked">
-                                <li  class="active">
-                                    <a href="customer-orders.xhtml"><i class="fa fa-list"></i> Mis compras</a>
-                                </li>
-                                <li>
-                                    <a href="customer-account.xhtml"><i class="fa fa-user"></i> Mi cuenta</a>
-                                </li>
-                                <li>
-                                    <a href="index.xhtml"><i class="fa fa-sign-out"></i> Cerrar sesión</a>
-                                </li>
-                            </ul>
-                        </div>
+							<ul class="nav nav-pills nav-stacked">
+								<li class="active"><a href="customer-orders.xhtml"><i
+										class="fa fa-list"></i> Mis compras</a></li>
+								<li><a href="customer-account.xhtml"><i
+										class="fa fa-user"></i> Mi cuenta</a></li>
+								<li><a href="index.xhtml"><i class="fa fa-sign-out"></i>
+										Cerrar sesión</a></li>
+							</ul>
+						</div>
 
-                    </div>
-                    <!-- /.col-md-3 -->
+					</div>
+					<!-- /.col-md-3 -->
 
-                    <!-- *** CUSTOMER MENU END *** -->
-                </div>
+					<!-- *** CUSTOMER MENU END *** -->
+				</div>
 
-                <div class="col-md-9" id="customer-orders">
-                    <div class="box">
-                        <h1>Mis compras</h1>
+				<div class="col-md-9" id="customer-orders">
+					<div class="box">
+						<h1>Mis compras</h1>
 
-                        <p class="lead">Sus pedidos en un solo lugar.</p>
-                        <p class="text-muted">Si tiene alguna pregunta, no dude en ponerse en <a href="contact.xhtml">contacto con nosotros</a>, , nuestro centro de servicio al cliente está trabajando para usted las 24 horas del día, los 7 días de la semana.</p>
+						<p class="lead">Sus pedidos en un solo lugar.</p>
+						<p class="text-muted">
+							Si tiene alguna pregunta, no dude en ponerse en <a
+								href="contact.xhtml">contacto con nosotros</a>, , nuestro centro
+							de servicio al cliente está trabajando para usted las 24 horas
+							del día, los 7 días de la semana.
+						</p>
 
-                        <hr></hr>
+						<hr></hr>
 
-                        <div class="table-responsive">
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Orden</th>
-                                        <th>Fecha</th>
-                                        <th>Total</th>
-                                        <th>Estado</th>
-                                        <th>Acción</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th>#1735</th>
-                                        <td>22/06/2013</td>
-                                        <td>$ 150.00</td>
-                                        <td><span class="label label-info">En proceso</span>
-                                        </td>
-                                        <td><a href="customer-order.xhtml" class="btn btn-primary2 btn-sm">Ver</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th># 1735</th>
-                                        <td>22/06/2013</td>
-                                        <td>$ 150.00</td>
-                                        <td><span class="label label-info">En proceso</span>
-                                        </td>
-                                        <td><a href="customer-order.xhtml" class="btn btn-primary2 btn-sm">Ver</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th># 1735</th>
-                                        <td>22/06/2013</td>
-                                        <td>$ 150.00</td>
-                                        <td><span class="label label-success">Recibido</span>
-                                        </td>
-                                        <td><a href="customer-order.xhtml" class="btn btn-primary2 btn-sm">Ver</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th># 1735</th>
-                                        <td>22/06/2013</td>
-                                        <td>$ 150.00</td>
-                                        <td><span class="label label-danger">Cancelado</span>
-                                        </td>
-                                        <td><a href="customer-order.xhtml" class="btn btn-primary2 btn-sm">Ver</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th># 1735</th>
-                                        <td>22/06/2013</td>
-                                        <td>$ 150.00</td>
-                                        <td><span class="label label-warning">En espera</span>
-                                        </td>
-                                        <td><a href="customer-order.xhtml" class="btn btn-primary2 btn-sm">Ver</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+						<div class="table-responsive">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th>Orden</th>
+										<th>Fecha</th>
+										<th>Total</th>
+										<th>Estado</th>
+										<th>Acción</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th>#1735</th>
+										<td>22/06/2013</td>
+										<td>$ 150.00</td>
+										<td><span class="label label-info">En proceso</span></td>
+										<td><a href="customer-order.xhtml"
+											class="btn btn-primary2 btn-sm">Ver</a></td>
+									</tr>
+									<tr>
+										<th># 1735</th>
+										<td>22/06/2013</td>
+										<td>$ 150.00</td>
+										<td><span class="label label-info">En proceso</span></td>
+										<td><a href="customer-order.xhtml"
+											class="btn btn-primary2 btn-sm">Ver</a></td>
+									</tr>
+									<tr>
+										<th># 1735</th>
+										<td>22/06/2013</td>
+										<td>$ 150.00</td>
+										<td><span class="label label-success">Recibido</span></td>
+										<td><a href="customer-order.xhtml"
+											class="btn btn-primary2 btn-sm">Ver</a></td>
+									</tr>
+									<tr>
+										<th># 1735</th>
+										<td>22/06/2013</td>
+										<td>$ 150.00</td>
+										<td><span class="label label-danger">Cancelado</span></td>
+										<td><a href="customer-order.xhtml"
+											class="btn btn-primary2 btn-sm">Ver</a></td>
+									</tr>
+									<tr>
+										<th># 1735</th>
+										<td>22/06/2013</td>
+										<td>$ 150.00</td>
+										<td><span class="label label-warning">En espera</span></td>
+										<td><a href="customer-order.xhtml"
+											class="btn btn-primary2 btn-sm">Ver</a></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
 
-            </div>
-            <!-- /.container -->
-        </div>
-        <!-- /#content -->
+			</div>
+			<!-- /.container -->
+		</div>
+		<!-- /#content -->
 
-<!-- PIE DE PÁGINA-->
- <div class="box marcas">    
-    <div class="row">
-        <div class="col-sm-12">
-                    <p class="font-weight-bold text-center">LAS MEJORES MARCAS</p>            
-        </div>        
-    </div>    
-    <div class="row">                
-        <div class="col-sm-3 "></div>
-        <div class="col-sm-1 col-xs-2">
-        <h:graphicImage value="/resources/ecommerce/img/marca1.png" alt="Ubiquiti" class="img-responsive"/>                        
-        </div>
-        <div class="col-sm-1 col-xs-2">
-        <h:graphicImage value="/resources/ecommerce/img/marca2.png" alt="Mimosa" class="img-responsive"/>                         
-        </div>
-        <div class="col-sm-1 col-xs-2">
-        <h:graphicImage value="/resources/ecommerce/img/marca3.png" alt="Epcom" class="img-responsive"/>                        
-        </div>
-        <div class="col-sm-1 col-xs-2">
-        <h:graphicImage value="/resources/ecommerce/img/marca4.png" alt="HikVision" class="img-responsive"/>                        
-        </div>   
-        <div class="col-sm-1 col-xs-2">
-        <h:graphicImage value="/resources/ecommerce/img/marca5.png" alt="Honeywell" class="img-responsive"/>                        
-        </div>
-        <div class="col-sm-2 col-xs-2   ">
-        <h:graphicImage value="/resources/ecommerce/img/marca6.png" alt="Cambium Networks" class="img-responsive"/>                         
-        </div>                  
-        <div class="col-sm-2"></div>
-    </div>        
-</div>                                               
-        
-        <div id="footer" data-animate="fadeInUp">
-            
-                <p class="parrafo">2017 © Mercado Wisp México Todos los derechos reservados</p>            
-                        <p class="social">
-                            <a href="https://www.facebook.com/groups/1429817027341749/" class="facebook external" data-animate-hover="shake"><i class="fa fa-facebook"></i></a>
-                            <a href="#" class="twitter external" data-animate-hover="shake"><i class="fa fa-twitter"></i></a>                            
-                            <a href="#" class="email external" data-animate-hover="shake"><i class="fa fa-whatsapp" ></i></a>
-                        </p>
-            </div>                
-        </div>               
-    <!-- *** SCRIPTS TO INCLUDE ***
+		<!-- PIE DE PÁGINA-->
+		<div class="box marcas">
+			<div class="row">
+				<div class="col-sm-12">
+					<p class="font-weight-bold text-center">LAS MEJORES MARCAS</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-3 "></div>
+				<div class="col-sm-1 col-xs-2">
+					<h:graphicImage value="/resources/ecommerce/img/marca1.png"
+						alt="Ubiquiti" class="img-responsive" />
+				</div>
+				<div class="col-sm-1 col-xs-2">
+					<h:graphicImage value="/resources/ecommerce/img/marca2.png"
+						alt="Mimosa" class="img-responsive" />
+				</div>
+				<div class="col-sm-1 col-xs-2">
+					<h:graphicImage value="/resources/ecommerce/img/marca3.png"
+						alt="Epcom" class="img-responsive" />
+				</div>
+				<div class="col-sm-1 col-xs-2">
+					<h:graphicImage value="/resources/ecommerce/img/marca4.png"
+						alt="HikVision" class="img-responsive" />
+				</div>
+				<div class="col-sm-1 col-xs-2">
+					<h:graphicImage value="/resources/ecommerce/img/marca5.png"
+						alt="Honeywell" class="img-responsive" />
+				</div>
+				<div class="col-sm-2 col-xs-2   ">
+					<h:graphicImage value="/resources/ecommerce/img/marca6.png"
+						alt="Cambium Networks" class="img-responsive" />
+				</div>
+				<div class="col-sm-2"></div>
+			</div>
+		</div>
+
+		    <ui:include src="/ecommerce/piePag.xhtml"/>
+	</div>
+	<!-- *** SCRIPTS TO INCLUDE ***
  _________________________________________________________ -->
-<h:outputScript name="ecommerce/js/jquery-1.11.0.min.js" />
-<h:outputScript name="ecommerce/js/bootstrap.min.js" />
-<h:outputScript name="ecommerce/js/jquery.cookie.js" />        
-<h:outputScript name="ecommerce/js/waypoints.min.js" />    
-<h:outputScript name="ecommerce/js/modernizr.js" />    
-<h:outputScript name="ecommerce/js/bootstrap-hover-dropdown.js" />    
-<h:outputScript name="ecommerce/js/owl.carousel.min.js" />    
-<h:outputScript name="ecommerce/js/front.js" /> 
+	<h:outputScript name="ecommerce/js/jquery-1.11.0.min.js" />
+	<h:outputScript name="ecommerce/js/bootstrap.min.js" />
+	<h:outputScript name="ecommerce/js/jquery.cookie.js" />
+	<h:outputScript name="ecommerce/js/waypoints.min.js" />
+	<h:outputScript name="ecommerce/js/modernizr.js" />
+	<h:outputScript name="ecommerce/js/bootstrap-hover-dropdown.js" />
+	<h:outputScript name="ecommerce/js/owl.carousel.min.js" />
+	<h:outputScript name="ecommerce/js/front.js" />
 
 </h:body>
 

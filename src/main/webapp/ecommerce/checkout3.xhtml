@@ -1,216 +1,248 @@
 <!DOCTYPE html  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" >
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" 
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core" 
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
-    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:head>
-    <meta name="robots" content="all,follow"/>
-    <meta name="googlebot" content="index,follow,snippet,archive"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content="Obaju e-commerce template"/>
-    <meta name="author" content="Ondrej Svestka | ondrejsvestka.cz"/>
-    <meta name="keywords" content=""/>
-<title>MWM E-commerce</title>
-    <meta name="keywords" content=""/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'/>
+	<meta name="robots" content="all,follow" />
+	<meta name="googlebot" content="index,follow,snippet,archive" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="Obaju e-commerce template" />
+	<meta name="author" content="Ondrej Svestka | ondrejsvestka.cz" />
+	<meta name="keywords" content="" />
 
-    <!-- Estilos -->
-    
-    <h:outputStylesheet name="ecommerce/css/bootstrap.min.css" />
-    <h:outputStylesheet name="ecommerce/css/font-awesome.css" />
-    <h:outputStylesheet name="ecommerce/css/font-awesome.min.css" />
-    <h:outputStylesheet name="ecommerce/css/animate.min.css" />
-    <h:outputStylesheet name="ecommerce/css/owl.carousel.css" />
-    <h:outputStylesheet name="ecommerce/css/owl.theme.css" />  
-    <h:outputStylesheet name="ecommerce/css/style.blue.css" id="theme-stylesheet"/>  
+	<title>MWM E-commerce</title>
 
-    <!-- your stylesheet with modifications -->
-    <h:outputStylesheet name="ecommerce/css/custom.css" />
-    <h:outputScript name="ecommerce/js/respond.min.js" />
-    <h:outputScript name="ecommerce/js/validacion.js" />
+	<meta name="keywords" content="" />
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link
+		href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100'
+		rel='stylesheet' type='text/css' />
+	<!-- Estilos -->
+	<h:outputStylesheet name="ecommerce/css/style.blue.css"
+		id="theme-stylesheet" />
+	<h:outputStylesheet name="ecommerce/css/bootstrap.min.css" />
+	<h:outputStylesheet name="ecommerce/css/font-awesome.css" />
+	<h:outputStylesheet name="ecommerce/css/font-awesome.min.css" />
+	<h:outputStylesheet name="ecommerce/css/animate.min.css" />
+	<h:outputStylesheet name="ecommerce/css/owl.carousel.css" />
+	<h:outputStylesheet name="ecommerce/css/owl.theme.css" />
+
+	<!-- your stylesheet with modifications -->
+	<h:outputStylesheet name="ecommerce/css/custom.css" />
+	<h:outputScript name="ecommerce/js/jquery.min.js"></h:outputScript>
+
+	<script type="text/javascript">
+		function tarjetas() {
+			document.getElementById('tarjetas').style.display = 'block';
+			document.getElementById('transferencias').style.display = 'none';
+			document.getElementById('tiendas').style.display = 'none';
+		}
+		function efectivo() {
+			document.getElementById('tiendas').style.display = 'block';
+			document.getElementById('tarjetas').style.display = 'none';
+			document.getElementById('transferencias').style.display = 'none';
+		}
+		function transferencias() {
+			document.getElementById('transferencias').style.display = 'block';
+			document.getElementById('tarjetas').style.display = 'none';
+			document.getElementById('tiendas').style.display = 'none';
+		}
+	</script>
+
+
 </h:head>
-
 <h:body>
-<ui:include src="/ecommerce/encabezado.xhtml"/>
+	<ui:include src="/ecommerce/encabezado.xhtml" />
+
+	<div id="all">
+
+		<div id="content">
+			<div class="container">
+
+				<div class="col-md-12">
+					<ul class="breadcrumb">
+						<li><a href="#">Inicio</a></li>
+						<li>Método de pago</li>
+					</ul>
+				</div>
+
+				<div class="col-md-9" id="checkout">
+
+					<div class="box">
+						<h:form method="post" action="checkout4.xhtml" id="laura">
+							<h1>Método de pago</h1>
+							<ul class="nav nav-pills nav-justified">
+								<li><a href="checkout2.xhtml"><i class="fa fa-truck"></i><br></br>Método
+										de entrega</a></li>
+								<li><a href="checkout1.xhtml"><i
+										class="fa fa-map-marker"></i><br></br>Datos de envío</a></li>
+								<li class="active"><a href="#"><i class="fa fa-money"></i><br></br>Método
+										de pago</a></li>
+								<li class="disabled"><a href="#"><i class="fa fa-eye"></i><br></br>Revisar
+										compra</a></li>
+							</ul>
+
+							<div class="content">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="box payment-method">
+											<h3 class="text-center"
+												style="color: #4993e4; font-weight: bold">Elije un
+												método de pago</h3>
+											<p:outputPanel id="customPanel"
+												style="margin-bottom:100px; margin-left:10px; font-size:15px"
+												name="radios ">
+												<p:selectOneRadio id="customRadio" layout="custom">
+												</p:selectOneRadio>
+												<div class="row">
+													<div class="col-md-5">
+														<p:radioButton id="opc1" for="customRadio" itemIndex="0"
+															onclick="tarjetas()" name="radio1" />
+														<h:outputLabel for="opc1"
+															style="font-weight:bold; margin-left:15px"
+															value="  TARJETAS DE CRÉDITO Y DÉBIDO" />
+													</div>
+												</div>
+												<div>
+													<p></p>
+												</div>
+												<div class="row">
+													<div class="col-md-7">
+														<p:radioButton id="opc2" for="customRadio" itemIndex="1"
+															onclick="efectivo()" name="radio2" />
+														<h:outputLabel for="opc2"
+															style="font-weight:bold; margin-left:15px;"
+															value="EFECTIVO" />
+													</div>
+												</div>
+												<div>
+													<p></p>
+												</div>
+
+												<div class="row">
+													<div class="col-md-7">
+														<p:radioButton id="opc3" for="customRadio" itemIndex="2"
+															onclick="transferencias()" name="radio3" />
+														<h:outputLabel for="opc3"
+															style="font-weight:bold; margin-left:15px;"
+															value="TRANSFERENCIAS BANCARIAS" />
+													</div>
+												</div>
+											</p:outputPanel>
+										</div>
+									</div>
+								</div>
+								<!-- /.row -->
+							</div>
+							<!-- /.content -->
+							<div class="box-footer">
+								<div class="pull-left">
+									<h:commandButton value="Volver a Datos de Envío" type="submit"
+										action="checkout1.xhtml" class="btn btn-default" />
+								</div>
+								<div class="pull-right">
+									<h:commandButton value="Revisar compra" type="submit"
+										action="checkout4.xhtml" class="btn btn-primary" />
+								</div>
+							</div>
+						</h:form>
+					</div>
+					<!-- /.box -->
 
 
-    <div id="all">
+				</div>
+				<!-- /.col-md-9 -->
 
-        <div id="content">
-            <div class="container">
+				<div class="col-md-3">
 
-                <div class="col-md-12">
-                    <ul class="breadcrumb">
-                        <li><a href="#">Inicio</a>
-                        </li>
-                        <li>Métodos de entrega</li>
-                    </ul>
-                </div>
+					<div class="box" id="order-summary">
+						<div class="box-header">
+							<h3>Resúmen de orden</h3>
+						</div>
+						<p class="text-muted">El envío y los costos adicionales se
+							calculan en función de los valores que ingresó.</p>
 
-                <div class="col-md-9" id="checkout">
+						<div class="table-responsive">
+							<table class="table">
+								<tbody>
+									<tr>
+										<td>Subtotal</td>
+										<th>$446.00</th>
+									</tr>
+									<tr>
+										<td>Envío</td>
+										<th>$10.00</th>
+									</tr>
+									<tr>
+										<td>I.V.A.</td>
+										<th>$0.00</th>
+									</tr>
+									<tr class="total">
+										<td>Total</td>
+										<th>$456.00</th>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 
-                    <div class="box">
-                        <h:form method="post" action="checkout1.xhtml">
-                            <h1>Métodos de entrega</h1>
-                            <ul class="nav nav-pills nav-justified">
-                                 <li   class="active"><a href="checkout2.xhtml"><i class="fa fa-truck"></i><br></br>Método de entrega</a>
-                                </li>
-                                 <li class="disabled"><a href="#"><i class="fa fa-map-marker"></i><br></br>Datos de envío</a>
-                                </li>                                
-                                <li class="disabled"><a href="#"><i class="fa fa-money"></i><br></br>Método de pago</a>
-                                </li>
-                                <li class="disabled"><a href="#"><i class="fa fa-eye"></i><br></br>Revisar compra</a>
-                                </li>
-                            </ul>
+					</div>
 
-                            <div class="content">
-                                <div class="row" id="opciones">
-                                <div class="col-sm-12">
-                                    <div class=" box shopping-method">
-                                       <h3 class="text-center" style="color: #4993e4; font-weight:bold">Elije un método de entrega</h3>
-                                       
-                                       
-    <p:outputPanel id="customPanel" style="margin-bottom:100px; margin-left:10px; font-size:15px" name="radios ">
-        <p:selectOneRadio id="customRadio" value="" layout="custom">                       
-        </p:selectOneRadio>
-<div class="row">
- <div class="col-md-5">
-            <p:radioButton id="opc1" for="customRadio" itemIndex="0" onclick="tarjetas()" name="radio1"/>
-            <h:outputLabel for="opc1"  style="font-weight:bold; margin-left:15px"  value="RETIRO EN SUCURSAL ESTAFETA" />
-</div>
-</div>
+				</div>
+				<!-- /.col-md-3 -->
 
-<div>
-<p></p>
-</div>
-
- <div class="row">
- <div class="col-md-7">            
-             <p:radioButton id="opc2" for="customRadio" itemIndex="1"  onclick="efectivo()" name="radio2"/>
-            <h:outputLabel for="opc2" style="font-weight:bold; margin-left:15px;"  value="ENVÍO A DOMICILIO"  />
-</div>
-
- </div>                       
-    </p:outputPanel>                                                                                          
-</div>
-                                       
-                                       
-                                       
-                                       
-                                       
-                                            
-    </div>
-                                                      
-                                </div>
-                                <!-- /.row -->
-                            </div>
-                            <!-- /.content -->
-
-                            <div class="box-footer">
-                                <div class="pull-left">
-                                    <a href="basket.xhtml" class="btn btn-default"><i class="fa fa-chevron-left"></i>Volver a Carrito</a>
-                                </div>
-                                <div class="pull-right">
-                                   <a href="checkout1.xhtml" class="btn btn-primary2" type="submit">Continuar con Datos de envío<i class="fa fa-chevron-right"></i></a>
-                                </div>
-                            </div>
-                        </h:form>  
-                    </div>
-                    <!-- /.box -->
+			</div>
+			<!-- /.container -->
+		</div>
+		<!-- /#content -->
 
 
-                </div>
-                <!-- /.col-md-9 -->
+		<!-- PIE DE PÁGINA-->
+		<div class="box marcas">
+			<div class="row">
+				<div class="col-sm-12">
+					<p class="font-weight-bold text-center">LAS MEJORES MARCAS</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-3 "></div>
+				<div class="col-sm-1 col-xs-2">
+					<h:graphicImage value="/resources/ecommerce/img/marca1.png"
+						alt="Ubiquiti" class="img-responsive" />
+				</div>
+				<div class="col-sm-1 col-xs-2">
+					<h:graphicImage value="/resources/ecommerce/img/marca2.png"
+						alt="Mimosa" class="img-responsive" />
+				</div>
+				<div class="col-sm-1 col-xs-2">
+					<h:graphicImage value="/resources/ecommerce/img/marca3.png"
+						alt="Epcom" class="img-responsive" />
+				</div>
+				<div class="col-sm-1 col-xs-2">
+					<h:graphicImage value="/resources/ecommerce/img/marca4.png"
+						alt="HikVision" class="img-responsive" />
+				</div>
+				<div class="col-sm-1 col-xs-2">
+					<h:graphicImage value="/resources/ecommerce/img/marca5.png"
+						alt="Honeywell" class="img-responsive" />
+				</div>
+				<div class="col-sm-2 col-xs-2   ">
+					<h:graphicImage value="/resources/ecommerce/img/marca6.png"
+						alt="Cambium Networks" class="img-responsive" />
+				</div>
+				<div class="col-sm-2"></div>
+			</div>
+		</div>
 
-                <div class="col-md-3">
-
-       <div class="box" id="order-summary">
-                        <div class="box-header">
-                            <h3>Resúmen de orden</h3>
-                        </div>
-                        <p class="text-muted">El envío y los costos adicionales se calculan en función de los valores que ingresó.</p>
-
-                        <div class="table-responsive">
-                            <table class="table">
-                                <tbody>
-                                    <tr>
-                                        <td>Subtotal</td>
-                                        <th>$446.00</th>
-                                    </tr>
-                                    <tr>
-                                        <td>Envío</td>
-                                        <th>$10.00</th>
-                                    </tr>
-                                    <tr>
-                                        <td>I.V.A.</td>
-                                        <th>$0.00</th>
-                                    </tr>
-                                    <tr class="total">
-                                        <td>Total</td>
-                                        <th>$456.00</th>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                    </div>  
-
-                </div>
-                <!-- /.col-md-3 -->
-
-            </div>
-            <!-- /.container -->
-        </div>
-        <!-- /#content -->
-
-        <!-- PIE DE PÁGINA-->
- <div class="box marcas">    
-    <div class="row">
-        <div class="col-sm-12">
-                    <p class="font-weight-bold text-center">LAS MEJORES MARCAS</p>            
-        </div>        
-    </div>    
-    <div class="row">                
-        <div class="col-sm-3 "></div>
-        <div class="col-sm-1 col-xs-2">
-        <h:graphicImage value="/resources/ecommerce/img/marca1.png" alt="Ubiquiti" class="img-responsive"/>                        
-        </div>
-        <div class="col-sm-1 col-xs-2">
-        <h:graphicImage value="/resources/ecommerce/img/marca2.png" alt="Mimosa" class="img-responsive"/>                         
-        </div>
-        <div class="col-sm-1 col-xs-2">
-        <h:graphicImage value="/resources/ecommerce/img/marca3.png" alt="Epcom" class="img-responsive"/>                        
-        </div>
-        <div class="col-sm-1 col-xs-2">
-        <h:graphicImage value="/resources/ecommerce/img/marca4.png" alt="HikVision" class="img-responsive"/>                        
-        </div>   
-        <div class="col-sm-1 col-xs-2">
-        <h:graphicImage value="/resources/ecommerce/img/marca5.png" alt="Honeywell" class="img-responsive"/>                        
-        </div>
-        <div class="col-sm-2 col-xs-2   ">
-        <h:graphicImage value="/resources/ecommerce/img/marca6.png" alt="Cambium Networks" class="img-responsive"/>                         
-        </div>                  
-        <div class="col-sm-2"></div>
-    </div>        
-</div>                                               
-        
-        <div id="footer" data-animate="fadeInUp">
-            
-                <p class="parrafo">2017 © Mercado Wisp México Todos los derechos reservados</p>            
-                        <p class="social">
-                            <a href="https://www.facebook.com/groups/1429817027341749/" class="facebook external" data-animate-hover="shake"><i class="fa fa-facebook"></i></a>
-                            <a href="#" class="twitter external" data-animate-hover="shake"><i class="fa fa-twitter"></i></a>                            
-                            <a href="#" class="email external" data-animate-hover="shake"><i class="fa fa-whatsapp" ></i></a>
-                        </p>
-            </div>                
-        </div>               
-    <!-- *** SCRIPTS TO INCLUDE ***
+    <ui:include src="/ecommerce/piePag.xhtml"/>
+	</div>
+	<!-- *** SCRIPTS TO INCLUDE ***
  _________________________________________________________ -->
-<h:outputScript name="ecommerce/js/jquery-1.11.0.min.js" />
+	<!-- <h:outputScript name="ecommerce/js/jquery-1.11.0.min.js" />
 <h:outputScript name="ecommerce/js/bootstrap.min.js" />
 <h:outputScript name="ecommerce/js/jquery.cookie.js" />        
 <h:outputScript name="ecommerce/js/waypoints.min.js" />    
@@ -218,7 +250,7 @@
 <h:outputScript name="ecommerce/js/bootstrap-hover-dropdown.js" />    
 <h:outputScript name="ecommerce/js/owl.carousel.min.js" />    
 <h:outputScript name="ecommerce/js/front.js" />  
-
+ -->
 </h:body>
 
 </html>

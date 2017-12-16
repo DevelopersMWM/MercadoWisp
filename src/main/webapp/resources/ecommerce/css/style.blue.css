@@ -1,3 +1,44 @@
+/*----------------------------------------
+SECCION PIE DE PAGINA
+-----------------------------------------*/
+.piedepagina {    
+		  text-align: center;
+		  background: #333;
+		       color: white;
+		   font-size: 1.4rem; 
+		     }		     
+.redes-sociales {
+			  display: -webkit-box;
+			  display: -ms-flexbox;
+			  display: flex;
+     -webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	  justify-content: center;
+     	   list-style: none;
+			   margin: 0;
+			  padding: 0; 
+			    }
+.piedepagina .redes-sociales a {
+							  color: #fff;
+						  font-size: 3.3rem;
+							 margin: 0 .5rem;
+				 -webkit-transition: all .5s ease;
+						 transition: all .5s ease; 
+						       }
+						       
+.piedepagina .redes-sociales a:hover {
+  								opacity: .7;  
+  									 }	
+
+@media(max-width:425px){
+	.piedepagina .redes-sociales a {
+						  font-size: 2.5rem;
+						       }
+.piedepagina{
+	font-size:1rem;
+}						       
+}
+
 a,
 button {
   -webkit-transition: all 0.2s ease-out;
@@ -357,7 +398,7 @@ h1 {
   top: 100%;
   border-width: 5px 10px;
   border-style: solid;
-  border-color: #1a60ad #1a60ad transparent transparent;
+  border-color: red red transparent transparent;
 }
 .ribbon.new {
   top: 0px;
@@ -900,55 +941,6 @@ h1 {
   font-size: 18px;
   font-weight: 300;
 }
-#footer {
-  background: #333;
-  padding: 5px 0px;    
-} 	
-#footer .social  {
-  text-align: center;
-}
-#footer .parrafo {
-  text-align: center;
-    color: white;
-    font-size: 15px;
-    padding: 5px;
-}
-#footer .social a {
-  margin: 0 10px 0 0;
-  color: #fff;
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  border-radius: 20px;
-  line-height: 40px;
-  font-size: 30px;
-  text-align: center;
-  -webkit-transition: all 0.2s ease-out;
-  -moz-transition: all 0.2s ease-out;
-  transition: all 0.2s ease-out;
-  vertical-align: bottom;
-  background-color: #555555;
-    
-}
-#footer .social a i {
-  vertical-align: bottom;
-  line-height: 30px;
-}
-#footer .social a.facebook:hover {
-  background-color: #4460ae;
-}
-#footer .social a.gplus:hover {
-  background-color: #c21f25;
-}
-#footer .social a.twitter:hover {
-  background-color: #3cf;
-}
-#footer .social a.instagram:hover {
-  background-color: #cd4378;
-}
-#footer .social a.email:hover {
-  background-color: #4a7f45;
-} 
 #style-switch-button {
   position: fixed;
   top: 80px;
@@ -1163,11 +1155,20 @@ h1 {
 .navbar-toggle {
 	font-size:25px;
       padding: 1px 10px !important;	  
-  margin-left: -30px;    
+  margin-left: -28px;    
    margin-top: 18px;
 margin-bottom: 3px;
         color:#4993e4;
        border:none;  
+}
+@media(max-width:375px){
+	.navbar-toggle{
+	font-size:15px
+	}
+.navbar-header .home .imagen{
+width: 150px;
+height: 35px;
+}
 }
 @media (max-width: 767px) {
   .navbar-toggle {
@@ -1438,7 +1439,7 @@ height: 40px;
 .btn-primary:active,
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
-  margin-left:-25px;
+  margin-left:10px;
   color: #ffffff;
   background-color: transparent;
   border-color: transparent;
