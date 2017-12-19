@@ -23,7 +23,7 @@ public class Productos {
 	@Column(name="Precio")
 	private float precio;
 	
-	@Column(name="Descripcion")
+	@Column(name="Descripcion_Producto")
 	private String descripcion;
 	
 	@Column(name="Tiempo_Garantia")

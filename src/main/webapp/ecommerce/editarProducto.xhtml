@@ -25,29 +25,29 @@
         <h:form id="editSchoolForm" styleClass="form-horizontal">                        
             <div class="form-group">
                 <h:outputLabel for="idLabel" styleClass="control-label col-sm-2">Id:</h:outputLabel>
-                <div class="col-sm-4"><h:inputText id="schoolId" value="#{controllerProducto.obtenerId}" p:readonly="readonly" styleClass="form-control" /></div>
+                <div class="col-sm-4"><h:inputText id="schoolId" value="#{controllerProducto.formProduct.obtenerId}" p:readonly="readonly" styleClass="form-control" /></div>
             </div>
             <div class="form-group">
                 <h:outputLabel for="nameLabel" styleClass="control-label col-sm-2">Nuevo Nombre:</h:outputLabel>
-                <div class="col-sm-4"><h:inputText id="nombre" value="#{controllerProducto.nombre}" styleClass="form-control" /></div>
+                <div class="col-sm-4"><h:inputText id="nombre" value="#{controllerProducto.formProduct.nombre}" styleClass="form-control" /></div>
             </div>
            
             <div class="form-group">
                 <h:outputLabel for="nameLabel" styleClass="control-label col-sm-2">Nuevo Precio:</h:outputLabel>
-                <div class="col-sm-4"><h:inputText id="precio" value="#{controllerProducto.precio}" styleClass="form-control" /></div>
+                <div class="col-sm-4"><h:inputText id="precio" value="#{controllerProducto.formProduct.precio}" styleClass="form-control" /></div>
             </div>
             <div class="form-group">
                 <h:outputLabel for="nameLabel" styleClass="control-label col-sm-2">Nueva Descripcion:</h:outputLabel>
-                <div class="col-sm-4"><h:inputText id="descripcion" value="#{controllerProducto.descripcion}" styleClass="form-control" /></div>
+                <div class="col-sm-4"><h:inputText id="descripcion" value="#{controllerProducto.formProduct.descripcion}" styleClass="form-control" /></div>
             </div>
             <div class="form-group">
             	<h:outputLabel for="nameLabel" styleClass="control-label col-sm-2">Garantia:</h:outputLabel>
-            	 <div class="col-sm-4"><h:inputText id="garantia" value="#{controllerProducto.garantia}" styleClass="form-control" /></div>	
+            	 <div class="col-sm-4"><h:inputText id="garantia" value="#{controllerProducto.formProduct.garantia}" styleClass="form-control" /></div>	
             </div>
             <div class="form-group">
                 <div class="col-sm-2" />
                 <div class="col-sm-4">
-                    <h:commandButton value="actualizar" action="#{controllerProducto.actualizarProducto(controllerProducto)}" styleClass="btn btn-primary updateBtnStyle" />
+                    <h:commandButton value="actualizar" action="#{controllerProducto.actualizarProducto()}" styleClass="btn btn-primary updateBtnStyle" />
                 </div>
                 <div class="col-sm-1" />
                 <div class="col-sm-updated"><h:outputLink value="vistaProductos.xhtml">Lista de productos</h:outputLink></div>

@@ -92,7 +92,7 @@ public class FormCard {
 		log.info("Entrando al metodo"+ " imprimir()===cargo por tarjeta");
 		log.info("token generado"+token+"===========================");
 		log.info("nombre del titular"+titularCard);
-		float precio=Float.parseFloat(cproducto.getEnviarPrecio());
+		float precio=Float.parseFloat(cproducto.formProduct.getEnviarPrecio());
 		ClienteOpenpay clienteOpenpay=new ClienteOpenpay("lauris","Mayis","velis", "alicia@gmail.com");
 		ObjetoPeticionCard objetoPeticionCard=new ObjetoPeticionCard(token, "card",precio, "MXN","Compra TP-link","1rvGhOGaFgPwNbrtefA4IwPZbMRjsQpe", clienteOpenpay);
 		CargoTarjeta cargoT=new CargoTarjeta();

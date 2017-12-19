@@ -9,26 +9,28 @@ import org.springframework.transaction.annotation.Transactional;
 import mx.com.mwisp.dao.ProductoDao;
 import mx.com.mwisp.model.Productos;
 import mx.com.mwisp.service.ProductoService;
+import mx.com.mwm.bo.BOProductosInterface;
+import mx.com.mwm.dto.DTOProductos;
 
 @Service
 public class ProductoServiceImpl implements ProductoService {
 	@Autowired 
 	ProductoDao productoDaoImpl;
 	
-
-	
-
+	@Autowired 
+	BOProductosInterface boProductosImpl;
 
 	@Transactional(readOnly=true, rollbackFor={Exception.class})
 	@Override
-	public List<Productos> listarProductos() {
-		return productoDaoImpl.listaProductos();
+	public List<DTOProductos> listarProductos() {
+		return boProductosImpl.listModelProductosToListDtoProductos(productoDaoImpl.listaProductos());
 	}
+	
 	@Transactional
 	@Override
-	public void insertarProducto(Productos productos) {
-		productoDaoImpl.insertarProducto(productos);
-		
+	public void insertarProducto(DTOProductos dtoProductos) {
+		Productos modelProductos = boProductosImpl.dtoProductosToModelProductos(dtoProductos);
+		productoDaoImpl.insertarProducto(modelProductos);
 	}
 
 	@Transactional
@@ -39,14 +41,14 @@ public class ProductoServiceImpl implements ProductoService {
 	}
 	@Transactional
 	@Override
-	public Productos encontrarProductoPorId(int id) {
-		// TODO Auto-generated method stub
-		return productoDaoImpl.encontrarProductoPorId(id);
+	public DTOProductos encontrarProductoPorId(int id) {
+		return boProductosImpl.modelProductosToDtoProductos(productoDaoImpl.encontrarProductoPorId(id));
 	}
 	@Transactional
 	@Override
-	public void ActualizarProducto(int id, Productos producto) {
-		productoDaoImpl.ActualizarProducto(id, producto);
+	public void ActualizarProducto(int id, DTOProductos dtoProductos) {
+		Productos modelProductos = boProductosImpl.dtoProductosToModelProductos(dtoProductos);
+		productoDaoImpl.ActualizarProducto(id, modelProductos);
 		
 	}
 	
