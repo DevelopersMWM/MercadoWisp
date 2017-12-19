@@ -6,10 +6,15 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+
+import org.primefaces.context.RequestContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import mx.com.mwisp.model.Productos;
 import mx.com.mwisp.service.ProductoService;
+import mx.com.mwm.dto.DTOProductos;
+import mx.com.mwm.dto.helper.FormProductos;
 
 @Controller
 @ManagedBean
@@ -19,65 +24,28 @@ public class ControllerProducto {
 	@Autowired
 	ProductoService productoServiceImpl;
 	
-	private String nombre;
-	private float precio;
-	private String descripcion;
-	private String garantia;
+	private static final Logger log = LoggerFactory.getLogger(ControllerProducto.class);
 	
-	//variable que pasa el precio
-	private String enviarPrecio;
+	FormProductos formProduct;
 	
-	//obtenert el id
-	private String obtenerId;
-	
-	
-	public String getNombre() {
-		return nombre;
-	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public ControllerProducto(){
+		try{
+			formProduct = new FormProductos();
+		}catch(Exception e){
+			log.error(":::Error en el mÃ©todo inicial del ControllerProducto::: ",e);
+		}
 	}
 	
-	public float getPrecio() {
-		return precio;
-	}
-	public void setPrecio(float precio) {
-		this.precio = precio;
-	}
-	public String getDescripcion() {
-		return descripcion;
-	}
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
-	public String getGarantia() {
-		return garantia;
-	}
-	public void setGarantia(String garantia) {
-		this.garantia = garantia;
-	}
-	public String getEnviarPrecio() {
-		return enviarPrecio;
-	}
-	public void setEnviarPrecio(String enviarPrecio) {
-		this.enviarPrecio = enviarPrecio;
+	//este metodo retorna una lista de productos. y es llamado desde la vista ListProduct.xhtml a travï¿½s del MB ComtrollerProduct
+	public List<DTOProductos> listarProductos(){
+		formProduct.setListProductos(productoServiceImpl.listarProductos());
+		RequestContext requestContext = RequestContext.getCurrentInstance();
+		requestContext.execute("PF('dlg1').show();");
+		return formProduct.getListProductos();
 	}
 	
-	public String getObtenerId() {
-		return obtenerId;
-	}
-	public void setObtenerId(String obtenerId) {
-		this.obtenerId = obtenerId;
-	}
-	
-	//este metodo retorna una lista de productos. y es llamado desde la vista ListProduct.xhtml a través del MB ComtrollerProduct
-	public List<Productos> listarProductos(){
-		return productoServiceImpl.listarProductos();
-		
-	}
-	
-	public String agregarProducto(ControllerProducto producto) {
-		productoServiceImpl.insertarProducto(new Productos(producto.getNombre(),producto.getPrecio(), producto.getDescripcion(), producto.getGarantia()));
+	public String agregarProducto() {
+		productoServiceImpl.insertarProducto(new DTOProductos(formProduct.getNombre(),formProduct.getPrecio(), formProduct.getDescripcion(), formProduct.getGarantia()));
 		return "vistaProductos.xhtml?faces-redirect=true";
 	}
 	
@@ -85,25 +53,33 @@ public class ControllerProducto {
 		productoServiceImpl.eliminarProducto(id);
 	}
 	public String pagar() {
-		enviarPrecio=FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("selectedPrecio");
+		formProduct.setEnviarPrecio(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("selectedPrecio"));
 		return "card.xhtml?faces-redirect=true";
 	}
 	public String editarProducto() {
-		obtenerId=FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("selectIdProduct");
-		 int id=Integer.parseInt(obtenerId);
-		 Productos producto=new Productos();
-		 producto=productoServiceImpl.encontrarProductoPorId(id);
-		 nombre=producto.getNombreProducto();
-		 precio=producto.getPrecio();
-		 descripcion=producto.getDescripcion();
-		 garantia=producto.getTiempoGarantia();
+		formProduct.setObtenerId(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("selectIdProduct"));
+		 int id=Integer.parseInt(formProduct.getObtenerId());
+		 DTOProductos dtoProducto=new DTOProductos();
+		 dtoProducto=productoServiceImpl.encontrarProductoPorId(id);
+		 formProduct.setNombre(dtoProducto.getNombreProducto());
+		 formProduct.setPrecio(dtoProducto.getPrecio());
+		 formProduct.setDescripcion(dtoProducto.getDescripcionProducto());
+		 formProduct.setGarantia(dtoProducto.getTiempoGarantia());
 		 
 		return "editarProducto";
 	}
-	public String actualizarProducto (ControllerProducto producto) {
-		int id=Integer.parseInt(producto.getObtenerId());
-		productoServiceImpl.ActualizarProducto(id,new Productos(producto.getNombre(), producto.getPrecio(), producto.getDescripcion(), producto.getGarantia()));
+	public String actualizarProducto() {
+		int id=Integer.parseInt(formProduct.getObtenerId());
+		productoServiceImpl.ActualizarProducto(id,new DTOProductos(formProduct.getNombre(), formProduct.getPrecio(), formProduct.getDescripcion(), formProduct.getGarantia()));
 		return "vistaProductos.xhtml?faces-redirect=true";
+	}
+
+	public FormProductos getFormProduct() {
+		return formProduct;
+	}
+
+	public void setFormProduct(FormProductos formProduct) {
+		this.formProduct = formProduct;
 	}
 	
 }
