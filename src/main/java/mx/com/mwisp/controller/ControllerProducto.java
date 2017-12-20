@@ -39,8 +39,8 @@ public class ControllerProducto {
 	//este metodo retorna una lista de productos. y es llamado desde la vista ListProduct.xhtml a trav�s del MB ComtrollerProduct
 	public List<DTOProductos> listarProductos(){
 		formProduct.setListProductos(productoServiceImpl.listarProductos());
-		RequestContext requestContext = RequestContext.getCurrentInstance();
-		requestContext.execute("PF('dlg1').show();");
+		//RequestContext requestContext = RequestContext.getCurrentInstance();
+		//requestContext.execute("PF('dlg1').show();");
 		return formProduct.getListProductos();
 	}
 	
