@@ -14,7 +14,7 @@ import me.legrange.mikrotik.ApiConnection;
 import me.legrange.mikrotik.MikrotikApiException;
 import mx.com.mwisp.controller.ClientesController;
 import mx.com.mwisp.service.ClientesService;
-//import mx.com.mwisp.util.Translator;
+import mx.com.mwisp.util.Translator;
 
 @Service
 public class ClientesServiceImpl implements ClientesService {
@@ -24,10 +24,10 @@ public class ClientesServiceImpl implements ClientesService {
 		ApiConnection con;
 		List<Map<String, String>> rs;
 		try {
-//			con=ApiConnection.connect("mercadowispmexico.dyndns.org");
+//			con=ApiConnection.connect("mercadowispmexico.dyndns.org"); ROUTER MIGUEL
 			con=ApiConnection.connect("10.1.1.1");
 			con.login("admin","");
-//			con.login("sistema","isc2017");
+//			con.login("sistema","isc2017"); ROUTER MIGUEL
 //			rs = con.execute("/ip/firewall/address-list/print where list=1-MOROSO");
 			rs = con.execute("/ip/firewall/address-list/print where comment!=null");
 			List<ClientesController> listClientes= new ArrayList<ClientesController>();
@@ -58,8 +58,8 @@ public class ClientesServiceImpl implements ClientesService {
 		String routerIp=cliente.getOpcionActual();
 		String corte=df.format(cliente.getDiaCorte());
 		ApiConnection con;
-		//Translator http = new Translator();
-		String word="";
+		Translator http = new Translator();
+		String word;
 		String en;
 		String script= "/ip/firewall/address-list/add address=%s comment=\"%s-%s-%s\" list=%s";
 		String resultado = String.format(script,ip,nombre,sector,corte,plan);
@@ -73,7 +73,7 @@ public class ClientesServiceImpl implements ClientesService {
 		}catch (MikrotikApiException e) {
 			en=e.getMessage();
 			try {
-				//word=http.callUrlAndParseResult("en", "es", en);
+				word=http.callUrlAndParseResult("en", "es", en);
 				System.out.println("Algo salio mal... " + word);
 				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("CreadoClienteNombre", word);
 			}catch (Exception e1) {
