@@ -59,4 +59,11 @@ public class PlanController {
 		return planService.listaPlan();
 	}
 	
+	public void crearPlamInMk(PlanController plan) {
+		planService.crearPlan(plan);
+	}
+	
+	public void eliminarPlan(String id) {
+		planService.eliminarPlan(id);
+	}
 }
