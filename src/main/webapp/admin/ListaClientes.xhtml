@@ -374,7 +374,7 @@
 				</span>
 			</a>
 				<ul class="treeview-menu">
-					<li><a href="simple.xhtml"><i class="fa fa-circle-o"></i>
+					<li><a href="ListaRouter.xhtml"><i class="fa fa-circle-o"></i>
 							Routers</a></li>
 					<li><a href="ListaPlanes.xhtml"><i class="fa fa-circle-o"></i>
 							Planes de Internet</a></li>
@@ -453,8 +453,8 @@
 			</h1>
 			<ol class="breadcrumb">
 				<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-				<li><a href="#">Planes</a></li>
-				<li class="active">Lista de planes</li>
+				<li><a href="#">Clientes</a></li>
+				<li class="active">Lista de Clientes</li>
 			</ol>
 			</section>
 
@@ -469,6 +469,16 @@
 									data-toggle="modal" data-target="#modal-default">
 									Nuevo cliente <i class="fa fa-plus-circle" aria-hidden="true"></i>
 								</button>
+								<h:form id="SelectRouter">
+									<span class="label label-success">Seleccione un router</span>
+									<h:selectOneMenu value="#{clientesController.opcionActual}"
+										class="btn btn-default dropdown-toggle">
+										<f:selectItems value="#{routerController.routerList()}"
+											var="entry" itemValue="#{entry.idRouter}"
+											itemLabel="#{entry.nombreRouter}" />
+									</h:selectOneMenu>
+									<h:commandButton action="#{clientesController.pruebas(clientesController)}" value="Listar" />
+								</h:form>
 								<div class="modal fade" id="modal-default">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -506,21 +516,21 @@
 																<label for="inputNombreRouter"
 																	class="col-sm-5 control-label">Router:</label>
 																<div class="col-sm-5">
-																
+
 																	<h:selectOneMenu
 																		value="#{clientesController.opcionActual}"
 																		class="form-control">
 															                <f:selectItems
 																			value="#{routerController.routerList()}" var="entry"
-																			itemValue="#{entry.ipDns}"
-																			itemLabel="#{entry.nombre}" />
+																			itemValue="#{entry.idRouter}"
+																			itemLabel="#{entry.nombreRouter}" />
 																		<!-- <f:ajax render="opcionActual" /> -->
             															</h:selectOneMenu>
 																	 
 																	<!-- <h:commandButton value="Mostrar" />
 																		<h:outputText id="opcionActual" value="#{routerController.opcionActual}" /> -->
 																	        
-																	
+
 																</div>
 															</div>
 
@@ -625,32 +635,38 @@
 										</tr>
 									</thead>
 									<tbody>
-										<ui:repeat value="${clientesController.clientesList()}"
-											var="clientes" varStatus="status">
-											<tr>
-												<td>${status.index+1}</td>
-												<td>${clientes.id}</td>
-												<td>${clientes.nombre}</td>
-												<td>${clientes.ip}</td>
-												<td>${clientes.plan}</td>
-												<td>${clientes.fecha}</td>
-												<td>Belizario</td>
-												<td>9581288031</td>
-												<td>2</td>
-												<td>
-													<div class="text-center">
-														<h:link outcome="index" alt="Editar"
+										<h:form>
+											<ui:repeat value="${clientesController.clientesList()}"
+												var="clientes" varStatus="status">
+												<tr>
+													<td>${status.index+1}</td>
+													<td>${clientes.id}</td>
+													<td>${clientes.nombre}</td>
+													<td>${clientes.ip}</td>
+													<td>${clientes.plan}</td>
+													<td>${clientes.fecha}</td>
+													<td>Belizario</td>
+													<td>9581288031</td>
+													<td>2</td>
+													<td>
+														<div class="text-center">
+															<!-- <h:commandButton
+																action="#{clientesController.eliminarCliente(clientes.id)}"
+																value="Delete" styleClass="btn btn-danger" /> -->
+															
+															<h:link outcome="index" alt="Editar"
 															class="btn btn-success btn-xs">
 															<i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
 														</h:link>
-														<h:link outcome="login" alt="Eliminar"
-															class="btn btn-danger btn-xs">
-															<i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
-														</h:link>
-													</div>
-												</td>
-											</tr>
-										</ui:repeat>
+															<h:link outcome="login" alt="Eliminar"
+																class="btn btn-danger btn-xs">
+																<i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+															</h:link>
+														</div>
+													</td>
+												</tr>
+											</ui:repeat>
+										</h:form>
 									</tbody>
 									<tfoot>
 										<tr>
