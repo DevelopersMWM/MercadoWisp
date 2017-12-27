@@ -1,5 +1,7 @@
 package mx.com.mwisp.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="T_Routers")
-public class Router implements java.io.Serializable{
+public class Router implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -31,7 +33,6 @@ public class Router implements java.io.Serializable{
 	@Column(name="Ubicacion")
 	private String ubicacion;
 	
-	//
 	private static final long serialVersionUID = 1L;
 	
 	

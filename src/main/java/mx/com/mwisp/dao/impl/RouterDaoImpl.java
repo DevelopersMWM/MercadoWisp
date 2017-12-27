@@ -1,11 +1,8 @@
 package mx.com.mwisp.dao.impl;
 
 import java.util.List;
-import java.util.Optional;
 
-import com.google.common.collect.Lists;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
@@ -20,7 +17,6 @@ public class RouterDaoImpl implements RouterDao {
 	
 	@PersistenceContext
 	private EntityManager em;
-	private EntityTransaction et;
 
 	public EntityManager getEm() {
 		return em;
@@ -32,16 +28,6 @@ public class RouterDaoImpl implements RouterDao {
 	}
 
 
-	public EntityTransaction getEt() {
-		return et;
-	}
-
-
-	public void setEt(EntityTransaction et) {
-		this.et = et;
-	}
-
-
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Router> routerList() {
@@ -50,8 +36,6 @@ public class RouterDaoImpl implements RouterDao {
 		List<Router> routers=(List<Router>) query.getResultList();
 		return routers;
 	}
-
-
 	
 	@Override
 	@Transactional
@@ -60,18 +44,25 @@ public class RouterDaoImpl implements RouterDao {
 		System.out.println("Router Guardado");
 	}
 
-
-	@Override
-	public Router findByNombre(String nombre) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
 	@Override
 	public void eliminarRouterEnDB(int id) {
 		Router router=em.find(Router.class, id);
 		em.remove(router);
+	}
+
+
+	@Override
+	public void actulizarRouterEnDB(int id, Router router) {
+		router.setId(id);
+		em.merge(router);
+		//em.refresh(router);
+	}
+
+
+	@Override
+	public Router findById(int id) {
+		Router router=em.find(Router.class, id);
+		return router;
 	}
 
 }

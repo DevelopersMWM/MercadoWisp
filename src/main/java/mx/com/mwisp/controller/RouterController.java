@@ -4,74 +4,38 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import mx.com.mwisp.model.Router;
 import mx.com.mwisp.service.RouterService;
+import mx.com.mwm.dto.DTORouter;
+import mx.com.mwm.dto.helper.FormRouter;
 
 @Controller
 @ManagedBean
 @RequestScoped
 public class RouterController{
 
-	//Map<String, Router> routerByNombre = toMapBy(routerList(), Router::getNombre);
 	private String opcionActual;
 	/**
 	 * 
 	 */
 	@Autowired
 	RouterService routerService;
+
+	FormRouter formRouter;
 	
-	private String nombre;
-	private String ipDns;
-	private String nombreUsuario;
-	private String llave;
-	private String ubicacion;
+	public RouterController() {
+		try{
+			formRouter=new FormRouter();
+		}catch(Exception e) {
+			System.out.println(":::Ocurrió un error!!!");
+		}
+	}
 	
-	private List<Router> listaRouter;
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getIpDns() {
-		return ipDns;
-	}
-
-	public void setIpDns(String ipDns) {
-		this.ipDns = ipDns;
-	}
-
-	public String getNombreUsuario() {
-		return nombreUsuario;
-	}
-
-	public void setNombreUsuario(String nombreUsuario) {
-		this.nombreUsuario = nombreUsuario;
-	}
-
-	public String getLlave() {
-		return llave;
-	}
-
-	public void setLlave(String llave) {
-		this.llave = llave;
-	}
-
-	public String getUbicacion() {
-		return ubicacion;
-	}
-
-	public void setUbicacion(String ubicacion) {
-		this.ubicacion = ubicacion;
-	}
-
 	public String getOpcionActual() {
 		return opcionActual;
 	}
@@ -79,60 +43,49 @@ public class RouterController{
 	public void setOpcionActual(String opcionActual) {
 		this.opcionActual = opcionActual;
 	}
-
-	public List<Router> getListaRouter() {
-		return listaRouter;
-	}
-
-	public void setListaRouter(List<Router> listaRouter) {
-		this.listaRouter = listaRouter;
-	}
-	public List<Router> routerList(){
-		return routerService.routerList();
+	public List<DTORouter> routerList(){
+		formRouter.setListRouter(routerService.routerList());
+		//formRouter.setListRouter(routerService.routerList());
+		return formRouter.getListRouter();
 	}
 	/*public void guardarRouter(Router router) {
 		System.out.println("Guardando..");
 		routerService.guardar(router);
 	}*/
-	public String guardarRouter(RouterController router) {
-		routerService.agregarRouter(new Router(router.getNombre(),router.getIpDns(),router.getNombreUsuario(),router.getLlave(),router.getUbicacion()));
-		return "simple.xhtml?faces-redirect=true";
+	public String guardarRouter() {
+		routerService.agregarRouter(new DTORouter(formRouter.getNombre(),formRouter.getIpDns(), formRouter.getNombreUsuario(), formRouter.getObtenerLlave(), formRouter.getUbicacion()));
+		//routerService.agregarRouter(new Router(router.getNombre(),router.getIpDns(),router.getNombreUsuario(),router.getLlave(),router.getUbicacion()));
+		return "ListaRouter.xhtml?faces-redirect=true";
 	}
 	
 	public void eliminarRouter(int id) {
 		routerService.eliminarRouter(id);
 	}
-	
-	public List<Router> listaNombre(){
-		listaRouter=routerService.routerList();
-		for(Router selected: listaRouter) {
-			nombre=selected.getNombre();
-		}
-		return listaRouter;
-		
-	}
-	/*public List<Router> getRouterList() {
-		return routerList;
+
+	public FormRouter getFormRouter() {
+		return formRouter;
 	}
 
-	public void setRouterList(List<Router> routerList) {
-		this.routerList = routerList;
-	} 
+	public void setFormRouter(FormRouter formRouter) {
+		this.formRouter = formRouter;
+	}
 	
-	public List<Router> getRouterDetails() {
-		System.out.println("Lamando getRouterDetails para mostrar routers... ");
-		RouterDAOImpl dbObj=new RouterDAOImpl();
-		routerList=dbObj.getRouter();
-		for(Router selectedRouter : routerList) {
-			//selectedRouter.getId();
-			nombre=selectedRouter.getNombre();
-			ipDns=selectedRouter.getIpDns();
-			nombreUsuario=selectedRouter.getNombreUser();
-			System.out.println("Nombre: " + nombre + " ipDns: " + ipDns + " Nombre de Usuario: " + nombreUsuario);
-			//selectedRouter.getLlave();
-			//lectedRouter.getUbicacion();
-			//System.out.println("id: " + id +" nombre: "+nombre+" IpDNS: "+ipDns+" nombre Usurario: " +nombreUser+" llave: " + llave + " Ubicacion: " + ubicacion + " ");
-		}
-		return routerList;
-	}*/
+	public String editarRouter(){
+		formRouter.setObtenerId(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("selectedRouterId"));
+		int id=Integer.parseInt(formRouter.getObtenerId());
+		DTORouter dtoRouter=new DTORouter();
+		dtoRouter=routerService.buscarRouterPorId(id);
+		formRouter.setNombre(dtoRouter.getNombreRouter());
+		formRouter.setIpDns(dtoRouter.getIpODnsRouter());
+		formRouter.setNombreUsuario(dtoRouter.getUserRouter());
+		formRouter.setObtenerLlave(dtoRouter.getPassRouter());
+		formRouter.setUbicacion(dtoRouter.getUbicacionRouter());
+		return "EditarRouter";
+	}
+	
+	public String actualizarRouter() {
+		int id=Integer.parseInt(formRouter.getObtenerId());
+		routerService.actualizarRouter(id, new DTORouter(formRouter.getNombre(), formRouter.getIpDns(), formRouter.getNombreUsuario(), formRouter.getObtenerLlave(), formRouter.getUbicacion()));
+		return "ListaRouter.xhtml?faces-redirect=true";
+	}
 }
