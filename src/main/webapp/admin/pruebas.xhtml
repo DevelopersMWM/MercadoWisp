@@ -8,14 +8,14 @@
 <h:body>
         <h:form>
             Opciones: 
-				<h:selectOneMenu value="#{routerController.opcionActual}">
+				<h:selectOneMenu value="#{clientesController.opcionActual}">
 	                <f:selectItems value="#{routerController.routerList()}" var="entry"
-        itemValue="#{entry.ipDns}" itemLabel="#{entry.nombre}"/>
+						itemValue="#{entry.idRouter}" itemLabel="#{entry.nombreRouter}"/>
 					<f:ajax render="opcionActual" />
             	</h:selectOneMenu>
- 				<h:commandButton value="Mostrar" />
+ 				<h:commandButton action="#{clientesController.pruebas(clientesController)}" value="Mostrar" />
              Opción seleccionada: 
-				<h:outputText id="opcionActual" value="#{routerController.opcionActual}" />
+				<h:outputText id="opcionActual" value="#{clientesController.opcionActual}" />
         </h:form>
     </h:body>
 </html>
