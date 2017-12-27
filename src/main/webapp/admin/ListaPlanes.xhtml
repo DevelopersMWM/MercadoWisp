@@ -330,11 +330,11 @@
 				<ul class="treeview-menu">
 					<li><a href="ListaClientes.xhtml"><i class="fa fa-users"></i>
 							Lista de clientes</a></li>
-					<li><a href="pages/layout/boxed.html"><i
+					<li><a href="Error500.xhtml"><i
 							class="fa fa-building-o"></i> Instalaciones</a></li>
-					<li><a href="pages/layout/fixed.html"><i
+					<li><a href="Error500.xhtml"><i
 							class="fa fa-signal"></i> Tráfico</a></li>
-					<li><a href="pages/layout/collapsed-sidebar.html"><i
+					<li><a href="Error500.xhtml"><i
 							class="fa fa-area-chart"></i> Estadisticas</a></li>
 				</ul></li>
 			<li class="treeview active"><a href="#"> <i
@@ -344,13 +344,13 @@
 				</span>
 			</a>
 				<ul class="treeview-menu">
-					<li><a href="simple.xhtml"><i class="fa fa-circle-o"></i>
+					<li><a href="ListaRouter.xhtml"><i class="fa fa-circle-o"></i>
 							Routers</a></li>
 					<li class="active"><a href="ListaPlanes.xhtml"><i
 							class="fa fa-circle-o"></i> Planes de Internet</a></li>
-					<li><a href="data.xhtml"><i class="fa fa-circle-o"></i>
+					<li><a href="Error500.xhtml"><i class="fa fa-circle-o"></i>
 							Zonas</a></li>
-					<li><a href="data.xhtml"><i class="fa fa-desktop"></i>
+					<li><a href="Error500.xhtml"><i class="fa fa-desktop"></i>
 							Monitoreo</a></li>
 					<!--<li><a href="data.xhtml"><i class="fa fa-circle-o"></i> Data tables</a></li>-->
 				</ul></li>
@@ -361,13 +361,13 @@
 				</span>
 			</a>
 				<ul class="treeview-menu">
-					<li><a href="pages/charts/chartjs.html"><i
+					<li><a href="Error500.xhtml"><i
 							class="fa fa-money"></i> Pagos Pendientes</a></li>
-					<li><a href="pages/charts/morris.html"><i
+					<li><a href="Error500.xhtml"><i
 							class="fa fa-book"></i> Facturas</a></li>
-					<li><a href="pages/charts/flot.html"><i
+					<li><a href="Error500.xhtml"><i
 							class="fa fa-address-book-o"></i> Reporte de Pago</a></li>
-					<li><a href="pages/charts/inline.html"><i
+					<li><a href="Error500.xhtml"><i
 							class="fa fa-bar-chart"></i> Estadisticas</a></li>
 				</ul></li>
 			<li class="treeview"><a href="#"> <i class="fa fa-laptop"></i>
@@ -376,20 +376,20 @@
 				</span>
 			</a>
 				<ul class="treeview-menu">
-					<li><a href="pages/UI/general.html"><i
+					<li><a href="Error500.xhtml"><i
 							class="fa fa-flag-o"></i> Reportes</a></li>
-					<li><a href="pages/UI/icons.html"><i class="fa fa-ticket"></i>
+					<li><a href="Error500.xhtml"><i class="fa fa-ticket"></i>
 							Tickets</a></li>
-					<li><a href="pages/UI/buttons.html"><i
+					<li><a href="Error500.xhtml"><i
 							class="fa fa-server"></i> Servicios</a></li>
 				</ul></li>
-			<li><a href="pages/calendar.html"> <i class="fa fa-calendar"></i>
+			<li><a href="Error500.xhtml"> <i class="fa fa-calendar"></i>
 					<span>Calendario</span> <span class="pull-right-container">
 						<small class="label pull-right bg-red">3</small> <small
 						class="label pull-right bg-blue">17</small>
 				</span>
 			</a></li>
-			<li><a href="pages/mailbox/mailbox.html"> <i
+			<li><a href="Error500.xhtml"> <i
 					class="fa fa-envelope"></i> <span>Mail</span> <span
 					class="pull-right-container"> <small
 						class="label pull-right bg-yellow">12</small> <small
@@ -451,12 +451,61 @@
 						</div>
 						<!-- /.box-header -->
 						<div class="box-body table-responsive no-padding">
-							<c:if test="${!empty planController.planList()}">
+							<h:form id="schoolForm">
+								<h:dataTable id="schoolTable" binding="#{table}"
+									value="#{planController.planList()}" var="planes"
+									varStatus="status" styleClass="table table-hover">
+									<h:column>
+										<f:facet name="header">#</f:facet>
+										#{status.index+1}
+									</h:column>
+									<h:column>
+										<f:facet name="header">Id</f:facet>
+										#{planes.id}
+									</h:column>
+									<h:column>
+										<f:facet name="header">Nombre</f:facet>
+										#{planes.nombre}
+									</h:column>
+									<h:column>
+										<f:facet name="header">Acción</f:facet>
+										<h:commandLink id="Actualizar" action="index.xhtml"
+											styleClass="btn btn-success btn-xs">
+											<i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
+										</h:commandLink>
+										<span>   </span>
+										<h:commandLink id="Eliminar" action="search.xhtml"
+											styleClass="btn btn-danger btn-xs">
+											<i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+										</h:commandLink>
+										<h:commandButton
+											action="#{planController.eliminarPlan(planes.id)}"
+											value="Eliminar" styleClass="btn btn-danger" />
+										<!-- <h:commandButton
+											action="#{schoolBean.editSchoolDetailsById()}" value="fa fa-usd form-control-feedback"
+											styleClass="btn btn-primary">
+											<span class="fa fa-usd form-control-feedback"></span>
+											<i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
+											<f:param name="selectedSchoolId" value="#{school.id}" />
+										</h:commandButton> -->
+									</h:column>
+									<!-- <h:column>
+										<f:facet name="header">Delete</f:facet>
+										<h:commandButton
+											action="#{schoolBean.deleteSchoolById(school.id)}"
+											value="Delete" styleClass="btn btn-danger" />
+									</h:column> -->
+								</h:dataTable>
+								<!-- <center>
+								<h:commandButton action="newSchool.xhtml?faces-redirect=true"
+									value="Add New School" styleClass="btn btn-success btnSpace" /></center> -->
+							</h:form>
+							<!-- <c:if test="${!empty planController.planList()}">
 								<table class="table table-hover">
 									<tr>
 										<th>#</th>
 										<th>Id</th>
-										<!-- <th>Id</th> -->
+										<th>Id</th>
 										<th>Nombre</th>
 										<th>Descarga</th>
 										<th>Subida</th>
@@ -474,7 +523,7 @@
 											<td>5MBPS</td>
 											<td>Todos</td>
 											<td>$200</td>
-											<!-- <td><span class="label label-success">Conectado</span></td> -->
+											<td><span class="label label-success">Conectado</span></td>
 											<td>
 												<div class="text-center">
 													<h:link outcome="index" alt="Editar"
@@ -490,7 +539,7 @@
 										</tr>
 									</ui:repeat>
 								</table>
-							</c:if>
+							</c:if> -->
 						</div>
 						<!-- /.box-body -->
 					</div>
