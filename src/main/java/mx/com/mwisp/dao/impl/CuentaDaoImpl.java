@@ -6,8 +6,8 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 
 import mx.com.mwisp.dao.CuentaDao;
-import mx.com.mwisp.model.Cuenta;
-import mx.com.mwisp.model.Rol;
+//import mx.com.mwisp.model.Cuenta;
+//import mx.com.mwisp.model.Rol;
 
 @Repository
 public class CuentaDaoImpl implements CuentaDao {
@@ -23,12 +23,12 @@ public class CuentaDaoImpl implements CuentaDao {
 		this.em = em;
 	}
 
-	@Override
-	public void insertarCuenta(Cuenta cuenta) {
-		Rol rol=em.find(Rol.class, 1);
-		cuenta.setRol(rol);
-		em.persist(cuenta);
+//	@Override
+//	public void insertarCuenta(Cuenta cuenta) {
+//		Rol rol=em.find(Rol.class, 1);
+//		cuenta.setRol(rol);
+//		em.persist(cuenta);
 		
-	}
+//	}
 
 }

@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -47,6 +49,10 @@ public class Direccion implements Serializable{
 	
 	@Column(name="Municipio")
 	private String municipio;
+	
+	@ManyToOne
+	@JoinColumn(name="Fk_Persona")
+	private Persona persona;
 	
 	public Direccion() {
 		// TODO Auto-generated constructor stub

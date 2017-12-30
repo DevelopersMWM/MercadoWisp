@@ -78,8 +78,7 @@ public class MbPagos implements Serializable {
 			CargoBanco cargoBanco=new CargoBanco();
 			RespuestaPeticion respuestaPeticion=cargoBanco.cargoB(objPeticion);
 			System.out.println(respuestaPeticion.getId());
-			String urlPdfBanco="\r\n" + 
-					"https://sandbox-dashboard.openpay.mx/spei-pdf/mexcviwsqt2snzeylcy5/"+respuestaPeticion.getId();
+			String urlPdfBanco="\r\n" +"https://sandbox-dashboard.openpay.mx/spei-pdf/mexcviwsqt2snzeylcy5/"+respuestaPeticion.getId();
 			System.out.println(urlPdfBanco);
 			ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 		    externalContext.redirect(urlPdfBanco);

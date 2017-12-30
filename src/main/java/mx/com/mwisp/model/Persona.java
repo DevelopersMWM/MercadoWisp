@@ -7,8 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -38,17 +36,6 @@ public class Persona implements Serializable {
 	@Column(name = "Telefono", nullable = false)
 	private String telefono;
 	
-	
-	@OneToOne
-	@JoinColumn(name="Fk_Direccion")
-	private Direccion direccion;
-	
-	@OneToOne
-	@JoinColumn(name="Fk_Cuenta")
-	private Cuenta cuenta;
-
-
-
 	public Persona() {
 
 	}
@@ -101,27 +88,7 @@ public class Persona implements Serializable {
 		this.telefono = telefono;
 	}
 	
-	public Direccion getDireccion() {
-		return direccion;
-	}
-	public void setDireccion(Direccion direccion) {
-		this.direccion = direccion;
-	}
 	
-	public Cuenta getCuenta() {
-		return cuenta;
-	}
-	
-	public void setCuenta(Cuenta cuenta) {
-		this.cuenta = cuenta;
-	}
-
-	@Override
-	public String toString() {
-		return "Persona [id_Persona=" + id_Persona + ", nombre=" + nombre + ", ap_Paterno=" + ap_Paterno
-				+ ", ap_Materno=" + ap_Materno + ", telefono=" + telefono + ", direccion=" + direccion + ", cuenta="
-				+ cuenta + "]";
-	}
 	
 
 	

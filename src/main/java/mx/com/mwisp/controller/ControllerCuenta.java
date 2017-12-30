@@ -6,7 +6,7 @@ import javax.faces.bean.RequestScoped;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import mx.com.mwisp.model.Cuenta;
+
 import mx.com.mwisp.service.CuentaService;
 
 @Controller
@@ -50,7 +50,7 @@ public class ControllerCuenta {
 	
 	public void agregarCuenta(ControllerCuenta cuenta) {
 		
-		cuentaServiceImpl.agregarCuenta(new Cuenta(cuenta.getUsuario(), cuenta.getPassword(), cuenta.getMail()));
+		//cuentaServiceImpl.agregarCuenta(new Cuenta(cuenta.getUsuario(), cuenta.getPassword(), cuenta.getMail()));
 		
 		
 	}

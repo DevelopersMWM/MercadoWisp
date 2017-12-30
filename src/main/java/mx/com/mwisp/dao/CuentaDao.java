@@ -1,9 +1,9 @@
 package mx.com.mwisp.dao;
 
-import mx.com.mwisp.model.Cuenta;
+//import mx.com.mwisp.model.Cuenta;
 
 public interface CuentaDao {
-	public void insertarCuenta(Cuenta cuenta);
+	//public void insertarCuenta(Cuenta cuenta);
 	
 
 }
