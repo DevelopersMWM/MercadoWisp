@@ -24,7 +24,7 @@ public class ProductoServiceImpl implements ProductoService {
 	@Override
 	public List<DTOProductos> listarProductos() {
 		return boProductosImpl.listModelProductosToListDtoProductos(productoDaoImpl.listaProductos());
-	}
+	} 
 	
 	@Transactional
 	@Override

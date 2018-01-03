@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<h:outputStylesheet name="ecommerce/css/bootstrap.min.css" />
+	<title>JSF JPA Crud Example</title>
+	<style type="text/css">
+.tableUpdated {
+	width: 90% !important;
+	margin: 17px 58px 0 !important;
+}
+
+.btnSpace {
+	margin: 17px;
+}
+</style>
+
+</h:head>
+
+
+<h:body>
+	<center>
+		<h2>
+			<h:outputText value="Lista de Productos" />
+		</h2>
+	</center>
+	<h:form id="ProductoForm">
+		<!-- h:dataTable es de JsF y aqui no inicializas producto como en tu ejemplo en el mb para acceder o si??  -->
+		<h:dataTable id="schoolTable" binding="#{table}"
+			value="#{personaController.listaPersonas()}" var="persona"
+			styleClass="table table-striped table-bordered tableUpdated">
+			<h:column>
+				<f:facet name="header">Id</f:facet>
+				<h:outputText value="#{persona.idPersona}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nombre</f:facet>
+				<h:outputText value="#{persona.nombrePersona}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Apellido Paterno</f:facet>
+				<h:outputText value="#{persona.apPaterno}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Apellido Materno</f:facet>
+				<h:outputText value="#{persona.apMaterno}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Telefono</f:facet>
+				<h:outputText value="#{persona.telPersona}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Acción</f:facet>
+				<h:commandButton action="#{personaController.editarPersona()}"
+					value="Actualizar" styleClass="btn btn-primary btn-xs">
+					<f:param name="selectedPersonaId" value="#{persona.idPersona}" />
+				</h:commandButton>
+				<span></span>
+				<span></span>
+				<h:commandButton
+					action="#{personaController.eliminarPersona(persona.idPersona)}"
+					value="eliminar" styleClass="btn btn-danger btn-xs">
+				</h:commandButton>
+			</h:column>
+		</h:dataTable>
+		<center>
+			<h:commandButton action="addPersona.xhtml?faces-redirect=true"
+				value="Agregar nueva Persona" styleClass="btn btn-success btnSpace" />
+		</center>
+	</h:form>
+</h:body>
+</html>

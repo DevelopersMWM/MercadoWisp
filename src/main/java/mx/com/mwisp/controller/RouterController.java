@@ -9,7 +9,6 @@ import javax.faces.context.FacesContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import mx.com.mwisp.model.Router;
 import mx.com.mwisp.service.RouterService;
 import mx.com.mwm.dto.DTORouter;
 import mx.com.mwm.dto.helper.FormRouter;

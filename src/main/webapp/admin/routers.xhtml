@@ -12,73 +12,75 @@
 	<meta name="description" content="MWM ADMINISTRACION" />
 	<meta name="author" content="     " />
 	<meta name="keywords" content="" />
-	<title>Agregue Un Router</title>
-	<!-- <link href="css/formulario.css" rel="stylesheet" type="text/css" /> -->
+	<h:outputStylesheet name="admin/css/bootstrap.min.css" />
+	<h:outputStylesheet name="admin/fonts/font-awesome.min.css" />
+	<style type="text/css">
+.tableUpdated {
+	width: 90% !important;
+	margin: 17px 58px 0 !important;
+}
+
+.btnSpace {
+	margin: 17px;
+}
+</style>
 </h:head>
-<body>
-	<div id="contenedor">
-		<div id="cabecera">
-			<h1>Bienvenido</h1>
-		</div>
-		<div id="principal">
-			<div id="izquierda">
-				<h3>Título de columna</h3>
-				<ul>
-					<li><a href="#">Link uno</a></li>
-					<li><a href="#">Link uno</a></li>
-					<li><a href="#">Link uno</a></li>
-					<li><a href="#">Link uno</a></li>
-					<li><a href="#">Link uno</a></li>
-					<li><a href="#">Link uno</a></li>
-					<li><a href="#">Link uno</a></li>
-				</ul>
-				<p>Quisque pharetra sodales eros, at gravida tortor tempor sed.
-					Mauris ac odio sapien, a tincidunt augue. Cras sed turpis et leo
-					ullamcorper egestas. Donec vitae erat arcu, eget aliquam nisi. Nam
-					fringilla hendrerit tortor non suscipit.</p>
+<h:body>
+	<center>
+	<h2>
+		<h:outputText value="School Records" />
+	</h2>
+	</center>
+	<div class="box-body table-responsive no-padding">
+	<h:form id="schoolForm">
+		<h:dataTable id="schoolTable" binding="#{table}"
+			value="#{routerController.routerList()}" var="school"
+			class="table table-hover">
+			<!-- styleClass="table table-striped table-bordered tableUpdated"> -->
+			<h:column>
+				<f:facet name="header">Id</f:facet>
+				<h:outputText value="#{school.id}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nombre</f:facet>
+				<h:outputText value="#{school.nombre}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Ip o DNS</f:facet>
+				<h:outputText value="#{school.ipDns}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Usuario</f:facet>
+				<h:outputText value="#{school.nombreUser}" />
+			</h:column>
+			<div class="btn-group">
+			<h:column>
+				<f:facet name="header">Update</f:facet>
+				<h:commandButton action="#{schoolBean.editSchoolDetailsById()}"
+					value="Actualizar" styleClass="btn btn-primary btn-xs">
+					<f:param name="selectedSchoolId" value="#{school.id}" />
+				</h:commandButton>
+				<span></span>
+			 	<h:commandButton
+					action="#{routerController.eliminarRouter(school.id)}"
+				    value="Suspender" styleClass="btn btn-default btn-xs">
+				</h:commandButton>
+				<span></span>
+				<h:commandButton
+					action="#{routerController.eliminarRouter(school.id)}"
+				    value="eliminar" styleClass="btn btn-danger btn-xs">
+				</h:commandButton>
+			</h:column>
 			</div>
-			<div id="central">
-				<h2>Formulario</h2>
-				<form id="miformulario" class="formulario" action="">
-					<p>
-						<label for="nombre">Nombre:</label> <input type="text" id="user"
-							value="" />
-					</p>
-					<p>
-						<label for="email">Email:</label> <input type="text"
-							id="emailaddress" value="" />
-					</p>
-					<p>
-						<label for="mensaje">Mensaje:</label>
-						<textarea id="mensaje"></textarea>
-					</p>
-					<p>
-						<label for="comentarios">Sexo:</label> Masculino: <input
-							type="radio" name="sex" /> Femenino: <input type="radio"
-							name="sex" /><br />
-					</p>
-					<p>
-						<label for="comentarios">Color preferido:</label> <input
-							type="checkbox" name="color" /> Rojo<br /> <input
-							type="checkbox" name="color" class="threepxfix" /> Verde <br />
-						<input type="checkbox" name="color" class="threepxfix" /> Azul <br />
-					</p>
-					<p>
-						<label for="terms">Acepto los términos</label> <input
-							type="checkbox" id="terms" class="boxes" />
-					</p>
-					<div id="botones">
-						<input type="submit" value="Submit" /> <input type="reset"
-							value="reset" />
-					</div>
-				</form>
-			</div>
-		</div>
-		<div id="pie">
-			<p>
-				Contenido exclusivo de <a href="https://www.lawebera.es">lawebera</a>
-			</p>
-		</div>
+			<!-- <h:column>
+                <f:facet name="header">Delete</f:facet>
+                <h:commandButton action="#{schoolBean.deleteSchoolById(school.id)}" value="Delete" styleClass="btn btn-danger" />
+            </h:column> -->
+		</h:dataTable>
+		<center>
+		<h:commandButton action="addRouter.xhtml?faces-redirect=true"
+			value="Add New School" styleClass="btn btn-success btnSpace" /></center>
+	</h:form>
 	</div>
-</body>
+</h:body>
 </html>
