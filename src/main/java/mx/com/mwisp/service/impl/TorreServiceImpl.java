@@ -46,6 +46,7 @@ public class TorreServiceImpl implements TorreService {
 		return boTorreImpl.listModelTorreTolistDtoTorre(torreDaoImpl.torreList());
 	}
 
+	@Transactional
 	@Override
 	public DTOTorres encontrarTorrePorId(int id) {
 		return boTorreImpl.modelTorresToDtoTorres(torreDaoImpl.findTorreById(id));

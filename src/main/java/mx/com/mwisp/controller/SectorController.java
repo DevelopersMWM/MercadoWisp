@@ -20,7 +20,7 @@ public class SectorController {
 	@Autowired
 	SectoresService sectorServiceImpl;
 	
-	FormSectores formSectorImpl;
+	public FormSectores formSectorImpl;
 	
 	public SectorController() {
 		try {
@@ -31,8 +31,15 @@ public class SectorController {
 	}
 
 	public List<DTOSectores> listarSectores(){
+		
 		formSectorImpl.setSectoresList(sectorServiceImpl.listaDeSectores());
 		return formSectorImpl.getSectoresList();
+	}
+	
+	public String agregarSector() {
+		sectorServiceImpl.insertarSector(new DTOSectores(formSectorImpl.getNombre(), Integer.parseInt(formSectorImpl.getIdTorre())));
+		System.out.println("idTorre: "+formSectorImpl.getTorre());
+		return "ListaSectores.xhtml?faces-redirect=true";
 	}
 
 	public FormSectores getFormSectorImpl() {

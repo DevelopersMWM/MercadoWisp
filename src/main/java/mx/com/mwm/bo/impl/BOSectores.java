@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import mx.com.mwisp.model.Sector;
+import mx.com.mwisp.model.Torre;
 import mx.com.mwm.bo.BOSectoresInterface;
 import mx.com.mwm.dto.DTOSectores;
 
@@ -40,7 +41,9 @@ public class BOSectores implements BOSectoresInterface {
 		Sector modelSector=new Sector();
 		modelSector.setIdSector(dtoSector.getIdSector());
 		modelSector.setNombreSector(dtoSector.getNombreSector());
-		//modelSector.setTorre(dtoSector.getTorre());
+		Torre torre=new Torre();
+		torre.setIdTorre(dtoSector.getIdTorre());
+		modelSector.setTorre(torre);
 		return modelSector;
 	}
 

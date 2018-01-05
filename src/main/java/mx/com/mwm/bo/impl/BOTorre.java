@@ -3,10 +3,15 @@ package mx.com.mwm.bo.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 import mx.com.mwisp.model.Torre;
 import mx.com.mwm.bo.BOTorresInterface;
 import mx.com.mwm.dto.DTOTorres;
 
+@Component("boTorre")
+@Scope("prototype")
 public class BOTorre implements BOTorresInterface {
 
 	@Override

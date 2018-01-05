@@ -11,6 +11,7 @@ public class FormSectores implements Serializable {
 	private String nombre;
 	private String torre;
 	private String obtenerId;
+	private String idTorre;
 	List<DTOSectores> sectoresList;
 	public String getNombre() {
 		return nombre;
@@ -35,6 +36,12 @@ public class FormSectores implements Serializable {
 	}
 	public void setSectoresList(List<DTOSectores> sectoresList) {
 		this.sectoresList = sectoresList;
+	}
+	public String getIdTorre() {
+		return idTorre;
+	}
+	public void setIdTorre(String idTorre) {
+		this.idTorre = idTorre;
 	}
 	
 	

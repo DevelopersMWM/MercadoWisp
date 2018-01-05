@@ -9,15 +9,18 @@ public class DTOSectores implements Serializable {
 	private int idSector;
 	private String nombreSector;
 	private String torre;
+
+	private int idTorre;
 	
 	public DTOSectores() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public DTOSectores(String nombreSector) {
+	public DTOSectores(String nombreSector, int idTorre) {
 		super();
 		this.nombreSector = nombreSector;
+		this.setIdTorre(idTorre);
 	}
 
 	public DTOSectores(int idSector, String nombreSector) {
@@ -81,5 +84,13 @@ public class DTOSectores implements Serializable {
 		} else if (!nombreSector.equals(other.nombreSector))
 			return false;
 		return true;
+	}
+
+	public int getIdTorre() {
+		return idTorre;
+	}
+
+	public void setIdTorre(int idTorre) {
+		this.idTorre = idTorre;
 	}
 }
