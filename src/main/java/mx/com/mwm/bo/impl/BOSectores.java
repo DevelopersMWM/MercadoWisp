@@ -37,12 +37,12 @@ public class BOSectores implements BOSectoresInterface {
 	}
 
 	@Override
-	public Sector dtoSectorToModelSector(DTOSectores dtoSector) {
+	public Sector dtoSectorToModelSector(DTOSectores dtoSector) { //en este metodo setteas el id de la torre al sector
 		Sector modelSector=new Sector();
 		modelSector.setIdSector(dtoSector.getIdSector());
 		modelSector.setNombreSector(dtoSector.getNombreSector());
-		Torre torre=new Torre();
-		torre.setIdTorre(dtoSector.getIdTorre());
+		Torre torre=new Torre();//creas un objeto del tipo torre
+		torre.setIdTorre(dtoSector.getIdTorre());//le setteas el id de la torre que recibes en DTO
 		modelSector.setTorre(torre);
 		return modelSector;
 	}

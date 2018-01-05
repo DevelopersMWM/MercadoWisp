@@ -10,14 +10,14 @@ public class DTOSectores implements Serializable {
 	private String nombreSector;
 	private String torre;
 
-	private int idTorre;
+	private int idTorre; //creas una variable para recibir como parametro en el contructor en el controller
 	
 	public DTOSectores() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public DTOSectores(String nombreSector, int idTorre) {
+	public DTOSectores(String nombreSector, int idTorre) { //agregas esa variable como parametro en econtructor
 		super();
 		this.nombreSector = nombreSector;
 		this.setIdTorre(idTorre);

@@ -45,7 +45,7 @@ public class SectorDaoImpl implements SectorDao {
 //		FormSectores formSector=new FormSectores();
 //		int idTorre=Integer.parseInt(formSector.getTorre());
 //		System.out.println("----"+idTorre);
-		//Torre torre=em.find(Torre.class, 3);
+		//Torre torre=em.find(Torre.class, 3); eliminas estas lineas y solo agregas el sector
 		//sector.setTorre(torre);
 		em.persist(sector);
 	}
