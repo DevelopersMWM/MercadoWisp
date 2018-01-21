@@ -1,7 +1,7 @@
 package mx.com.mwm.dto;
 
 import java.io.Serializable;
-import java.util.Calendar;
+import java.util.Date;
 
 public class DTOClienteInternet implements Serializable {
 	private static final long serialVersionUID = -76019232143866961L;
@@ -11,20 +11,40 @@ public class DTOClienteInternet implements Serializable {
 	public String idMk;
 	public String Sector;
 	public String ipCliente;
-	public Calendar fechaInstalacion;
+	public Date fechaInstalacion;
 	public String equipoInstalado;
-	public Calendar primerPago;
+	public Date primerPago;
 	public String plan;
 	public String diaCobro;
 	public String ubicacion;
 	public String Router;
-
+	public int idPersona;
+	public int idSector;
+	public int idEquipo;
+	public int idPlan;
+	public int idRouter;
+	
 	public DTOClienteInternet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	public DTOClienteInternet(String ipCliente, Date fechaInstalacion, Date primerPago, String diaCobro,
+			String ubicacion, int idSector, int idEquipo, int idPlan, int idRouter) {
+		super();
+		this.ipCliente = ipCliente;
+		this.fechaInstalacion = fechaInstalacion;
+		this.primerPago = primerPago;
+		this.diaCobro = diaCobro;
+		this.ubicacion = ubicacion;
+		this.idSector = idSector;
+		this.idEquipo = idEquipo;
+		this.idPlan = idPlan;
+		this.idRouter = idRouter;
+	}
 
-	public DTOClienteInternet(String idMk, String ipCliente, Calendar fechaInstalacion, Calendar primerPago,
+
+	/*public DTOClienteInternet(String idMk, String ipCliente, Calendar fechaInstalacion, Calendar primerPago,
 			String diaCobro, String ubicacion) {
 		super();
 		this.idMk = idMk;
@@ -33,10 +53,10 @@ public class DTOClienteInternet implements Serializable {
 		this.primerPago = primerPago;
 		this.diaCobro = diaCobro;
 		this.ubicacion = ubicacion;
-	}
+	}*/
 
-	public DTOClienteInternet(int idCliente, String idMk, String ipCliente, Calendar fechaInstalacion,
-			Calendar primerPago, String diaCobro, String ubicacion) {
+	public DTOClienteInternet(int idCliente, String idMk, String ipCliente, Date fechaInstalacion,
+			Date primerPago, String diaCobro, String ubicacion) {
 		super();
 		this.idCliente = idCliente;
 		this.idMk = idMk;
@@ -87,11 +107,11 @@ public class DTOClienteInternet implements Serializable {
 		this.ipCliente = ipCliente;
 	}
 
-	public Calendar getFechaInstalacion() {
+	public Date getFechaInstalacion() {
 		return fechaInstalacion;
 	}
 
-	public void setFechaInstalacion(Calendar fechaInstalacion) {
+	public void setFechaInstalacion(Date fechaInstalacion) {
 		this.fechaInstalacion = fechaInstalacion;
 	}
 
@@ -103,11 +123,11 @@ public class DTOClienteInternet implements Serializable {
 		this.equipoInstalado = equipoInstalado;
 	}
 
-	public Calendar getPrimerPago() {
+	public Date getPrimerPago() {
 		return primerPago;
 	}
 
-	public void setPrimerPago(Calendar primerPago) {
+	public void setPrimerPago(Date primerPago) {
 		this.primerPago = primerPago;
 	}
 
@@ -141,6 +161,46 @@ public class DTOClienteInternet implements Serializable {
 
 	public void setRouter(String router) {
 		Router = router;
+	}
+
+	public int getIdPersona() {
+		return idPersona;
+	}
+
+	public void setIdPersona(int idPersona) {
+		this.idPersona = idPersona;
+	}
+	
+	public int getIdSector() {
+		return idSector;
+	}
+
+	public void setIdSector(int idSector) {
+		this.idSector = idSector;
+	}
+
+	public int getIdEquipo() {
+		return idEquipo;
+	}
+
+	public void setIdEquipo(int idEquipo) {
+		this.idEquipo = idEquipo;
+	}
+
+	public int getIdPlan() {
+		return idPlan;
+	}
+	
+	public void setIdPlan(int idPlan) {
+		this.idPlan = idPlan;
+	}
+
+	public int getIdRouter() {
+		return idRouter;
+	}
+
+	public void setIdRouter(int idRouter) {
+		this.idRouter = idRouter;
 	}
 
 	@Override

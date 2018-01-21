@@ -43,6 +43,4 @@ public class FormSectores implements Serializable {
 	public void setIdTorre(String idTorre) {
 		this.idTorre = idTorre;
 	}
-	
-	
 }

@@ -2,10 +2,18 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
+	<!-- <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+	<style>
+#map {
+	justify-content: center;
+	height: 360px;
+	width: block;
+}
+</style>
 	<meta name="robots" content="all,follow" />
 	<meta name="googlebot" content="index,follow,snippet,archive" />
 	<meta name="viewport"
@@ -14,7 +22,7 @@
 	<meta name="author" content="     " />
 	<meta name="keywords" content="" />
 
-	<title>AdminMWM | Agregar Persona</title>
+	<title>AdminMWM | Agregar Router</title>
 	<!-- Tell the browser to be responsive to screen width -->
 	<!-- <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"> -->
 	<!-- Bootstrap 3.3.7 -->
@@ -41,64 +49,84 @@
 		href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic'
 		rel='stylesheet' type='text/css' />
 </h:head>
-<h:body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-purple sidebar-mini">
 	<h:form class="form-horizontal">
 		<div class="box-body">
-		
-		    <div class="form-group has-feedback">
-				<label for="inputNombreRouter" class="col-sm-5 control-label">Torre:</label>
+
+			<div class="form-group has-feedback">
+				<label for="inputNombreRouter3" class="col-sm-5 control-label">Nombre de la calle:</label>
 				<div class="col-sm-5">
+					<h:inputText value="#{direccionController.formDir.calle}"
+						class="form-control" />
+					<span class="glyphicon glyphicon-hdd form-control-feedback"></span>
+				</div>
+			</div>
 
-					<h:selectOneMenu value="#{sectorController.formSectorImpl.idTorre}"
-						class="form-control">
-															                <f:selectItems
-							value="#{torreController.torresList()}" var="entry"
-							itemValue="#{entry.idTorre}" itemLabel="#{entry.nombreTorre}" />
-            															</h:selectOneMenu>
-					        
+			<div class="form-group has-feedback">
+				<label for="inputDirIporDns3" class="col-sm-5 control-label">Numero Exterior:</label>
+				<div class="col-sm-5">
+					<h:inputText value="#{direccionController.formDir.numExterior}"
+						class="form-control" />
+					<span class="fa fa-compass form-control-feedback"></span>
+				</div>
+			</div>
 
+			<div class="form-group has-feedback">
+				<label for="inputNomUser3" class="col-sm-5 control-label">Colonia:</label>
+				<div class="col-sm-5">
+					<h:inputText value="#{direccionController.formDir.colonia}"
+						class="form-control" />
+					<span class="fa fa-user-circle form-control-feedback"></span>
+				</div>
+			</div>
+
+			<div class="form-group has-feedback">
+				<label for="inputContraseña3" class="col-sm-5 control-label">Codigo Postal:</label>
+				<div class="col-sm-5">
+					<h:inputText value="#{direccionController.formDir.codigoPostal}"
+						class="form-control" />
+					<span class="fa fa-key form-control-feedback"></span>
+				</div>
+			</div>
+
+			<div class="form-group has-feedback">
+				<label for="inputUbicacion3" class="col-sm-5 control-label">Municipio:</label>
+				<div class="col-sm-5">
+					<h:inputText value="#{direccionController.formDir.municipio}"
+						class="form-control" />
+					<span class="glyphicon glyphicon-map-marker form-control-feedback"></span>
 				</div>
 			</div>
 			
 			<div class="form-group has-feedback">
-				<label for="inputNombreRouter3" class="col-sm-5 control-label">IP:</label>
+				<label for="inputEstado3" class="col-sm-5 control-label">Estado:</label>
 				<div class="col-sm-5">
-					<h:inputText value="#{sectorController.formSectorImpl.nombre}"
-						pt:placeholder="Juan" class="form-control" />
-					<span class="fa fa-columns form-control-feedback"></span>
+					<h:inputText value="#{direccionController.formDir.estado}"
+						class="form-control" />
+					<span class="glyphicon glyphicon-map-marker form-control-feedback"></span>
 				</div>
 			</div>
-			
-			<div class="form-group has-feedback">
-				<label for="inputNombreRouter3" class="col-sm-5 control-label">Nombre
-					del Sector:</label>
-				<div class="col-sm-5">
-					<h:inputText value="#{sectorController.formSectorImpl.nombre}"
-						pt:placeholder="Juan" class="form-control" />
-					<span class="fa fa-columns form-control-feedback"></span>
-				</div>
-			</div>
-			
+
 		</div>
 		<!-- /.box-body -->
 		<div class="box-footer">
 			<!-- <button type="submit" class="btn btn-danger">Cancelar</button> -->
-			<h:commandButton value="Agregar Sector"
-				action="#{sectorController.agregarSector()}"
+			<h:commandButton value="Agregar Router"
+				action="#{direccionController.agregarDireccion()}"
 				styleClass="btn btn-info pull-right" />
-			<h:link outcome="ListaSectores" value="Ver Sectores"
+			<h:link outcome="ListaRouter" value="Ver Routers"
 				class="btn btn-primary" />
-		</div>
 
-		<div class="callout callout-success">
+		</div>
+		<div class="callout callout-info">
 			<h5>
-				<h:outputText id="saveResult"
-					rendered="#{not empty CreadoPesonaNom}"
-					value="!! Cliente agregado !!" styleClass="successText pull-center" />
+				<h:outputText id="saveResult" rendered="#{not empty CreadoRouterID}"
+					value="!! Router Guardado Exitosamente !!"
+					styleClass="successText pull-center" />
 			</h5>
 		</div>
 		<!-- <h:outputText id="saveResult" rendered="#{not empty CreadoRouterID}" value="!! Router Guardado Exitosamente !!" styleClass="btn btn-succes pull-center" /> -->
 		<!-- /.box-footer -->
 	</h:form>
-</h:body>
+</body>
 </html>

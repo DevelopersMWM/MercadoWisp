@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import mx.com.mwisp.dao.ClienteInternetDAO;
+import mx.com.mwisp.model.ClienteInternet;
+import mx.com.mwisp.model.Persona;
 import mx.com.mwisp.service.ClienteInternetService;
 import mx.com.mwm.bo.BOClienteInternetInterface;
 import mx.com.mwm.dto.DTOClienteInternet;
@@ -26,22 +28,33 @@ public class ClienteInternetServiceImpl implements ClienteInternetService {
 		return boCliente.listModeloClienteToListDtoCliente(clienteDaoImpl.listaClientes());
 	}
 
+	@Transactional
 	@Override
-	public void insertarCliente(DTOClienteInternet cliente) {
-		// TODO Auto-generated method stub
-
+	public void insertarCliente(DTOClienteInternet dtoCliente) {
+		ClienteInternet cliente=boCliente.dtoClienteToModelCliente(dtoCliente);
+		Persona persona=new Persona();
+		persona.setId_Persona(6);
+		cliente.setCliente(persona);
+		clienteDaoImpl.guardarClienteEnDB(cliente);
 	}
 
+	@Transactional
 	@Override
 	public void eliminarCliente(int id) {
-		// TODO Auto-generated method stub
-
+		clienteDaoImpl.eliminarClienteEnDB(id);
 	}
 
+	@Transactional
 	@Override
-	public DTOClienteInternet encontrar(int id, DTOClienteInternet cliente) {
-		// TODO Auto-generated method stub
-		return null;
+	public DTOClienteInternet encontrarClientePorId(int id) {
+		return boCliente.modeloClientetoDtoCliente(clienteDaoImpl.findClientById(id));
+	}
+	
+	@Transactional
+	@Override
+	public void actualizarCliente(int id, DTOClienteInternet cliente) {
+		ClienteInternet modelCliente=boCliente.dtoClienteToModelCliente(cliente);
+		clienteDaoImpl.actualizarCliente(id, modelCliente);
 	}
 
 }

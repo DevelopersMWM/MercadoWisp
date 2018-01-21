@@ -7,6 +7,11 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import mx.com.mwisp.model.ClienteInternet;
+import mx.com.mwisp.model.Dispositivos;
+import mx.com.mwisp.model.Persona;
+import mx.com.mwisp.model.Planes;
+import mx.com.mwisp.model.Router;
+import mx.com.mwisp.model.Sector;
 import mx.com.mwm.bo.BOClienteInternetInterface;
 import mx.com.mwm.dto.DTOClienteInternet;
 
@@ -47,13 +52,28 @@ public class BOClientesInternet implements BOClienteInternetInterface {
 	@Override
 	public ClienteInternet dtoClienteToModelCliente(DTOClienteInternet dtoCliente) {
 		ClienteInternet modelCliente =new ClienteInternet();
-		modelCliente.setFolio(dtoCliente.getIdCliente());
+		Persona persona=new Persona();
+		persona.setId_Persona(dtoCliente.getIdPersona());
+		modelCliente.setCliente(persona);
+		//modelCliente.setFolio(dtoCliente.getIdCliente());
 		modelCliente.setIdMk(dtoCliente.getIdMk());
+		Sector sector=new Sector();
+		sector.setIdSector(dtoCliente.getIdSector());
+		modelCliente.setSector(sector);
 		modelCliente.setDiaCobro(dtoCliente.getDiaCobro());
 		modelCliente.setIp(dtoCliente.getIpCliente());
 		modelCliente.setFechaInslacion(dtoCliente.getFechaInstalacion());
+		Dispositivos equipo=new Dispositivos();
+		equipo.setIdEquipo(dtoCliente.getIdEquipo());
+		modelCliente.setEquipoInstalado(equipo);
 		modelCliente.setPrimerPago(dtoCliente.getPrimerPago());
+		Planes plan=new Planes();
+		plan.setIdPlan(dtoCliente.getIdPlan());
+		modelCliente.setPlan(plan);
 		modelCliente.setUbicacion(dtoCliente.getUbicacion());
+		Router router=new Router();
+		router.setId(dtoCliente.getIdRouter());
+		modelCliente.setRouter(router);
 		return modelCliente;
 	}
 

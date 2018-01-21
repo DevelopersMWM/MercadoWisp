@@ -35,6 +35,15 @@ public class ClientesInternetController {
 		return formCliente.getListClientes();
 	}
 	
+	public String agregarCliente() {
+		clienteServiceImpl.insertarCliente(new DTOClienteInternet(formCliente.getIpCliente(),formCliente.getFechaInstalacion(),formCliente.getPrimerPago(), formCliente.getDiaCobro(), formCliente.getUbicacionCliente(), Integer.parseInt(formCliente.getIdSector()), Integer.parseInt(formCliente.getIdEquipo()), Integer.parseInt(formCliente.getIdplan()), Integer.parseInt(formCliente.getIdRouter())));
+		/*Calendar cal=Calendar.getInstance();
+		Calendar cal2=Calendar.getInstance();*/
+		//clienteServiceImpl.insertarCliente(new DTOClienteInternet(formCliente.getIpCliente(), Calendar.getInstance().setTime(formCliente.getFechaInstalacion()), Calendar.getInstance().setTime(formCliente.getPrimerPago()),formCliente.getDiaCobro(),formCliente.getUbicacionCliente(),Integer.parseInt(formCliente.getIdSector()),Integer.parseInt(formCliente.getIdEquipo()), Integer.parseInt(formCliente.getIdplan()), Integer.parseInt(formCliente.getIdRouter())));
+		//clienteServiceImpl.insertarCliente(new DTOClienteInternet(formCliente.getIpCliente(), cal.setTime(formCliente.getFechaInstalacion()), cal2.setTime(formCliente.getPrimerPago()), formCliente.getDiaCobro(), formCliente.getUbicacionCliente(), Integer.parseInt(formCliente.getIdSector()), Integer.parseInt(formCliente.getIdEquipo()), Integer.parseInt(formCliente.getIdplan()), Integer.parseInt(formCliente.getIdRouter())));
+		//clienteServiceImpl.insertarCliente(new DTOClienteInternet(idMk, ipCliente, fechaInstalacion, primerPago, diaCobro, ubicacion));
+		return "ListaClientesInternet.xhtml?faces-redirect=true";
+	}
 
 	public FormClienteInternet getFormCliente() {
 		return formCliente;

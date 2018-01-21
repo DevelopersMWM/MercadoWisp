@@ -1,6 +1,6 @@
 package mx.com.mwisp.model;
 
-import java.util.Calendar;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -38,7 +38,7 @@ public class ClienteInternet {
 	
 	@Column(name="Fecha_Instalacion")
 	@Temporal(TemporalType.DATE)
-	private Calendar fechaInslacion;
+	private Date fechaInslacion;
 	
 	@ManyToOne
 	@JoinColumn(name="Equipo_Instalado")
@@ -46,7 +46,7 @@ public class ClienteInternet {
 	
 	@Column(name="Primer_Pago")
 	@Temporal(TemporalType.DATE)
-	private Calendar primerPago;
+	private Date primerPago;
 	
 	@ManyToOne
 	@JoinColumn(name="Plan")
@@ -67,8 +67,8 @@ public class ClienteInternet {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ClienteInternet(Persona cliente, String idMk, Sector sector, String ip, Calendar fechaInslacion,
-			Dispositivos equipoInstalado, Calendar primerPago, Planes plan, String diaCobro, String ubicacion,
+	public ClienteInternet(Persona cliente, String idMk, Sector sector, String ip, Date fechaInslacion,
+			Dispositivos equipoInstalado, Date primerPago, Planes plan, String diaCobro, String ubicacion,
 			Router router) {
 		super();
 		this.cliente = cliente;
@@ -124,11 +124,11 @@ public class ClienteInternet {
 		this.ip = ip;
 	}
 
-	public Calendar getFechaInslacion() {
+	public Date getFechaInslacion() {
 		return fechaInslacion;
 	}
 
-	public void setFechaInslacion(Calendar fechaInslacion) {
+	public void setFechaInslacion(Date fechaInslacion) {
 		this.fechaInslacion = fechaInslacion;
 	}
 
@@ -140,11 +140,11 @@ public class ClienteInternet {
 		this.equipoInstalado = equipoInstalado;
 	}
 
-	public Calendar getPrimerPago() {
+	public Date getPrimerPago() {
 		return primerPago;
 	}
 
-	public void setPrimerPago(Calendar primerPago) {
+	public void setPrimerPago(Date primerPago) {
 		this.primerPago = primerPago;
 	}
 

@@ -54,13 +54,17 @@ public class Direccion implements Serializable{
 	@JoinColumn(name="Fk_Persona")
 	private Persona persona;
 	
+	public Persona getPersona() {
+		return persona;
+	}
+
+	public void setPersona(Persona persona) {
+		this.persona = persona;
+	}
+
 	public Direccion() {
 		// TODO Auto-generated constructor stub
 	}
-	
-
-
-
 
 	public Direccion(int codigoPostal, String calle, String numeroExterior, String numeroInterior, String estado,
 			String colonia, String municipio) {

@@ -1,0 +1,40 @@
+<!DOCTYPE html  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" >
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<title>Agregar Producto</title>
+	<h:outputStylesheet name="ecommerce/css/bootstrap.min.css" />
+</h:head>
+<h:body>
+
+	<h:form>
+		<p:growl id="growl" life="2000" />
+
+Nombre del Producto: <h:inputText
+			value="#{producto.nombreProducto}" />
+		<br />
+		<br />
+Categoria: <h:inputText value="#{producto.categoria}" />
+		<br />
+		<br />
+Precio: <h:inputText value="#{producto.precio}" />
+		<br />
+		<br />
+Descripción: <h:inputText value="#{producto.descripcion}" />
+		<br />
+		<br />
+Tiempo de Garantia: <h:inputText value="#{producto.tiempoG}" />
+		<br />
+		<br />
+		
+
+		<p:commandButton value="Ajax Submit" id="ajax" update="growl"
+			actionListener="#{controller.buttonAction}"
+			styleClass="ui-priority-primary" />
+
+	</h:form>
+</h:body>
+
+</html>

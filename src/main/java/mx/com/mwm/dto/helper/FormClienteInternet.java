@@ -1,7 +1,7 @@
 package mx.com.mwm.dto.helper;
 
 import java.io.Serializable;
-import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import mx.com.mwm.dto.DTOClienteInternet;
@@ -11,10 +11,40 @@ public class FormClienteInternet implements Serializable{
 	
 	private String idMk;
 	private String ipCliente;
-	private Calendar fechaInstalacion;
-	private Calendar primerPago;
+	private Date fechaInstalacion;
+	private Date primerPago;
 	private String diaCobro;
 	private String ubicacionCliente;
+	//private String idPersona;
+	private String idSector;
+	private String idEquipo;
+	private String idplan;
+	private String idRouter;
+	
+	public String getIdSector() {
+		return idSector;
+	}
+	public void setIdSector(String idSector) {
+		this.idSector = idSector;
+	}
+	public String getIdEquipo() {
+		return idEquipo;
+	}
+	public void setIdEquipo(String idEquipo) {
+		this.idEquipo = idEquipo;
+	}
+	public String getIdplan() {
+		return idplan;
+	}
+	public void setIdplan(String idplan) {
+		this.idplan = idplan;
+	}
+	public String getIdRouter() {
+		return idRouter;
+	}
+	public void setIdRouter(String idRouter) {
+		this.idRouter = idRouter;
+	}
 	List<DTOClienteInternet> listClientes;
 	
 	private String obtenerId;
@@ -31,16 +61,16 @@ public class FormClienteInternet implements Serializable{
 	public void setIpCliente(String ipCliente) {
 		this.ipCliente = ipCliente;
 	}
-	public Calendar getFechaInstalacion() {
+	public Date getFechaInstalacion() {
 		return fechaInstalacion;
 	}
-	public void setFechaInstalacion(Calendar fechaInstalacion) {
+	public void setFechaInstalacion(Date fechaInstalacion) {
 		this.fechaInstalacion = fechaInstalacion;
 	}
-	public Calendar getPrimerPago() {
+	public Date getPrimerPago() {
 		return primerPago;
 	}
-	public void setPrimerPago(Calendar primerPago) {
+	public void setPrimerPago(Date primerPago) {
 		this.primerPago = primerPago;
 	}
 	public String getDiaCobro() {

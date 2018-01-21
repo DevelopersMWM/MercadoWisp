@@ -35,31 +35,31 @@
 	<h:outputStylesheet name="admin/css/AdminLTE.min.css" />
 	<h:outputStylesheet name="admin/css/paper-bootstrap-wizard.css" />
 	<h:outputStylesheet name="admin/css/themify-icons.css" />
-	<h:outputStylesheet name="admin/css/bootstrap-datepicker.min.css" />
+	<!-- <h:outputStylesheet name="admin/css/bootstrap-datepicker.min.css" /> -->
 	<h:outputStylesheet name="admin/css/skins/_all-skins.min.css" />
 </h:head>
 <h:body>
 	<div class="image-container set-full-height"
 		style="background-image: url('../resources/admin/img/paper-3.jpeg')">
 		<!--   Creative Tim Branding   -->
-		<a href="http://creative-tim.com">
+		<!-- <a href="http://creative-tim.com">
 			<div class="logo-container">
 				<div class="logo">
 					<img src="assets/img/new_logo.png" />
 				</div>
 				<div class="brand">Creative Tim</div>
 			</div>
-		</a>
+		</a> -->
 
 		<!--  Made With Paper Kit  -->
-		<a
+		<!-- <a
 			href="http://demos.creative-tim.com/paper-kit?ref=paper-bootstrap-wizard"
 			class="made-with-pk">
 			<div class="brand">PK</div>
 			<div class="made-with">
 				Made with <strong>Paper Kit</strong>
 			</div>
-		</a>
+		</a> -->
 
 		<!--   Big container   -->
 		<div class="container">
@@ -70,7 +70,8 @@
 					<div class="wizard-container">
 
 						<div class="card wizard-card" data-color="red" id="wizardProfile">
-							<form action="" method="">
+							<h:form>
+								<!-- <form action="" method=""> -->
 								<!--        You can switch " data-color="orange" "  with one of the next bright colors: "blue", "green", "orange", "red", "azure"          -->
 
 								<div class="wizard-header text-center">
@@ -105,27 +106,29 @@
 									<div class="tab-pane" id="about">
 										<div class="row">
 											<h5 class="info-text">---</h5>
-											<h:form class="form-horizontal">
+
+											<div class="form-horizontal">
 												<div class="box-body">
 
 													<div class="form-group has-feedback">
 														<label for="inputNombreRouter3"
-															class="col-sm-5 control-label text-right">Nombre del
-															Cliente:</label>
-															<!-- <label>First Name <small>(required)</small></label> -->
+															class="col-sm-5 control-label text-right">Nombre
+															del Cliente:</label>
+														<!-- <label>First Name <small>(required)</small></label> -->
 														<div class="col-sm-5">
 															<h:inputText
-																value="#{personaServicioController.formPersona.nombre}"
+																value="#{clienteBDyMkController.formPersona.nombre}"
 																pt:placeholder="Juan" class="form-control" />
 															<span class="fa fa-columns form-control-feedback"></span>
 														</div>
 													</div>
 													<div class="form-group has-feedback">
-														<label for="inputNomUser3" class="col-sm-5 control-label text-right">Apellido
+														<label for="inputNomUser3"
+															class="col-sm-5 control-label text-right">Apellido
 															Paterno:</label>
 														<div class="col-sm-5">
 															<h:inputText
-																value="#{personaServicioController.formPersona.apellidoPat}"
+																value="#{clienteBDyMkController.formPersona.apellidoPat}"
 																pt:placeholder="Lopez" class="form-control" />
 															<span class="fa fa-download form-control-feedback"></span>
 														</div>
@@ -133,10 +136,11 @@
 
 													<div class="form-group has-feedback">
 														<label for="inputDirIporDns3"
-															class="col-sm-5 control-label text-right">Apellido Materno:</label>
+															class="col-sm-5 control-label text-right">Apellido
+															Materno:</label>
 														<div class="col-sm-5">
 															<h:inputText
-																value="#{personaServicioController.formPersona.apellidoMat}"
+																value="#{clienteBDyMkController.formPersona.apellidoMat}"
 																pt:placeholder="Perez" class="form-control" />
 															<span class="fa fa-usd form-control-feedback"></span>
 														</div>
@@ -148,14 +152,15 @@
 															class="col-sm-5 control-label text-right">Telefono</label>
 														<div class="col-sm-5">
 															<h:inputText
-																value="#{personaServicioController.formPersona.telefono}"
+																value="#{clienteBDyMkController.formPersona.telefono}"
 																required="true" pt:placeholder="958 128 8031"
 																class="form-control" />
 															<span class="fa fa-upload form-control-feedback"></span>
 														</div>
 													</div>
 												</div>
-											</h:form>
+											</div>
+
 										</div>
 									</div>
 									<div class="tab-pane" id="account">
@@ -163,64 +168,107 @@
 											<div class="col-sm-12">
 												<h5 class="info-text">Direccion del cliente</h5>
 											</div>
+
 											<div class="col-sm-7 col-sm-offset-1">
 												<div class="form-group">
-													<label>Nombre de la calle</label> <input type="text"
-														class="form-control" placeholder="5h Avenue" />
+													<label>Nombre de la calle</label>
+													<h:inputText
+														value="#{clienteBDyMkController.formDir.calle}"
+														class="form-control" />
+													<!-- <input type="text"
+															class="form-control" placeholder="5h Avenue" /> -->
 												</div>
 											</div>
 											<div class="col-sm-3">
 												<div class="form-group">
-													<label>Numero Exterior</label> <input type="text"
-														class="form-control" placeholder="242" />
+													<label>Numero Exterior</label>
+													<h:inputText
+														value="#{clienteBDyMkController.formDir.numExterior}"
+														class="form-control" />
+													<!-- <input type="text"
+															class="form-control" placeholder="242" /> -->
 												</div>
 											</div>
 											<div class="col-sm-7 col-sm-offset-1">
 												<div class="form-group">
-													<label>Colonia</label> <input type="text" class="form-control"
-														placeholder="New York..." />
+													<label>Colonia</label>
+													<h:inputText
+														value="#{clienteBDyMkController.formDir.colonia}"
+														class="form-control" />
+													<!-- <input type="text"
+															class="form-control" placeholder="New York..." /> -->
 												</div>
 											</div>
 											<div class="col-sm-3">
 												<div class="form-group">
-													<label>Codigo Postal</label> <input type="text"
-														class="form-control" placeholder="242" />
+													<label>Codigo Postal</label>
+													<h:inputText
+														value="#{clienteBDyMkController.formDir.codigoPostal}"
+														class="form-control" />
+													<!-- <input type="text"
+															class="form-control" placeholder="242" /> -->
 												</div>
 											</div>
-											
+
 											<div class="col-sm-5 col-sm-offset-1">
 												<div class="form-group">
-													<label>Municipio</label> <input type="text"
-														class="form-control" placeholder="242" />
+													<label>Municipio</label>
+													<h:inputText
+														value="#{clienteBDyMkController.formDir.municipio}"
+														class="form-control" />
+													<!-- <input type="text"
+															class="form-control" placeholder="242" /> -->
 												</div>
 											</div>
 											<div class="col-sm-5">
 												<div class="form-group">
-													<label>Estado</label><br></br> <select name="country"
-														class="form-control">
-														<option value="Afghanistan">Oaxaca</option>
-														<option value="Albania">Sinaloa</option>
-														<option value="Algeria">B.C. Sur</option>
-														<option value="American Samoa">B.C. Norte</option>
-														<option value="Andorra">Tamaulipas</option>
-														<option value="Angola">CDMX</option>
-														<option value="Anguilla">Guerrero</option>
-														<option value="Antarctica">Veracruz</option>
-														<option value="...">...</option>
-													</select>
+													<label>Estado</label>
+													<h:selectOneMenu value="#{clienteBDyMkController.formDir.estado}" class="form-control">
+														<f:selectItem itemValue="Aguascalientes" itemLabel="Aguascalientes" />
+														<f:selectItem itemValue="Baja California" itemLabel="Baja California" />
+														<f:selectItem itemValue="Baja California Sur" itemLabel="Baja California Sur" />
+														<f:selectItem itemValue="Campeche" itemLabel="Campeche" />
+														<f:selectItem itemValue="Chiapas" itemLabel="Chiapas" />
+														<f:selectItem itemValue="Chihuahua" itemLabel="Chihuahua" />
+														<f:selectItem itemValue="CDMX" itemLabel="CDMX" />
+														<f:selectItem itemValue="Coahuila" itemLabel="Coahuila" />
+														<f:selectItem itemValue="Colima" itemLabel="Colima" />
+														<f:selectItem itemValue="Durango" itemLabel="Durango" />
+														<f:selectItem itemValue="Guanajuato" itemLabel="Guanajuato" />
+														<f:selectItem itemValue="Guerrero" itemLabel="Guerrero" />
+														<f:selectItem itemValue="Hidalgo" itemLabel="Hidalgo" />
+														<f:selectItem itemValue="Jalisco" itemLabel="Jalisco" />
+														<f:selectItem itemValue="Edo. de Mex." itemLabel="Edo. de Mex." />
+														<f:selectItem itemValue="Michoacan" itemLabel="Michoacan" />
+														<f:selectItem itemValue="Morelos" itemLabel="Morelos" />
+														<f:selectItem itemValue="Nayarit" itemLabel="Nayarit" />
+														<f:selectItem itemValue="Nuevo Leon" itemLabel="Nuevo Leon" />
+														<f:selectItem itemValue="Oaxaca" itemLabel="Oaxaca" />
+													</h:selectOneMenu>
 												</div>
 											</div>
+
 										</div>
-										
+
 									</div>
 									<div class="tab-pane" id="address">
 										<div class="row">
 											<div class="col-sm-12">
-												<h5 class="info-text">Seleccione el servicio para el cliente</h5>
+												<h5 class="info-text">Seleccione el servicio para el
+													cliente</h5>
 											</div>
 											<div class="col-sm-3 col-sm-offset-1">
 												<div class="form-group">
-														<label>Sector</label><br></br> <select name="country"
+													<label>Sector</label>
+													<h:selectOneMenu
+														value="#{clienteBDyMkController.formClienteInternet.idSector}"
+														class="form-control">
+															                <f:selectItems class="form-control"
+															value="#{sectorController.listarSectores()}" var="entry"
+															itemValue="#{entry.idSector}"
+															itemLabel="#{entry.nombreSector}" />
+            															</h:selectOneMenu>
+													<!-- <br></br> <select name="country"
 														class="form-control">
 														<option value="Afghanistan">urbivlla</option>
 														<option value="Albania">macapule</option>
@@ -231,27 +279,46 @@
 														<option value="Anguilla">Guerrero</option>
 														<option value="Antarctica">Veracruz</option>
 														<option value="...">...</option>
-													</select>
+													</select> -->
 												</div>
 											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>IP</label> <input type="text"
-														class="form-control" placeholder="242" />
-												</div>
-											</div>
-											
 											<div class="col-sm-3">
 												<div class="form-group">
-													<label>Fecha de instalación</label> <input type="text"
-														class="form-control" placeholder="242" />
+													<label>IP</label>
+													<h:inputText
+														value="#{clienteBDyMkController.formClienteInternet.ipCliente}"
+														pt:placeholder="192.168.1.3" class="form-control" />
+													<span class="fa fa-columns form-control-feedback"></span>
+													<!-- <input type="text" class="form-control"
+														placeholder="242" /> -->
 												</div>
 											</div>
-											
-											<div class="col-sm-3 col-sm-offset-1">
+
+											<div class="col-sm-3">
 												<div class="form-group">
-													<label>Equipo Instalado</label><br></br> <select name="country"
+													<label>Fecha de instalación</label>
+													<p:calendar class="form-control input-group"
+														value="#{clienteBDyMkController.formClienteInternet.fechaInstalacion}"
+														pattern="yyyy/MM/dd" />
+													<!-- <input type="text"
+														class="form-control" placeholder="242" /> -->
+												</div>
+											</div>
+
+											<div class="col-sm-4 col-sm-offset-1">
+												<div class="form-group">
+													<label>Equipo Instalado</label>
+													<h:selectOneMenu
+														value="#{clienteBDyMkController.formClienteInternet.idEquipo}"
 														class="form-control">
+															                <f:selectItems class="form-control"
+															value="#{dispositivosController.listDispositivos()}"
+															var="entry" itemValue="#{entry.idDispositivo}"
+															itemLabel="#{entry.nombre}   #{entry.modelo}" />
+            															</h:selectOneMenu>
+
+													<!-- <br></br> <select
+														name="country" class="form-control">
 														<option value="Afghanistan">RB1</option>
 														<option value="Albania">HapLiteMini</option>
 														<option value="Algeria">B.C. Sur</option>
@@ -261,37 +328,46 @@
 														<option value="Anguilla">Guerrero</option>
 														<option value="Antarctica">Veracruz</option>
 														<option value="...">...</option>
-													</select>
+													</select> -->
 												</div>
 											</div>
-											
-											<div class="col-sm-3">
-												<div class="form-group">
-													<label>Primer Pago</label> <input type="text"
-														class="form-control" placeholder="242" />
-												</div>
-											</div>
-											
+
 											<div class="col-sm-4">
 												<div class="form-group">
-													<label>Plan</label><br></br> <select name="country"
-														class="form-control">
-														<option value="Afghanistan">REs-5MB</option>
-														<option value="Albania">HapLiteMini</option>
-														<option value="Algeria">B.C. Sur</option>
-														<option value="American Samoa">B.C. Norte</option>
-														<option value="Andorra">Tamaulipas</option>
-														<option value="Angola">CDMX</option>
-														<option value="Anguilla">Guerrero</option>
-														<option value="Antarctica">Veracruz</option>
-														<option value="...">...</option>
-													</select>
+													<label>Primer Pago</label>
+													<p:calendar id="effect"
+														class="input-group form-control date" effect="fold"
+														value="#{clienteBDyMkController.formClienteInternet.primerPago}"
+														pattern="yyyy/MM/dd" />
+													<!-- <input type="text"
+														class="form-control" placeholder="242" /> -->
 												</div>
 											</div>
-											
+
+											<div class="col-sm-2">
+												<div class="form-group">
+													<label>Dia de Cobro</label>
+													<h:inputText
+														value="#{clienteBDyMkController.formClienteInternet.diaCobro}"
+														pt:placeholder="2" class="form-control" />
+													<!--  <input type="text"
+														class="form-control" placeholder="242" /> -->
+												</div>
+											</div>
+
 											<div class="col-sm-4 col-sm-offset-1">
 												<div class="form-group">
-													<label>Router</label><br></br> <select name="country"
+													<label>Router</label>
+
+													<h:selectOneMenu
+														value="#{clienteBDyMkController.formClienteInternet.idRouter}"
+														class="form-control">
+															                <f:selectItems class="form-control"
+															value="#{routerController.routerList()}" var="entry2"
+															itemValue="#{entry2.idRouter}"
+															itemLabel="#{entry2.nombreRouter}" />
+            															</h:selectOneMenu>
+													<!-- <br></br> <select name="country"
 														class="form-control">
 														<option value="Afghanistan">RB-Admin1</option>
 														<option value="Albania">Sinaloa</option>
@@ -302,24 +378,47 @@
 														<option value="Anguilla">Guerrero</option>
 														<option value="Antarctica">Veracruz</option>
 														<option value="...">...</option>
-													</select>
+													</select> -->
 												</div>
 											</div>
-											
-											<div class="col-sm-2">
+
+											<div class="col-sm-3">
 												<div class="form-group">
-													<label>Dia de Cobro</label> <input type="text"
-														class="form-control" placeholder="242" />
+													<label>Plan</label>
+													<h:selectOneMenu
+														value="#{clienteBDyMkController.formClienteInternet.idplan}"
+														class="form-control">
+															                <f:selectItems class="form-control"
+															value="#{planesController.listarPlanes()}" var="entry1"
+															itemValue="#{entry1.idPlan}"
+															itemLabel="#{entry1.nombrePlan}" />
+            															</h:selectOneMenu>
+													<!-- <br></br> <select name="country"
+														class="form-control">
+														<option value="Afghanistan">REs-5MB</option>
+														<option value="Albania">HapLiteMini</option>
+														<option value="Algeria">B.C. Sur</option>
+														<option value="American Samoa">B.C. Norte</option>
+														<option value="Andorra">Tamaulipas</option>
+														<option value="Angola">CDMX</option>
+														<option value="Anguilla">Guerrero</option>
+														<option value="Antarctica">Veracruz</option>
+														<option value="...">...</option>
+													</select> -->
 												</div>
 											</div>
-											
-											<div class="col-sm-4">
+
+											<div class="col-sm-3">
 												<div class="form-group">
-													<label>Ubicacion</label> <input type="text"
-														class="form-control" placeholder="242" />
+													<label>Ubicacion</label>
+													<h:inputText
+														value="#{clienteBDyMkController.formClienteInternet.ubicacionCliente}"
+														pt:placeholder="lat: Long:" class="form-control" />
+													<!-- <input type="text"
+														class="form-control" placeholder="242" /> -->
 												</div>
 											</div>
-						
+
 										</div>
 									</div>
 								</div>
@@ -327,9 +426,13 @@
 									<div class="pull-right">
 										<input type='button'
 											class='btn btn-next btn-fill btn-warning btn-wd' name='next'
-											value='Next' /> <input type='button'
+											value='Next' />
+										<h:commandButton value="Agregar servicio"
+											action="#{clienteBDyMkController.agregarServicioACliente()}"
+											styleClass="btn btn-finish btn-fill btn-warning btn-wd" />
+										<!-- <input type='button'
 											class='btn btn-finish btn-fill btn-warning btn-wd'
-											name='finish' value='Finish' />
+											name='finish' value='Finish' /> -->
 									</div>
 
 									<div class="pull-left">
@@ -339,7 +442,8 @@
 									</div>
 									<div class="clearfix"></div>
 								</div>
-							</form>
+								<!-- </form> -->
+							</h:form>
 						</div>
 					</div>
 					<!-- wizard container -->
@@ -349,16 +453,16 @@
 		</div>
 		<!--  big container -->
 
-		<div class="footer">
+		<!-- <div class="footer">
 			<div class="container text-center">
 				Made with <i class="fa fa-heart heart"></i> by <a
 					href="http://www.creative-tim.com">Creative Tim</a>. Free download
 				<a href="http://www.creative-tim.com/product/paper-bootstrap-wizard">here.</a>
 			</div>
-		</div>
+		</div> -->
 	</div>
 
-	<h:outputScript name="admin/jquery/jquery-2.2.4.min.js" />
+	<!-- <h:outputScript name="admin/jquery/jquery-2.2.4.min.js" /> -->
 	<h:outputScript name="admin/js/bootstrap.min.js" />
 	<h:outputScript name="admin/jquery/jquery.bootstrap.wizard.js" />
 	<h:outputScript name="admin/jquery/paper-bootstrap-wizard.js" />

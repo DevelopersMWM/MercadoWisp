@@ -38,7 +38,7 @@ public class SectorController {
 	
 	public String agregarSector() {
 		sectorServiceImpl.insertarSector(new DTOSectores(formSectorImpl.getNombre(), Integer.parseInt(formSectorImpl.getIdTorre())));//recibes el id de la torre y el nobre del sector
-		System.out.println("idTorre: "+formSectorImpl.getTorre());
+		//System.out.println("idTorre: "+formSectorImpl.getTorre());
 		return "ListaSectores.xhtml?faces-redirect=true";
 	}
 

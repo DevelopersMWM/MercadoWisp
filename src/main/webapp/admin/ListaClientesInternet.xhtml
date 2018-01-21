@@ -65,7 +65,7 @@
 	<!-- <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"> -->
 </h:head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-purple sidebar-mini">
 	<div class="wrapper">
 
 		<header class="main-header"> <!-- Logo --> <a
@@ -359,14 +359,14 @@
 				</span>
 			</a>
 				<ul class="treeview-menu">
-					<li class="active"><a href="ListaClientes.xhtml"><i
+					<li class="active"><a href="ListaClientesInternet.xhtml"><i
 							class="fa fa-users"></i> Lista de clientes</a></li>
-					<li><a href="pages/layout/boxed.html"><i
+					<li><a href="Error500.xhtml"><i
 							class="fa fa-building-o"></i> Instalaciones</a></li>
-					<li><a href="pages/layout/fixed.html"><i
-							class="fa fa-signal"></i> Tráfico</a></li>
-					<li><a href="pages/layout/collapsed-sidebar.html"><i
-							class="fa fa-area-chart"></i> Estadisticas</a></li>
+					<li><a href="Error500.xhtml"><i class="fa fa-signal"></i>
+							Tráfico</a></li>
+					<li><a href="Error500.xhtml"><i class="fa fa-area-chart"></i>
+							Estadisticas</a></li>
 				</ul></li>
 			<li class="treeview"><a href="#"> <i class="fa fa-table"></i>
 					<span>Sistema</span> <span class="pull-right-container"> <i
@@ -378,9 +378,9 @@
 							Routers</a></li>
 					<li><a href="ListaPlanes.xhtml"><i class="fa fa-circle-o"></i>
 							Planes de Internet</a></li>
-					<li><a href="data.xhtml"><i class="fa fa-circle-o"></i>
-							Zonas</a></li>
-					<li><a href="data.xhtml"><i class="fa fa-desktop"></i>
+					<li><a href="ListaSectores.xhtml"><i
+							class="fa fa-circle-o"></i> Zonas</a></li>
+					<li><a href="Error500.xhtml"><i class="fa fa-desktop"></i>
 							Monitoreo</a></li>
 					<!--<li><a href="data.xhtml"><i class="fa fa-circle-o"></i> Data tables</a></li>-->
 				</ul></li>
@@ -391,14 +391,14 @@
 				</span>
 			</a>
 				<ul class="treeview-menu">
-					<li><a href="pages/charts/chartjs.html"><i
-							class="fa fa-money"></i> Pagos Pendientes</a></li>
-					<li><a href="pages/charts/morris.html"><i
-							class="fa fa-book"></i> Facturas</a></li>
-					<li><a href="pages/charts/flot.html"><i
+					<li><a href="Error500.xhtml"><i class="fa fa-money"></i>
+							Pagos Pendientes</a></li>
+					<li><a href="Error500.xhtml"><i class="fa fa-book"></i>
+							Facturas</a></li>
+					<li><a href="Error500.xhtml"><i
 							class="fa fa-address-book-o"></i> Reporte de Pago</a></li>
-					<li><a href="pages/charts/inline.html"><i
-							class="fa fa-bar-chart"></i> Estadisticas</a></li>
+					<li><a href="Error500.xhtml"><i class="fa fa-bar-chart"></i>
+							Estadisticas</a></li>
 				</ul></li>
 			<li class="treeview"><a href="#"> <i class="fa fa-laptop"></i>
 					<span>Soporte Tecnico</span> <span class="pull-right-container">
@@ -406,22 +406,21 @@
 				</span>
 			</a>
 				<ul class="treeview-menu">
-					<li><a href="pages/UI/general.html"><i
+					<li><a href="Error500.xhtml"><i
 							class="fa fa-flag-o"></i> Reportes</a></li>
-					<li><a href="pages/UI/icons.html"><i class="fa fa-ticket"></i>
+					<li><a href="Error500.xhtml"><i class="fa fa-ticket"></i>
 							Tickets</a></li>
-					<li><a href="pages/UI/buttons.html"><i
+					<li><a href="Error500.xhtml"><i
 							class="fa fa-server"></i> Servicios</a></li>
 				</ul></li>
-			<li><a href="pages/calendar.html"> <i class="fa fa-calendar"></i>
+			<li><a href="Error500.xhtml"> <i class="fa fa-calendar"></i>
 					<span>Calendario</span> <span class="pull-right-container">
 						<small class="label pull-right bg-red">3</small> <small
 						class="label pull-right bg-blue">17</small>
 				</span>
 			</a></li>
-			<li><a href="pages/mailbox/mailbox.html"> <i
-					class="fa fa-envelope"></i> <span>Mail</span> <span
-					class="pull-right-container"> <small
+			<li><a href="Error500.xhtml"> <i class="fa fa-envelope"></i>
+					<span>Mail</span> <span class="pull-right-container"> <small
 						class="label pull-right bg-yellow">12</small> <small
 						class="label pull-right bg-green">16</small> <small
 						class="label pull-right bg-red">5</small>
@@ -465,121 +464,18 @@
 					<div class="box">
 						<div class="box-header">
 							<div>
-								<button type="button" class="btn btn-primary pull-left"
-									data-toggle="modal" data-target="#modal-default">
-									Nuevo cliente <i class="fa fa-plus-circle" aria-hidden="true"></i>
-								</button>
-
-								<div class="modal fade" id="modal-default">
-									<div class="modal-dialog">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal"
-													aria-label="Close">
-													<span aria-hidden="true">&times;</span>
-												</button>
-												<h4 class="modal-title">Agregar Nuevo Cliente</h4>
-											</div>
-											<div class="modal-body">
-												<!-- <p>One fine body&hellip;</p> -->
-												<div class="box box-success">
-													<div class="box-header with-border">
-														<h3 class="box-title">Llene los siguientes datos del
-															cliente</h3>
-													</div>
-													<!-- /.box-header -->
-													<!-- form start -->
-													<h:form class="form-horizontal">
-														<div class="box-body">
-
-															<div class="form-group has-feedback">
-																<label for="inputNombreRouter3"
-																	class="col-sm-5 control-label">Nombre del
-																	Cliente:</label>
-																<div class="col-sm-5">
-																	<h:inputText
-																		value="#{personaController.formPersona.nombre}"
-																		pt:placeholder="Juan" class="form-control" />
-																	<span class="fa fa-columns form-control-feedback"></span>
-																</div>
-															</div>
-															<div class="form-group has-feedback">
-																<label for="inputNomUser3"
-																	class="col-sm-5 control-label">Apellido
-																	Paterno:</label>
-																<div class="col-sm-5">
-																	<h:inputText
-																		value="#{personaController.formPersona.apellidoPat}"
-																		pt:placeholder="Lopez"
-																		class="form-control" />
-																	<span class="fa fa-download form-control-feedback"></span>
-																</div>
-															</div>
-
-															<div class="form-group has-feedback">
-																<label for="inputDirIporDns3"
-																	class="col-sm-5 control-label">Apellido
-																	Materno:</label>
-																<div class="col-sm-5">
-																	<h:inputText
-																		value="#{personaController.formPersona.apellidoMat}"
-																		pt:placeholder="Perez" class="form-control" />
-																	<span class="fa fa-usd form-control-feedback"></span>
-																</div>
-															</div>
-
-
-															<div class="form-group has-feedback">
-																<label for="inputContraseña3"
-																	class="col-sm-5 control-label">Telefono</label>
-																<div class="col-sm-5">
-																	<h:inputText
-																		value="#{personaController.formPersona.telefono}"
-																		pt:placeholder="958 128 8031"
-																		class="form-control" />
-																	<span class="fa fa-upload form-control-feedback"></span>
-																</div>
-															</div>
-														</div>
-														<!-- /.box-body -->
-														<div class="box-footer">
-															<!-- <button type="submit" class="btn btn-danger">Cancelar</button> -->
-															<h:commandButton value="Agregar Cliente"
-																action="#{personaController.guardarPersona()}"
-																styleClass="btn btn-info pull-right" />
-																<button type="button" class="btn btn-default pull-left"
-													data-dismiss="modal">Cerrar</button>
-														</div>
-
-														<div class="callout callout-success">
-															<h5>
-																<h:outputText id="saveResult"
-																	rendered="#{not empty CreadoPesonaNom}"
-																	value="!! Cliente agregado !!"
-																	styleClass="successText pull-center" />
-															</h5>
-														</div>
-														<!-- <h:outputText id="saveResult" rendered="#{not empty CreadoRouterID}" value="!! Router Guardado Exitosamente !!" styleClass="btn btn-succes pull-center" /> -->
-														<!-- /.box-footer -->
-													</h:form>
-												</div>
-											</div>
-											<!-- <div class="modal-footer">
-												<button type="button" class="btn btn-default pull-left"
-													data-dismiss="modal">Cerrar</button>
-											</div> -->
-										</div>
-										<!-- /.modal-content -->
-									</div>
-									<!-- /.modal-dialog -->
-								</div>
+								<h:link outcome="addServicioPersona" alt="Agregar nuevo Cliente"
+									class="btn bg-navy btn-flat margin btn-sm">Agregar Nuevo Cliente
+									<i class="fa fa-plus-circle" aria-hidden="true"></i>
+								</h:link>
+								
 							</div>
 						</div>
 						<!-- /.box-header -->
-						<div class="box-body">
+						<div class="box-body table-responsive no-padding">
 							<h:form id="PersonaForm">
 								<!-- h:dataTable es de JsF y aqui no inicializas producto como en tu ejemplo en el mb para acceder o si??  -->
-								<h:dataTable id="schoolTable" binding="#{table}"
+								<h:dataTable id="example1" binding="#{table}"
 									value="#{clientesInternetController.listaDeClientes()}"
 									var="Cliente"
 									styleClass="table table-striped table-bordered tableUpdated">

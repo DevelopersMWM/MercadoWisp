@@ -3,13 +3,17 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
 	<!-- <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
-
+	<style>
+#map {
+	justify-content: center;
+	height: 360px;
+	width: block;
+}
+</style>
 	<meta name="robots" content="all,follow" />
 	<meta name="googlebot" content="index,follow,snippet,archive" />
 	<meta name="viewport"
@@ -18,41 +22,20 @@
 	<meta name="author" content="     " />
 	<meta name="keywords" content="" />
 
-	<link
-		href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic'
-		rel='stylesheet' type='text/css' />
-	<link
-		href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'
-		rel='stylesheet' />
-
-	<title>MWM | Tabla de datos</title>
-
-	<h:outputStylesheet name="admin/css/bootstrap.min.css" />
-	<h:outputStylesheet name="admin/fonts/font-awesome.min.css" />
-	<h:outputStylesheet name="admin/Ionicons/css/ionicons.min.css" />
-	<h:outputStylesheet name="admin/css/dataTables.bootstrap.min.css" />
-	<h:outputStylesheet name="admin/css/AdminLTE.min.css" />
-	<h:outputStylesheet name="admin/css/bootstrap-datepicker.min.css" />
-	<h:outputStylesheet name="admin/css/skins/_all-skins.min.css" />
-	<!-- <h:outputStylesheet name="admin/css/morris.css"/>
-  <h:outputStylesheet name="admin/css/jquery-jvectormap.css"/>
-  <h:outputStylesheet name="admin/css/bootstrap-datepicker.min.css"/>
-  <h:outputStylesheet name="admin/css/daterangepicker.css"/>
-  <h:outputStylesheet name="admin/css/bootstrap3-wysihtml5.min.css"/> -->
-
+	<title>AdminMWM | Agregar Router</title>
 	<!-- Tell the browser to be responsive to screen width -->
-	<!-- <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-  Font Awesome
-  <link rel="stylesheet" href="bootstrap/fonts/font-awesome.min.css">
-  Ionicons
-  <link rel="stylesheet" href="bootstrap/Ionicons/css/ionicons.min.css">
-  DataTables
-  <link rel="stylesheet" href="bootstrap/css/dataTables.bootstrap.min.css">
-  Theme style
-  <link rel="stylesheet" href="bootstrap/css/AdminLTE.min.css">
-  AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load.
-  <link rel="stylesheet" href="bootstrap/css/skins/_all-skins.min.css"> -->
+	<!-- <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"> -->
+	<!-- Bootstrap 3.3.7 -->
+	<h:outputStylesheet name="admin/css/bootstrap.min.css" />
+	<!-- Font Awesome -->
+	<h:outputStylesheet name="admin/fonts/font-awesome.min.css" />
+	<!-- Ionicons -->
+	<h:outputStylesheet name="admin/Ionicons/css/ionicons.min.css" />
+	<!-- Theme style -->
+	<h:outputStylesheet name="admin/css/AdminLTE.min.css" />
+	<!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+	<h:outputStylesheet name="admin/css/skins/_all-skins.min.css" />
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -62,15 +45,16 @@
   <![endif]-->
 
 	<!-- Google Font -->
-	<!-- <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"> -->
+	<link
+		href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic'
+		rel='stylesheet' type='text/css' />
 </h:head>
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="wrapper">
 
 		<header class="main-header"> <!-- Logo --> <a
-			href="index.xhtml" class="logo"> <!-- mini logo for sidebar mini 50x50 pixels -->
-			<span class="logo-mini"><b>A</b>LT</span> <!-- logo for regular state and mobile devices -->
+			href="../../index2.html" class="logo"> <!-- mini logo for sidebar mini 50x50 pixels -->
+			<span class="logo-mini"><b>A</b>MWM</span> <!-- logo for regular state and mobile devices -->
 			<span class="logo-lg"><b>Admin</b>MWM</span>
 		</a> <!-- Header Navbar: style can be found in header.less --> <nav
 			class="navbar navbar-static-top"> <!-- Sidebar toggle button-->
@@ -95,10 +79,9 @@
 								<li>
 									<!-- start message --> <a href="#">
 										<div class="pull-left">
-											<!-- <img src="bootstrap/img/user2-160x160.jpg" class="img-circle" alt="User Image"> -->
 											<h:graphicImage
 												value="/resources/admin/img/user2-160x160.jpg"
-												alt="User Image" class="img-circle" />
+												class="img-circle" alt="User Image" />
 										</div>
 										<h4>
 											Support Team <small><i class="fa fa-clock-o"></i> 5
@@ -112,8 +95,7 @@
 										<div class="pull-left">
 											<h:graphicImage
 												value="/resources/admin/img/user3-128x128.jpg"
-												alt="User Image" class="img-circle" />
-											<!-- <img src="bootstrap/img/user3-128x128.jpg" class="img-circle" alt="User Image"> -->
+												class="img-circle" alt="User Image" />
 										</div>
 										<h4>
 											AdminLTE Design Team <small><i class="fa fa-clock-o"></i>
@@ -125,8 +107,7 @@
 										<div class="pull-left">
 											<h:graphicImage
 												value="/resources/admin/img/user4-128x128.jpg"
-												alt="User Image" class="img-circle" />
-											<!-- <img src="bootstrap/img/user4-128x128.jpg" class="img-circle" alt="User Image"> -->
+												class="img-circle" alt="User Image" />
 										</div>
 										<h4>
 											Developers <small><i class="fa fa-clock-o"></i> Today</small>
@@ -137,8 +118,7 @@
 										<div class="pull-left">
 											<h:graphicImage
 												value="/resources/admin/img/user3-128x128.jpg"
-												alt="User Image" class="img-circle" />
-											<!-- <img src="bootstrap/img/user3-128x128.jpg" class="img-circle" alt="User Image"> -->
+												class="img-circle" alt="User Image" />
 										</div>
 										<h4>
 											Sales Department <small><i class="fa fa-clock-o"></i>
@@ -150,8 +130,7 @@
 										<div class="pull-left">
 											<h:graphicImage
 												value="/resources/admin/img/user4-128x128.jpg"
-												alt="User Image" class="img-circle" />
-											<!-- <img src="bootstrap/img/user4-128x128.jpg" class="img-circle" alt="User Image"> -->
+												class="img-circle" alt="User Image" />
 										</div>
 										<h4>
 											Reviewers <small><i class="fa fa-clock-o"></i> 2 days</small>
@@ -182,7 +161,6 @@
 								<li><a href="#"> <i class="fa fa-users text-red"></i> 5
 										new members joined
 								</a></li>
-
 								<li><a href="#"> <i
 										class="fa fa-shopping-cart text-green"></i> 25 sales made
 								</a></li>
@@ -208,7 +186,7 @@
 										<h3>
 											Design some buttons <small class="pull-right">20%</small>
 										</h3>
-										<div class="progress xs">
+										<div class="progress progress-xs">
 											<div class="progress-bar progress-bar-aqua"
 												style="width: 20%" role="progressbar" aria-valuenow="20"
 												aria-valuemin="0" aria-valuemax="100">
@@ -223,7 +201,7 @@
 										<h3>
 											Create a nice theme <small class="pull-right">40%</small>
 										</h3>
-										<div class="progress xs">
+										<div class="progress progress-xs">
 											<div class="progress-bar progress-bar-green"
 												style="width: 40%" role="progressbar" aria-valuenow="20"
 												aria-valuemin="0" aria-valuemax="100">
@@ -238,7 +216,7 @@
 										<h3>
 											Some task I need to do <small class="pull-right">60%</small>
 										</h3>
-										<div class="progress xs">
+										<div class="progress progress-xs">
 											<div class="progress-bar progress-bar-red" style="width: 60%"
 												role="progressbar" aria-valuenow="20" aria-valuemin="0"
 												aria-valuemax="100">
@@ -253,7 +231,7 @@
 										<h3>
 											Make beautiful transitions <small class="pull-right">80%</small>
 										</h3>
-										<div class="progress xs">
+										<div class="progress progress-xs">
 											<div class="progress-bar progress-bar-yellow"
 												style="width: 80%" role="progressbar" aria-valuenow="20"
 												aria-valuemin="0" aria-valuemax="100">
@@ -270,18 +248,18 @@
 				<!-- User Account: style can be found in dropdown.less -->
 				<li class="dropdown user user-menu"><a href="#"
 					class="dropdown-toggle" data-toggle="dropdown"> <h:graphicImage
-							value="/resources/admin/img/user2-160x160.jpg" alt="User Image"
-							class="user-image" /> <!-- <img src="bootstrap/img/user2-160x160.jpg" class="user-image" alt="User Image"> -->
-						<span class="hidden-xs">Admin</span>
+							value="/resources/admin/img/user2-160x160.jpg" class="user-image"
+							alt="User Image" /> <span class="hidden-xs">Admin MWM</span>
 				</a>
 					<ul class="dropdown-menu">
 						<!-- User image -->
 						<li class="user-header"><h:graphicImage
-								value="/resources/admin/img/user2-160x160.jpg" alt="User Image"
-								class="img-circle" /> <!-- <img src="bootstrap/img/user2-160x160.jpg" class="img-circle" alt="User Image"> -->
+								value="/resources/admin/img/user2-160x160.jpg"
+								class="img-circle" alt="User Image" />
 
 							<p>
-								Admin MWM - Web Developer <small>Member since Nov. 2012</small>
+								Alexander Pierce - Web Developer <small>Member since
+									Nov. 2012</small>
 							</p></li>
 						<!-- Menu Body -->
 						<li class="user-body">
@@ -342,9 +320,8 @@
 		<!-- /.search form --> <!-- sidebar menu: : style can be found in sidebar.less -->
 		<ul class="sidebar-menu" data-widget="tree">
 			<li class="header">MAIN NAVIGATION</li>
-			<li class="treeview"><a href="index.xhtml"> <i
-					class="fa fa-dashboard"></i> <span>Dashboard</span> <span
-					class="pull-right-container"> <i
+			<li class="treeview"><a href="#"> <i class="fa fa-dashboard"></i>
+					<span>Dashboard</span> <span class="pull-right-container"> <i
 						class="fa fa-angle-left pull-right"></i>
 				</span>
 			</a>
@@ -352,15 +329,14 @@
 					<li><a href="index.xhtml"><i class="fa fa-circle-o"></i>
 							Dashboard</a></li>
 				</ul></li>
-			<li class="treeview active"><a href="#"> <i
-					class="fa fa-user-o"></i> <span>Clientes</span> <span
-					class="pull-right-container"> <span
+			<li class="treeview"><a href="#"> <i class="fa fa-user-o"></i>
+					<span>Clientes</span> <span class="pull-right-container"> <span
 						class="label label-primary pull-right">4</span>
 				</span>
 			</a>
 				<ul class="treeview-menu">
-					<li class="active"><a href="ListaClientes.xhtml"><i
-							class="fa fa-users"></i> Lista de clientes</a></li>
+					<li><a href="ListaClientes.xhtml"><i class="fa fa-users"></i>
+							Lista de clientes</a></li>
 					<li><a href="pages/layout/boxed.html"><i
 							class="fa fa-building-o"></i> Instalaciones</a></li>
 					<li><a href="pages/layout/fixed.html"><i
@@ -368,14 +344,15 @@
 					<li><a href="pages/layout/collapsed-sidebar.html"><i
 							class="fa fa-area-chart"></i> Estadisticas</a></li>
 				</ul></li>
-			<li class="treeview"><a href="#"> <i class="fa fa-table"></i>
-					<span>Sistema</span> <span class="pull-right-container"> <i
+			<li class="treeview active"><a href="#"> <i
+					class="fa fa-table"></i> <span>Sistema</span> <span
+					class="pull-right-container"> <i
 						class="fa fa-angle-left pull-right"></i>
 				</span>
 			</a>
 				<ul class="treeview-menu">
-					<li><a href="ListaRouter.xhtml"><i class="fa fa-circle-o"></i>
-							Routers</a></li>
+					<li class="active"><a href="ListaRouter.xhtml"><i
+							class="fa fa-circle-o"></i> Routers</a></li>
 					<li><a href="ListaPlanes.xhtml"><i class="fa fa-circle-o"></i>
 							Planes de Internet</a></li>
 					<li><a href="data.xhtml"><i class="fa fa-circle-o"></i>
@@ -442,218 +419,201 @@
 					width="100%" height="90" frameborder="0"></iframe>
 			</div>
 		</ul>
-		</section></aside>
+		</section> <!-- /.sidebar --> </aside>
 
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
 			<h1>
-				Lista de <small>Clientes</small>
+				Agregue <small>su nuevo Router</small>
 			</h1>
 			<ol class="breadcrumb">
 				<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-				<li><a href="#">Clientes</a></li>
-				<li class="active">Lista de Clientes</li>
+				<li><a href="#">Sistema</a></li>
+				<li class="#">Routers</li>
+				<li class="active">Agregar Router</li>
 			</ol>
 			</section>
 
 			<!-- Main content -->
-			<section class="content">
+			<section class="content"> <!-- /.row -->
 			<div class="row">
-				<div class="col-xs-12">
-					<div class="box">
-						<div class="box-header">
-							<div>
-								<button type="button" class="btn btn-primary pull-left"
-									data-toggle="modal" data-target="#modal-default">
-									Nuevo cliente <i class="fa fa-plus-circle" aria-hidden="true"></i>
-								</button>
-
-								<div class="modal fade" id="modal-default">
-									<div class="modal-dialog">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal"
-													aria-label="Close">
-													<span aria-hidden="true">&times;</span>
-												</button>
-												<h4 class="modal-title">Agregar Nuevo Cliente</h4>
-											</div>
-											<div class="modal-body">
-												<!-- <p>One fine body&hellip;</p> -->
-												<div class="box box-success">
-													<div class="box-header with-border">
-														<h3 class="box-title">Llene los siguientes datos del
-															cliente</h3>
-													</div>
-													<!-- /.box-header -->
-													<!-- form start -->
-													<h:form class="form-horizontal">
-														<div class="box-body">
-
-															<div class="form-group has-feedback">
-																<label for="inputNombreRouter3"
-																	class="col-sm-5 control-label">Nombre del
-																	Cliente:</label>
-																<div class="col-sm-5">
-																	<h:inputText
-																		value="#{personaServicioController.formPersona.nombre}"
-																		pt:placeholder="Juan" class="form-control" />
-																	<span class="fa fa-columns form-control-feedback"></span>
-																</div>
-															</div>
-															<div class="form-group has-feedback">
-																<label for="inputNomUser3"
-																	class="col-sm-5 control-label">Apellido
-																	Paterno:</label>
-																<div class="col-sm-5">
-																	<h:inputText
-																		value="#{personaServicioController.formPersona.apellidoPat}"
-																		pt:placeholder="Lopez"
-																		class="form-control" />
-																	<span class="fa fa-download form-control-feedback"></span>
-																</div>
-															</div>
-
-															<div class="form-group has-feedback">
-																<label for="inputDirIporDns3"
-																	class="col-sm-5 control-label">Apellido
-																	Materno:</label>
-																<div class="col-sm-5">
-																	<h:inputText
-																		value="#{personaServicioController.formPersona.apellidoMat}"
-																		pt:placeholder="Perez" class="form-control" />
-																	<span class="fa fa-usd form-control-feedback"></span>
-																</div>
-															</div>
-
-
-															<div class="form-group has-feedback">
-																<label for="inputContraseña3"
-																	class="col-sm-5 control-label">Telefono</label>
-																<div class="col-sm-5">
-																	<h:inputText
-																		value="#{personaServicioController.formPersona.telefono}"
-																		pt:placeholder="958 128 8031"
-																		class="form-control" />
-																	<span class="fa fa-upload form-control-feedback"></span>
-																</div>
-															</div>
-														</div>
-														<!-- /.box-body -->
-														<div class="box-footer">
-															<!-- <button type="submit" class="btn btn-danger">Cancelar</button> -->
-															<h:commandButton value="Agregar Cliente"
-																action="#{personaServicioController.guardarPersona()}"
-																styleClass="btn btn-info pull-right" />
-																<button type="button" class="btn btn-default pull-left"
-													data-dismiss="modal">Cerrar</button>
-														</div>
-
-														<div class="callout callout-success">
-															<h5>
-																<h:outputText id="saveResult"
-																	rendered="#{not empty CreadoPesonaNom}"
-																	value="!! Cliente agregado !!"
-																	styleClass="successText pull-center" />
-															</h5>
-														</div>
-														<!-- <h:outputText id="saveResult" rendered="#{not empty CreadoRouterID}" value="!! Router Guardado Exitosamente !!" styleClass="btn btn-succes pull-center" /> -->
-														<!-- /.box-footer -->
-													</h:form>
-												</div>
-											</div>
-											<!-- <div class="modal-footer">
-												<button type="button" class="btn btn-default pull-left"
-													data-dismiss="modal">Cerrar</button>
-											</div> -->
-										</div>
-										<!-- /.modal-content -->
-									</div>
-									<!-- /.modal-dialog -->
-								</div>
-							</div>
+				<div class="col-sm-6">
+					<div class="box box-info">
+						<div class="box-header with-border">
+							<h3 class="box-title">Agregue Su Router</h3>
 						</div>
 						<!-- /.box-header -->
-						<div class="box-body">
-							<h:form id="PersonaForm">
-								<!-- h:dataTable es de JsF y aqui no inicializas producto como en tu ejemplo en el mb para acceder o si??  -->
-								<h:dataTable id="schoolTable" binding="#{table}"
-									value="#{personaServicioController.listaDeClientes()}"
-									var="Cliente"
-									styleClass="table table-striped table-bordered tableUpdated">
-									<h:column>
-										<f:facet name="header">Folio</f:facet>
-										<h:outputText value="#{Cliente.idCliente}" />
-									</h:column>
-									<h:column>
-										<f:facet name="header">Nombre</f:facet>
-										<h:outputText value="#{Cliente.nombreCliente}" />
-									</h:column>
-									<h:column>
-										<f:facet name="header">Id Mk</f:facet>
-										<h:outputText value="#{Cliente.idMk}" />
-									</h:column>
-									<h:column>
-										<f:facet name="header">Sector</f:facet>
-										<h:outputText value="#{Cliente.sector}" />
-									</h:column>
-									<h:column>
-										<f:facet name="header">IP</f:facet>
-										<h:outputText value="#{Cliente.ipCliente}" />
-									</h:column>
-									<h:column>
-										<f:facet name="header">Fecha Instalación</f:facet>
-										<h:outputText value="#{Cliente.fechaInstalacion.time}">
-											<f:convertDateTime type="both" pattern="dd/MMMM/yyyy"
-												dateStyle="long" />
-											<!-- <f:convertDateTime dateStyle="long"/> -->
-										</h:outputText>
-									</h:column>
-									<h:column>
-										<f:facet name="header">Equipo Instalado</f:facet>
-										<h:outputText value="#{Cliente.equipoInstalado}" />
-									</h:column>
-									<h:column>
-										<f:facet name="header">1er Pago</f:facet>
-										<h:outputText value="#{Cliente.primerPago.time}">
-											<f:convertDateTime type="both" pattern="dd/MMMM/yyyy"
-												dateStyle="long" />
-										</h:outputText>
-									</h:column>
-									<h:column>
-										<f:facet name="header">Plan</f:facet>
-										<h:outputText value="#{Cliente.plan}" />
-									</h:column>
-									<h:column>
-										<f:facet name="header">Día cobro</f:facet>
-										<h:outputText value="#{Cliente.diaCobro}" />
-									</h:column>
-									<h:column>
-										<f:facet name="header">Ubicacion</f:facet>
-										<h:outputText value="#{Cliente.ubicacion}" />
-									</h:column>
-									<h:column>
-										<f:facet name="header">Router</f:facet>
-										<h:outputText value="#{Cliente.router}" />
-									</h:column>
-									<h:column>
-										<f:facet name="header">Acción</f:facet>
-										<h:commandButton value="Actualizar"
-											styleClass="btn btn-primary">
-										</h:commandButton>
-										<h:commandButton value="Eliminar" styleClass="btn btn-danger" />
-									</h:column>
-								</h:dataTable>
-							</h:form>
+						<!-- form start -->
+						<h:form class="form-horizontal">
+							<div class="box-body">
+
+								<div class="form-group has-feedback">
+									<label for="inputNombreRouter3" class="col-sm-5 control-label">Nombre
+										para el Router</label>
+									<div class="col-sm-5">
+										<h:inputText value="#{routerController.formRouter.nombre}"
+											class="form-control" />
+										<span class="glyphicon glyphicon-hdd form-control-feedback"></span>
+									</div>
+								</div>
+
+								<div class="form-group has-feedback">
+									<label for="inputDirIporDns3" class="col-sm-5 control-label">Direccion
+										IP o DNS</label>
+									<div class="col-sm-5">
+										<h:inputText value="#{routerController.formRouter.ipDns}"
+											class="form-control" />
+										<span class="fa fa-compass form-control-feedback"></span>
+									</div>
+								</div>
+
+								<div class="form-group has-feedback">
+									<label for="inputNomUser3" class="col-sm-5 control-label">Nombre
+										de Usuario</label>
+									<div class="col-sm-5">
+										<h:inputText value="#{routerController.formRouter.nombreUsuario}"
+											class="form-control" />
+										<span class="fa fa-user-circle form-control-feedback"></span>
+									</div>
+								</div>
+
+								<div class="form-group has-feedback">
+									<label for="inputContraseña3" class="col-sm-5 control-label">Contraseña</label>
+									<div class="col-sm-5">
+										<h:inputText value="#{routerController.formRouter.obtenerLlave}"
+											class="form-control" />
+										<span class="fa fa-key form-control-feedback"></span>
+									</div>
+								</div>
+
+								<div class="form-group has-feedback">
+									<label for="inputUbicacion3" class="col-sm-5 control-label">Coordenadas
+										de Ubicación</label>
+									<div class="col-sm-5">
+										<h:inputText value="#{routerController.formRouter.ubicacion}"
+											class="form-control" />
+										<span
+											class="glyphicon glyphicon-map-marker form-control-feedback"></span>
+									</div>
+								</div>
+
+							</div>
+							<!-- /.box-body -->
+							<div class="box-footer">
+								<!-- <button type="submit" class="btn btn-danger">Cancelar</button> -->
+								<h:commandButton value="Agregar Router"
+									action="#{routerController.guardarRouter()}"
+									styleClass="btn btn-info pull-right" />
+								<h:link outcome="ListaRouter" value="Ver Routers"
+									class="btn btn-primary" />
+
+							</div>
+							<div class="callout callout-info">
+								<h5>
+									<h:outputText id="saveResult"
+										rendered="#{not empty CreadoRouterID}"
+										value="!! Router Guardado Exitosamente !!"
+										styleClass="successText pull-center" />
+								</h5>
+							</div>
+							<!-- <h:outputText id="saveResult" rendered="#{not empty CreadoRouterID}" value="!! Router Guardado Exitosamente !!" styleClass="btn btn-succes pull-center" /> -->
+							<!-- /.box-footer -->
+						</h:form>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="box box-default">
+						<div class="box-header with-border">
+							<i class="fa fa-map-marker"></i>
+
+							<h3 class="box-title">Seleccione la ubicacion de su router</h3>
+						</div>
+						<!-- /.box-header -->
+						<div id="map" class="box-body">
+							<script>
+								function initMap() {
+									var map = new google.maps.Map(document
+											.getElementById('map'), {
+										zoom : 15,
+										center : {
+											lat : 19.296384,
+											lng : -99.136624
+										}
+									});
+									if (navigator.geolocation) {
+										navigator.geolocation
+												.getCurrentPosition(
+														function(position) {
+															var pos = {
+																lat : 19.296384,
+																lng : -99.136624
+															};
+															var pos1 = {
+																lat : 19.299878,
+																lng : -99.147782
+															};
+															var pos2 = {
+																lat : 19.299038,
+																lng : -99.137913
+															};
+
+															//var image='imagenes/mapita.ico';
+
+															var marker = new google.maps.Marker(
+																	{
+																		position : pos,
+																		map : map,
+																		draggable : true,
+																		animation : google.maps.Animation.DROP,
+																		label : 'RB1',
+																		title : 'MWM'
+																	});
+															var marker = new google.maps.Marker(
+																	{
+																		position : pos1,
+																		map : map,
+																		draggable : true,
+																		animation : google.maps.Animation.DROP,
+																		label : 'RB2',
+																		title : 'Empresa1'
+																	});
+															var marker = new google.maps.Marker(
+																	{
+																		position : pos2,
+																		map : map,
+																		draggable : true,
+																		animation : google.maps.Animation.DROP,
+																		label : 'RB3',
+																		title : 'Empresa2'
+																	});
+														},
+														function() {
+															handleLocationError(
+																	true,
+																	infoWindow,
+																	map
+																			.getCenter());
+														});
+									} else {
+										handleLocationError(false, infoWindow,
+												map.getCenter());
+									}
+								}
+								function handleLocationError(
+										browserHasGeolocation, infoWindow, pos) {
+									infoWindow.setPosition(pos);
+									infoWindow
+											.setContent(browserHasGeolocation ? 'Error: The Geolocation service failed.'
+													: 'Error: Your browser doesn\'t support geolocation.');
+								}
+							</script>
 						</div>
 						<!-- /.box-body -->
 					</div>
 					<!-- /.box -->
-					<!-- /.col -->
 				</div>
-				<!-- /.row -->
 			</div>
 			</section>
 			<!-- /.content -->
@@ -844,47 +804,22 @@
 	</div>
 	<!-- ./wrapper -->
 
-	<h:outputScript name="admin/jquery/jquery.min.js" />
-	<h:outputScript name="admin/js/bootstrap.min.js" />
-	<h:outputScript name="admin/jquery/jquery.dataTables.min.js" />
-	<h:outputScript name="admin/js/dataTables.bootstrap.min.js" />
-	<h:outputScript name="admin/jquery/jquery.slimscroll.min.js" />
-	<h:outputScript name="admin/js/fastclick.js" />
-	<h:outputScript name="admin/js/bootstrap-datepicker.min.js" />
-	<h:outputScript name="admin/js/adminlte.min.js" />
-
 	<!-- jQuery 3 -->
-	<!-- <script src="bootstrap/jquery/jquery.min.js"></script>
-Bootstrap 3.3.7
-<script src="bootstrap/js/bootstrap.min.js"></script>
-DataTables
-<script src="bootstrap/jquery/jquery.dataTables.min.js"></script>
-<script src="bootstrap/js/dataTables.bootstrap.min.js"></script>
-SlimScroll
-<script src="bootstrap/jquery/jquery.slimscroll.min.js"></script>
-FastClick
-<script src="bootstrap/js/fastclick.js"></script>
-AdminLTE App
-<script src="bootstrap/js/adminlte.min.js"></script> -->
+	<h:outputScript name="admin/jquery/jquery.min.js" />
+	<!-- Bootstrap 3.3.7 -->
+	<h:outputScript name="admin/js/bootstrap.min.js" />
+	<!-- Slimscroll -->
+	<h:outputScript name="admin/jquery/jquery.slimscroll.min.js" />
+	<!-- FastClick -->
+	<h:outputScript name="admin/js/fastclick.js" />
+	<!-- AdminLTE App -->
+	<h:outputScript name="admin/js/adminlte.min.js" />
 	<!-- AdminLTE for demo purposes -->
-	<!-- <script src="../../dist/js/demo.js"></script> -->
-	<!-- page script -->
-	<script type="text/javascript">
-		$(function() {
-			$('#example1').DataTable()
-			$('#example2').DataTable({
-				'paging' : true,
-				'lengthChange' : false,
-				'searching' : false,
-				'ordering' : true,
-				'info' : true,
-				'autoWidth' : false
-			})
-			// Datepicker
-			$('#datepicker').datepicker({
-				autoclose : true
-			})
-		})
+	<!-- <script src="/resources/admin/js/demo.js"></script> -->
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7-SP_lJJqFRa9E7LXY1B70AEcfZqsc_E
+    &amp;callback=initMap">
+		
 	</script>
 </body>
 </html>

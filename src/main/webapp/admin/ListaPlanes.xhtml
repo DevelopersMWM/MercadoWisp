@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
@@ -43,7 +44,7 @@
 		href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic'
 		rel='stylesheet' type='text/css' />
 </h:head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-purple sidebar-mini">
 	<div class="wrapper">
 
 		<header class="main-header"> <!-- Logo --> <a
@@ -328,14 +329,14 @@
 				</span>
 			</a>
 				<ul class="treeview-menu">
-					<li><a href="ListaClientes.xhtml"><i class="fa fa-users"></i>
-							Lista de clientes</a></li>
-					<li><a href="Error500.xhtml"><i
-							class="fa fa-building-o"></i> Instalaciones</a></li>
-					<li><a href="Error500.xhtml"><i
-							class="fa fa-signal"></i> Tráfico</a></li>
-					<li><a href="Error500.xhtml"><i
-							class="fa fa-area-chart"></i> Estadisticas</a></li>
+					<li><a href="ListaClientesInternet.xhtml"><i
+							class="fa fa-users"></i> Lista de clientes</a></li>
+					<li><a href="Error500.xhtml"><i class="fa fa-building-o"></i>
+							Instalaciones</a></li>
+					<li><a href="Error500.xhtml"><i class="fa fa-signal"></i>
+							Tráfico</a></li>
+					<li><a href="Error500.xhtml"><i class="fa fa-area-chart"></i>
+							Estadisticas</a></li>
 				</ul></li>
 			<li class="treeview active"><a href="#"> <i
 					class="fa fa-table"></i> <span>Sistema</span> <span
@@ -361,14 +362,14 @@
 				</span>
 			</a>
 				<ul class="treeview-menu">
-					<li><a href="Error500.xhtml"><i
-							class="fa fa-money"></i> Pagos Pendientes</a></li>
-					<li><a href="Error500.xhtml"><i
-							class="fa fa-book"></i> Facturas</a></li>
+					<li><a href="Error500.xhtml"><i class="fa fa-money"></i>
+							Pagos Pendientes</a></li>
+					<li><a href="Error500.xhtml"><i class="fa fa-book"></i>
+							Facturas</a></li>
 					<li><a href="Error500.xhtml"><i
 							class="fa fa-address-book-o"></i> Reporte de Pago</a></li>
-					<li><a href="Error500.xhtml"><i
-							class="fa fa-bar-chart"></i> Estadisticas</a></li>
+					<li><a href="Error500.xhtml"><i class="fa fa-bar-chart"></i>
+							Estadisticas</a></li>
 				</ul></li>
 			<li class="treeview"><a href="#"> <i class="fa fa-laptop"></i>
 					<span>Soporte Tecnico</span> <span class="pull-right-container">
@@ -376,12 +377,12 @@
 				</span>
 			</a>
 				<ul class="treeview-menu">
-					<li><a href="Error500.xhtml"><i
-							class="fa fa-flag-o"></i> Reportes</a></li>
+					<li><a href="Error500.xhtml"><i class="fa fa-flag-o"></i>
+							Reportes</a></li>
 					<li><a href="Error500.xhtml"><i class="fa fa-ticket"></i>
 							Tickets</a></li>
-					<li><a href="Error500.xhtml"><i
-							class="fa fa-server"></i> Servicios</a></li>
+					<li><a href="Error500.xhtml"><i class="fa fa-server"></i>
+							Servicios</a></li>
 				</ul></li>
 			<li><a href="Error500.xhtml"> <i class="fa fa-calendar"></i>
 					<span>Calendario</span> <span class="pull-right-container">
@@ -389,9 +390,8 @@
 						class="label pull-right bg-blue">17</small>
 				</span>
 			</a></li>
-			<li><a href="Error500.xhtml"> <i
-					class="fa fa-envelope"></i> <span>Mail</span> <span
-					class="pull-right-container"> <small
+			<li><a href="Error500.xhtml"> <i class="fa fa-envelope"></i>
+					<span>Mail</span> <span class="pull-right-container"> <small
 						class="label pull-right bg-yellow">12</small> <small
 						class="label pull-right bg-green">16</small> <small
 						class="label pull-right bg-red">5</small>
@@ -453,19 +453,38 @@
 						<div class="box-body table-responsive no-padding">
 							<h:form id="schoolForm">
 								<h:dataTable id="schoolTable" binding="#{table}"
-									value="#{planController.planList()}" var="planes"
+									value="#{planesController.listarPlanes()}" var="planes"
 									varStatus="status" styleClass="table table-hover">
-									<h:column>
+									<!-- <h:column>
 										<f:facet name="header">#</f:facet>
 										#{status.index+1}
-									</h:column>
+									</h:column> -->
 									<h:column>
 										<f:facet name="header">Id</f:facet>
-										#{planes.id}
+										#{planes.idPlan}
 									</h:column>
 									<h:column>
 										<f:facet name="header">Nombre</f:facet>
-										#{planes.nombre}
+										#{planes.nombrePlan}
+									</h:column>
+									<h:column>
+										<f:facet name="header">Costo</f:facet>
+										#{planes.costoPlan}
+									</h:column>
+									<h:column>
+										<f:facet name="header">Subida (MB/KB)</f:facet>
+										#{planes.subidaPlan}
+									</h:column>
+									<h:column>
+										<f:facet name="header">Bajada (MB/KB)</f:facet>
+										#{planes.bajadaPlan}
+									</h:column>
+									<h:column>
+										<f:facet name="header">Fecha Creación</f:facet>
+										<h:outputText value="#{planes.fechaCreacion.time}">
+											<f:convertDateTime type="both" pattern="dd/MMMM/yyyy"
+												dateStyle="long" />
+										</h:outputText>
 									</h:column>
 									<h:column>
 										<f:facet name="header">Acción</f:facet>
@@ -473,14 +492,12 @@
 											styleClass="btn btn-success btn-xs">
 											<i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
 										</h:commandLink>
-										<span>   </span>
+										<span> </span>
 										<h:commandLink id="Eliminar" action="search.xhtml"
 											styleClass="btn btn-danger btn-xs">
 											<i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
 										</h:commandLink>
-										<h:commandButton
-											action="#{planController.eliminarPlan(planes.id)}"
-											value="Eliminar" styleClass="btn btn-danger" />
+										
 										<!-- <h:commandButton
 											action="#{schoolBean.editSchoolDetailsById()}" value="fa fa-usd form-control-feedback"
 											styleClass="btn btn-primary">
@@ -500,46 +517,6 @@
 								<h:commandButton action="newSchool.xhtml?faces-redirect=true"
 									value="Add New School" styleClass="btn btn-success btnSpace" /></center> -->
 							</h:form>
-							<!-- <c:if test="${!empty planController.planList()}">
-								<table class="table table-hover">
-									<tr>
-										<th>#</th>
-										<th>Id</th>
-										<th>Id</th>
-										<th>Nombre</th>
-										<th>Descarga</th>
-										<th>Subida</th>
-										<th>Router</th>
-										<th>Precio</th>
-										<th>Acción</th>
-									</tr>
-									<ui:repeat value="${planController.planList()}" var="planes"
-										varStatus="status">
-										<tr>
-											<td>${status.index+1}</td>
-											<td>${planes.id}</td>
-											<td>${planes.nombre}</td>
-											<td>10MBPS</td>
-											<td>5MBPS</td>
-											<td>Todos</td>
-											<td>$200</td>
-											<td><span class="label label-success">Conectado</span></td>
-											<td>
-												<div class="text-center">
-													<h:link outcome="index" alt="Editar"
-														class="btn btn-success btn-xs">
-														<i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
-													</h:link>
-													<h:link outcome="login" alt="Eliminar"
-														class="btn btn-danger btn-xs">
-														<i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
-													</h:link>
-												</div>
-											</td>
-										</tr>
-									</ui:repeat>
-								</table>
-							</c:if> -->
 						</div>
 						<!-- /.box-body -->
 					</div>
@@ -576,7 +553,8 @@
 												<label for="inputNombreRouter3"
 													class="col-sm-5 control-label">Nombre del Plan</label>
 												<div class="col-sm-5">
-													<h:inputText value="#{routerMB.nombre}"
+													<h:inputText
+														value="#{planesController.formPlan.nombrePlan}"
 														class="form-control" />
 													<span class="fa fa-columns form-control-feedback"></span>
 												</div>
@@ -586,7 +564,9 @@
 												<label for="inputDirIporDns3" class="col-sm-5 control-label">Precio
 													del Plan</label>
 												<div class="col-sm-5">
-													<h:inputText value="#{routerMB.ipDns}" class="form-control" />
+													<h:inputText
+														value="#{planesController.formPlan.precioPlan}"
+														class="form-control" />
 													<span class="fa fa-usd form-control-feedback"></span>
 												</div>
 											</div>
@@ -595,7 +575,8 @@
 												<label for="inputNomUser3" class="col-sm-5 control-label">Mbps
 													o Kbps (Subida)</label>
 												<div class="col-sm-5">
-													<h:inputText value="#{routerMB.nombreUsuario}"
+													<h:inputText
+														value="#{planesController.formPlan.subidaPlan}"
 														class="form-control" />
 													<span class="fa fa-download form-control-feedback"></span>
 												</div>
@@ -605,17 +586,26 @@
 												<label for="inputContraseña3" class="col-sm-5 control-label">Mbps
 													o Kbps (Bajada)</label>
 												<div class="col-sm-5">
-													<h:inputText value="#{routerMB.llave}" class="form-control" />
+													<h:inputText
+														value="#{planesController.formPlan.bajadaPlan}"
+														class="form-control" />
 													<span class="fa fa-upload form-control-feedback"></span>
 												</div>
 											</div>
 
 											<div class="form-group has-feedback">
-												<label for="inputUbicacion3" class="col-sm-5 control-label">Descripción</label>
+												<label for="inputUbicacion3" class="col-sm-5 control-label">Fecha
+													de Creación</label>
 												<div class="col-sm-5">
-													<h:inputText value="#{routerMB.ubicacion}"
-														class="form-control" />
-													<span class="fa fa-commenting form-control-feedback"></span>
+													<div class="input-group date">
+														<p:calendar value="#{planesController.formPlan.fechaCreacionPlan}"
+															pattern="MM/dd/yyyy" />
+														<!-- <h:inputText id="datepicker" value="#{clientescontroller.diacorte}" styleclass="form-control pull-right datepicker"/> -->
+														<!-- <input value="#{clientescontroller.diacorte}" type="text" class="form-control pull-right" id="datepicker"/> -->
+														<div class="input-group-addon">
+															<i class="fa fa-calendar"></i>
+														</div>
+													</div>
 												</div>
 											</div>
 
@@ -850,5 +840,23 @@
 	<h:outputScript name="admin/js/adminlte.min.js" />
 	<!-- AdminLTE for demo purposes -->
 	<!-- <script src="/resources/admin/js/demo.js"></script> -->
+	
+	<script type="text/javascript">
+		$(function() {
+			$('#example1').DataTable()
+			$('#example2').DataTable({
+				'paging' : true,
+				'lengthChange' : false,
+				'searching' : false,
+				'ordering' : true,
+				'info' : true,
+				'autoWidth' : false
+			})
+			// Datepicker
+			$('#datepicker').datepicker({
+				autoclose : true
+			})
+		})
+	</script>
 </body>
 </html>

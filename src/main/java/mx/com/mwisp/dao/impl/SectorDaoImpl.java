@@ -8,12 +8,8 @@ import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
 
-import mx.com.mwisp.controller.SectorController;
 import mx.com.mwisp.dao.SectorDao;
 import mx.com.mwisp.model.Sector;
-import mx.com.mwisp.model.Torre;
-import mx.com.mwm.dto.DTOSectores;
-import mx.com.mwm.dto.helper.FormSectores;
 
 @Repository
 public class SectorDaoImpl implements SectorDao {

@@ -36,26 +36,25 @@ public class ClienteInternetDAOImpl implements ClienteInternetDAO {
 
 	@Override
 	public void guardarClienteEnDB(ClienteInternet cliente) {
-		// TODO Auto-generated method stub
-
+		em.persist(cliente);
 	}
 
 	@Override
 	public void eliminarClienteEnDB(int id) {
-		// TODO Auto-generated method stub
-
+		ClienteInternet cliente=em.find(ClienteInternet.class, id);
+		em.remove(cliente);
 	}
 
 	@Override
 	public ClienteInternet findClientById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		ClienteInternet cliente=em.find(ClienteInternet.class, id);
+		return cliente;
 	}
 
 	@Override
 	public void actualizarCliente(int id, ClienteInternet cliente) {
-		// TODO Auto-generated method stub
-
+		cliente.setFolio(id);
+		em.merge(cliente);
 	}
 
 }
