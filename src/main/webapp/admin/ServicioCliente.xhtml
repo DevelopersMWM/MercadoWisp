@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<!-- <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+
+	<meta name="robots" content="all,follow" />
+	<meta name="googlebot" content="index,follow,snippet,archive" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<meta name="description" content="MWM ADMINISTRACION" />
+	<meta name="author" content="     " />
+	<meta name="keywords" content="" />
+
+	<link
+		href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic'
+		rel='stylesheet' type='text/css' />
+	<link
+		href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'
+		rel='stylesheet' />
+	<link href='https://fonts.googleapis.com/css?family=Muli:400,300'
+		rel='stylesheet' type='text/css' />
+	<title>MWM | Tabla de datos</title>
+
+	<h:outputStylesheet name="admin/css/bootstrap.min.css" />
+	<h:outputStylesheet name="admin/fonts/font-awesome.min.css" />
+	<h:outputStylesheet name="admin/Ionicons/css/ionicons.min.css" />
+	<h:outputStylesheet name="admin/css/dataTables.bootstrap.min.css" />
+	<h:outputStylesheet name="admin/css/AdminLTE.min.css" />
+	<h:outputStylesheet name="admin/css/paper-bootstrap-wizard.css" />
+	<h:outputStylesheet name="admin/css/themify-icons.css" />
+	<h:outputStylesheet name="admin/css/bootstrap-datepicker.min.css" />
+	<h:outputStylesheet name="admin/css/skins/_all-skins.min.css" />
+</h:head>
+<h:body>
+	<h:form>
+		<div class="row">
+			<div class="col-sm-12">
+				<h5 class="info-text">Seleccione el servicio para el cliente</h5>
+			</div>
+
+			<div class="col-sm-3 col-sm-offset-1">
+				<div class="form-group">
+					<label>Sector</label>
+					<h:selectOneMenu
+						value="#{clientesInternetController.formCliente.idSector}"
+						class="form-control">
+															                <f:selectItems class="form-control"
+							value="#{sectorController.listarSectores()}" var="entry"
+							itemValue="#{entry.idSector}" itemLabel="#{entry.nombreSector}" />
+            															</h:selectOneMenu>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="form-group">
+					<label>IP</label>
+					<h:inputText
+						value="#{clientesInternetController.formCliente.ipCliente}"
+						pt:placeholder="192.168.1.3" class="form-control" />
+					<span class="fa fa-columns form-control-feedback"></span>
+					<!-- <input type="text" class="form-control"
+					placeholder="242" /> -->
+				</div>
+			</div>
+
+			<div class="col-sm-3">
+				<div class="form-group">
+					<label>Fecha de instalación</label>
+					<p:calendar class="input-group form-control date"
+						value="#{clientesInternetController.formCliente.fechaInstalacion}"
+						pattern="yyyy/MM/dd" />
+					<!-- <input type="text"
+					class="form-control" placeholder="242" /> -->
+				</div>
+			</div>
+
+			<div class="col-sm-3 col-sm-offset-1">
+				<div class="form-group">
+					<label>Equipo Instalado</label>
+					<h:selectOneMenu
+						value="#{clientesInternetController.formCliente.idEquipo}"
+						class="form-control">
+															                <f:selectItems class="form-control"
+							value="#{dispositivosController.listDispositivos()}" var="entry"
+							itemValue="#{entry.idDispositivo}"
+							itemLabel="#{entry.nombre}   #{entry.modelo}" />
+            															</h:selectOneMenu>
+				</div>
+			</div>
+
+			<div class="col-sm-3">
+				<div class="form-group">
+					<label>Primer Pago</label>
+					<p:calendar class="input-group form-control date"
+						value="#{clientesInternetController.formCliente.primerPago}"
+						pattern="yyyy/MM/dd" />
+				</div>
+			</div>
+
+			<div class="col-sm-4">
+				<div class="form-group">
+					<label>Plan</label>
+					<h:selectOneMenu
+						value="#{clientesInternetController.formCliente.idplan}"
+						class="form-control">
+															                <f:selectItems class="form-control"
+							value="#{planesController.listarPlanes()}" var="entry1"
+							itemValue="#{entry1.idPlan}" itemLabel="#{entry1.nombrePlan}" />
+            															</h:selectOneMenu>
+				</div>
+			</div>
+
+			<div class="col-sm-3 col-sm-offset-1">
+				<div class="form-group">
+					<label>Router</label>
+					<h:selectOneMenu
+						value="#{clientesInternetController.formCliente.idRouter}"
+						class="form-control">
+															                <f:selectItems class="form-control"
+							value="#{routerController.routerList()}" var="entry2"
+							itemValue="#{entry2.idRouter}" itemLabel="#{entry2.nombreRouter}" />
+            															</h:selectOneMenu>
+				</div>
+			</div>
+
+			<div class="col-sm-3">
+				<div class="form-group">
+					<label>Dia de Cobro</label>
+					<h:inputText
+						value="#{clientesInternetController.formCliente.diaCobro}"
+						pt:placeholder="2" class="form-control" />
+					<!-- <input type="text" class="form-control"
+					placeholder="242" /> -->
+				</div>
+			</div>
+
+			<div class="col-sm-4">
+				<div class="form-group">
+					<label>Ubicacion</label>
+					<h:inputText
+						value="#{clientesInternetController.formCliente.ubicacionCliente}"
+						pt:placeholder="lat: Long:" class="form-control" />
+					<!-- <input type="text" class="form-control"
+					placeholder="242" /> -->
+				</div>
+			</div>
+
+		</div>
+		<div class="wizard-footer">
+			<h:commandButton value="Agregar servicio"
+				action="#{clientesInternetController.agregarCliente()}"
+				styleClass="btn btn-info pull-right" />
+		</div>
+	</h:form>
+</h:body>
+</html>
