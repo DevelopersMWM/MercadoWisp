@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import mx.com.mwisp.dao.DireccionDAO;
 import mx.com.mwisp.model.Direccion;
+import mx.com.mwisp.model.Persona;
 
 @Repository
 public class DireccionDAOImpl implements DireccionDAO {
@@ -55,5 +56,10 @@ public class DireccionDAOImpl implements DireccionDAO {
 		Direccion direccion=em.find(Direccion.class, id);
 		return direccion;
 	}
-
+	
+	@Override
+	public Persona encotrarPersonaPorId(int id) {
+		Persona persona=em.find(Persona.class, id);
+		return persona;
+	}
 }

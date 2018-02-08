@@ -600,8 +600,6 @@
 													<div class="input-group date">
 														<p:calendar value="#{planesController.formPlan.fechaCreacionPlan}"
 															pattern="MM/dd/yyyy" />
-														<!-- <h:inputText id="datepicker" value="#{clientescontroller.diacorte}" styleclass="form-control pull-right datepicker"/> -->
-														<!-- <input value="#{clientescontroller.diacorte}" type="text" class="form-control pull-right" id="datepicker"/> -->
 														<div class="input-group-addon">
 															<i class="fa fa-calendar"></i>
 														</div>
@@ -829,7 +827,7 @@
 	<!-- ./wrapper -->
 
 	<!-- jQuery 3 -->
-	<h:outputScript name="admin/jquery/jquery.min.js" />
+	<h:outputScript name="admin/jquery/jquery.min.js" /> 
 	<!-- Bootstrap 3.3.7 -->
 	<h:outputScript name="admin/js/bootstrap.min.js" />
 	<!-- Slimscroll -->
@@ -853,9 +851,6 @@
 				'autoWidth' : false
 			})
 			// Datepicker
-			$('#datepicker').datepicker({
-				autoclose : true
-			})
 		})
 	</script>
 </body>

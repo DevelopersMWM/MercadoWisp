@@ -361,8 +361,8 @@
 				<ul class="treeview-menu">
 					<li class="active"><a href="ListaClientesInternet.xhtml"><i
 							class="fa fa-users"></i> Lista de clientes</a></li>
-					<li><a href="Error500.xhtml"><i
-							class="fa fa-building-o"></i> Instalaciones</a></li>
+					<li><a href="Error500.xhtml"><i class="fa fa-building-o"></i>
+							Instalaciones</a></li>
 					<li><a href="Error500.xhtml"><i class="fa fa-signal"></i>
 							Tráfico</a></li>
 					<li><a href="Error500.xhtml"><i class="fa fa-area-chart"></i>
@@ -406,12 +406,12 @@
 				</span>
 			</a>
 				<ul class="treeview-menu">
-					<li><a href="Error500.xhtml"><i
-							class="fa fa-flag-o"></i> Reportes</a></li>
+					<li><a href="Error500.xhtml"><i class="fa fa-flag-o"></i>
+							Reportes</a></li>
 					<li><a href="Error500.xhtml"><i class="fa fa-ticket"></i>
 							Tickets</a></li>
-					<li><a href="Error500.xhtml"><i
-							class="fa fa-server"></i> Servicios</a></li>
+					<li><a href="Error500.xhtml"><i class="fa fa-server"></i>
+							Servicios</a></li>
 				</ul></li>
 			<li><a href="Error500.xhtml"> <i class="fa fa-calendar"></i>
 					<span>Calendario</span> <span class="pull-right-container">
@@ -468,83 +468,179 @@
 									class="btn bg-navy btn-flat margin btn-sm">Agregar Nuevo Cliente
 									<i class="fa fa-plus-circle" aria-hidden="true"></i>
 								</h:link>
-								
+
 							</div>
 						</div>
 						<!-- /.box-header -->
-						<div class="box-body table-responsive no-padding">
-							<h:form id="PersonaForm">
-								<!-- h:dataTable es de JsF y aqui no inicializas producto como en tu ejemplo en el mb para acceder o si??  -->
-								<h:dataTable id="example1" binding="#{table}"
-									value="#{clientesInternetController.listaDeClientes()}"
-									var="Cliente"
-									styleClass="table table-striped table-bordered tableUpdated">
-									<h:column>
-										<f:facet name="header">Folio</f:facet>
-										<h:outputText value="#{Cliente.idCliente}" />
-									</h:column>
-									<h:column>
-										<f:facet name="header">Nombre</f:facet>
-										<h:outputText value="#{Cliente.nombreCliente}" />
-									</h:column>
-									<h:column>
-										<f:facet name="header">Id Mk</f:facet>
-										<h:outputText value="#{Cliente.idMk}" />
-									</h:column>
-									<h:column>
-										<f:facet name="header">Sector</f:facet>
-										<h:outputText value="#{Cliente.sector}" />
-									</h:column>
-									<h:column>
-										<f:facet name="header">IP</f:facet>
-										<h:outputText value="#{Cliente.ipCliente}" />
-									</h:column>
-									<h:column>
-										<f:facet name="header">Fecha Instalación</f:facet>
-										<h:outputText value="#{Cliente.fechaInstalacion.time}">
-											<f:convertDateTime type="both" pattern="dd/MMMM/yyyy"
-												dateStyle="long" />
-											<!-- <f:convertDateTime dateStyle="long"/> -->
-										</h:outputText>
-									</h:column>
-									<h:column>
-										<f:facet name="header">Equipo Instalado</f:facet>
-										<h:outputText value="#{Cliente.equipoInstalado}" />
-									</h:column>
-									<h:column>
-										<f:facet name="header">1er Pago</f:facet>
-										<h:outputText value="#{Cliente.primerPago.time}">
-											<f:convertDateTime type="both" pattern="dd/MMMM/yyyy"
-												dateStyle="long" />
-										</h:outputText>
-									</h:column>
-									<h:column>
-										<f:facet name="header">Plan</f:facet>
-										<h:outputText value="#{Cliente.plan}" />
-									</h:column>
-									<h:column>
-										<f:facet name="header">Día cobro</f:facet>
-										<h:outputText value="#{Cliente.diaCobro}" />
-									</h:column>
-									<h:column>
-										<f:facet name="header">Ubicacion</f:facet>
-										<h:outputText value="#{Cliente.ubicacion}" />
-									</h:column>
-									<h:column>
-										<f:facet name="header">Router</f:facet>
-										<h:outputText value="#{Cliente.router}" />
-									</h:column>
-									<h:column>
-										<f:facet name="header">Acción</f:facet>
-										<h:commandButton value="Actualizar"
-											styleClass="btn btn-primary">
-										</h:commandButton>
-										<h:commandButton value="Eliminar" styleClass="btn btn-danger" />
-									</h:column>
-								</h:dataTable>
-							</h:form>
+						<div class="nav-tabs-custom">
+							<ul class="nav nav-tabs">
+								<li class="active"><a href="#tab_1" data-toggle="tab"><b>Clientes
+										activos</b></a></li>
+								<li><a href="#tab_2" data-toggle="tab"><b>Clientes
+										Suspendidos</b></a></li>
+							</ul>
+							<div class="tab-content">
+								<div class="tab-pane active" id="tab_1">
+									<div class="box-body table-responsive no-padding">
+										<h:form id="PersonaForm">
+											<!-- h:dataTable es de JsF y aqui no inicializas producto como en tu ejemplo en el mb para acceder o si??  -->
+											<h:dataTable id="example1" binding="#{table}"
+												value="#{clientesInternetController.listaClientesActivos()}"
+												var="Cliente"
+												styleClass="table table-striped table-bordered tableUpdated">
+												<h:column>
+													<f:facet name="header">Folio</f:facet>
+													<h:outputText value="#{Cliente.idCliente}" />
+												</h:column>
+												<h:column>
+													<f:facet name="header">Nombre</f:facet>
+													<h:outputText value="#{Cliente.nombreCliente} #{Cliente.apellidoPaterno} #{Cliente.apellidoMaterno}" />
+												</h:column>
+												<!-- <h:column>
+													<f:facet name="header">Id Mk</f:facet>
+													<h:outputText value="#{Cliente.idMk}" />
+												</h:column> -->
+												<h:column>
+													<f:facet name="header">Sector</f:facet>
+													<h:outputText value="#{Cliente.sector}" />
+												</h:column>
+												<h:column>
+													<f:facet name="header">IP</f:facet>
+													<h:outputText value="#{Cliente.ipCliente}" />
+												</h:column>
+												<h:column>
+													<f:facet name="header">Fecha Instalación</f:facet>
+													<h:outputText value="#{Cliente.fechaInstalacion.time}">
+														<f:convertDateTime type="both" pattern="dd/MMMM/yyyy"
+															dateStyle="long" />
+														<!-- <f:convertDateTime dateStyle="long"/> -->
+													</h:outputText>
+												</h:column>
+												<h:column>
+													<f:facet name="header">Equipo Instalado</f:facet>
+													<h:outputText value="#{Cliente.equipoInstalado}" />
+												</h:column>
+												<h:column>
+													<f:facet name="header">1er Pago</f:facet>
+													<h:outputText value="#{Cliente.primerPago.time}">
+														<f:convertDateTime type="both" pattern="dd/MMMM/yyyy"
+															dateStyle="long" />
+													</h:outputText>
+												</h:column>
+												<h:column>
+													<f:facet name="header">Plan</f:facet>
+													<h:outputText value="#{Cliente.plan}" />
+												</h:column>
+												<h:column>
+													<f:facet name="header">Día cobro</f:facet>
+													<h:outputText value="#{Cliente.diaCobro}" />
+												</h:column>
+												<!-- <h:column>
+													<f:facet name="header">Ubicacion</f:facet>
+													<h:outputText value="#{Cliente.ubicacion}" />
+												</h:column> -->
+												<!-- <h:column>
+													<f:facet name="header">Router</f:facet>
+													<h:outputText value="#{Cliente.router}" />
+												</h:column> -->
+												<h:column>
+													<f:facet name="header">Acción</f:facet>
+													<!-- <h:commandButton value="Actualizar"
+														styleClass="btn btn-primary btn-xs">
+													</h:commandButton> -->
+													<h:commandButton action="#{clienteBDyMkController.suspenderServicio()}" value="Suspender"
+														styleClass="btn btn-default btn-xs">
+														<f:param name="folioCliente" value="#{Cliente.idCliente}"/>
+													</h:commandButton>
+													<h:commandButton action="#{clienteBDyMkController.eliminarCliente(Cliente.idCliente)}" value="Eliminar"
+														styleClass="btn btn-danger btn-xs" />
+												</h:column>
+											</h:dataTable>
+										</h:form>
+									</div>
+									<!-- /.box-body -->
+								</div>
+								<div class="tab-pane" id="tab_2">
+								<div class="box-body table-responsive no-padding">
+										<h:form id="ClientesSuspendidos">
+											<!-- h:dataTable es de JsF y aqui no inicializas producto como en tu ejemplo en el mb para acceder o si??  -->
+											<h:dataTable id="example1" binding="#{table1}"
+												value="#{clientesInternetController.listaClientesSuspendidos()}"
+												var="ClienteSuspend"
+												styleClass="table table-striped table-bordered tableUpdated">
+												<h:column>
+													<f:facet name="header">Folio</f:facet>
+													<h:outputText value="#{ClienteSuspend.idCliente}" />
+												</h:column>
+												<h:column>
+													<f:facet name="header">Nombre</f:facet>
+													<h:outputText value="#{ClienteSuspend.nombreCliente} #{ClienteSuspend.apellidoPaterno} #{ClienteSuspend.apellidoMaterno}" />
+												</h:column>
+												<!-- <h:column>
+													<f:facet name="header">Id Mk</f:facet>
+													<h:outputText value="#{Cliente.idMk}" />
+												</h:column> -->
+												<h:column>
+													<f:facet name="header">Sector</f:facet>
+													<h:outputText value="#{ClienteSuspend.sector}" />
+												</h:column>
+												<h:column>
+													<f:facet name="header">IP</f:facet>
+													<h:outputText value="#{ClienteSuspend.ipCliente}" />
+												</h:column>
+												<h:column>
+													<f:facet name="header">Fecha Instalación</f:facet>
+													<h:outputText value="#{ClienteSuspend.fechaInstalacion.time}">
+														<f:convertDateTime type="both" pattern="dd/MMMM/yyyy"
+															dateStyle="long" />
+														<!-- <f:convertDateTime dateStyle="long"/> -->
+													</h:outputText>
+												</h:column>
+												<h:column>
+													<f:facet name="header">Equipo Instalado</f:facet>
+													<h:outputText value="#{ClienteSuspend.equipoInstalado}" />
+												</h:column>
+												<h:column>
+													<f:facet name="header">1er Pago</f:facet>
+													<h:outputText value="#{ClienteSuspend.primerPago.time}">
+														<f:convertDateTime type="both" pattern="dd/MMMM/yyyy"
+															dateStyle="long" />
+													</h:outputText>
+												</h:column>
+												<h:column>
+													<f:facet name="header">Plan</f:facet>
+													<h:outputText value="#{ClienteSuspend.plan}" />
+												</h:column>
+												<h:column>
+													<f:facet name="header">Día cobro</f:facet>
+													<h:outputText value="#{ClienteSuspend.diaCobro}" />
+												</h:column>
+												<!-- <h:column>
+													<f:facet name="header">Ubicacion</f:facet>
+													<h:outputText value="#{ClienteSuspend.ubicacion}" />
+												</h:column> -->
+												<!-- <h:column>
+													<f:facet name="header">Router</f:facet>
+													<h:outputText value="#{ClienteSuspend.router}" />
+												</h:column> -->
+												<h:column>
+													<f:facet name="header">Acción</f:facet>
+													<!-- <h:commandButton value="Actualizar"
+														styleClass="btn btn-primary btn-xs">
+													</h:commandButton> -->
+													<h:commandButton action="#{clienteBDyMkController.reactivarServicio()}" value="Reactivar"
+														styleClass="btn btn-success btn-xs">
+														<f:param name="clienteFolio" value="#{ClienteSuspend.idCliente}"/>
+													</h:commandButton>
+													<h:commandButton action="#{clienteBDyMkController.eliminarCliente(ClienteSuspend.idCliente)}" value="Eliminar"
+														styleClass="btn btn-danger btn-xs" />
+												</h:column>
+											</h:dataTable>
+										</h:form>
+									</div>
+									</div>
+							</div>
 						</div>
-						<!-- /.box-body -->
 					</div>
 					<!-- /.box -->
 					<!-- /.col -->

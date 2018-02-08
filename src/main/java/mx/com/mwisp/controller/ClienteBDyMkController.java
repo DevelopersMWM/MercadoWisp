@@ -2,6 +2,7 @@ package mx.com.mwisp.controller;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,7 +41,24 @@ public class ClienteBDyMkController {
 		clienteBDMkImpl.insertarClienteEnBDYMk(new DTOClienteInternet(formClienteInternet.getIpCliente(),formClienteInternet.getFechaInstalacion(),formClienteInternet.getPrimerPago(), formClienteInternet.getDiaCobro(), formClienteInternet.getUbicacionCliente(), Integer.parseInt(formClienteInternet.getIdSector()), Integer.parseInt(formClienteInternet.getIdEquipo()), Integer.parseInt(formClienteInternet.getIdplan()), Integer.parseInt(formClienteInternet.getIdRouter())), new DTODireccion(Integer.parseInt(formDir.getCodigoPostal()),formDir.getCalle(), formDir.getNumExterior(), formDir.getNumInterior(), formDir.getEstado(), formDir.getColonia(), formDir.getMunicipio()), new DTOPersona(formPersona.getNombre(), formPersona.getApellidoPat(), formPersona.getApellidoMat(), formPersona.getTelefono()));
 		return "ListaClientesInternet.xhtml?faces-redirect=true";
 	}
-
+	
+	public void suspenderServicio() {
+		formClienteInternet.setObtenerId(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("folioCliente"));
+		int folioCliente=Integer.parseInt(formClienteInternet.getObtenerId());
+		clienteBDMkImpl.suspenderServicioACliente(folioCliente);
+		
+	}
+	
+	public void reactivarServicio() {
+		formClienteInternet.setObtenerId(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("clienteFolio"));
+		int folioCliente=Integer.parseInt(formClienteInternet.getObtenerId());
+		clienteBDMkImpl.reactivarServicioACliente(folioCliente);
+	}
+	
+	public void eliminarCliente(int folio) {
+		clienteBDMkImpl.eliminarCliente(folio);
+	}
+	
 	public FormDireccion getFormDir() {
 		return formDir;
 	}

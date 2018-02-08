@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="T_Routers")
+@Table(name="t_routers")
 public class Router implements Serializable{
 	
 	@Id

@@ -1,5 +1,6 @@
 package mx.com.mwisp.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -30,18 +31,35 @@ public class ClientesInternetController {
 		}
 	}
 	
-	public List<DTOClienteInternet> listaDeClientes(){
-		formCliente.setListClientes(clienteServiceImpl.listaClientes());
+	public List<DTOClienteInternet> listaClientesSuspendidos(){
+		List<DTOClienteInternet> listClientesActivos=null;
+		if(clienteServiceImpl.listaClientes()!=null) {
+			listClientesActivos=new ArrayList<DTOClienteInternet>();
+			for(DTOClienteInternet clienteActivo:clienteServiceImpl.listaClientes()) {
+				if(clienteActivo.getEstatus()==false) {
+					listClientesActivos.add(clienteActivo);
+				}
+			}
+			formCliente.setListClientes(listClientesActivos);
+		}
+		return formCliente.getListClientes();
+	}
+	public List<DTOClienteInternet> listaClientesActivos(){
+		List<DTOClienteInternet> listClientesActivos=null;
+		if(clienteServiceImpl.listaClientes()!=null) {
+			listClientesActivos=new ArrayList<DTOClienteInternet>();
+			for(DTOClienteInternet clienteActivo:clienteServiceImpl.listaClientes()) {
+				if(clienteActivo.getEstatus()==true) {
+					listClientesActivos.add(clienteActivo);
+				}
+			}
+			formCliente.setListClientes(listClientesActivos);
+		}
 		return formCliente.getListClientes();
 	}
 	
 	public String agregarCliente() {
 		clienteServiceImpl.insertarCliente(new DTOClienteInternet(formCliente.getIpCliente(),formCliente.getFechaInstalacion(),formCliente.getPrimerPago(), formCliente.getDiaCobro(), formCliente.getUbicacionCliente(), Integer.parseInt(formCliente.getIdSector()), Integer.parseInt(formCliente.getIdEquipo()), Integer.parseInt(formCliente.getIdplan()), Integer.parseInt(formCliente.getIdRouter())));
-		/*Calendar cal=Calendar.getInstance();
-		Calendar cal2=Calendar.getInstance();*/
-		//clienteServiceImpl.insertarCliente(new DTOClienteInternet(formCliente.getIpCliente(), Calendar.getInstance().setTime(formCliente.getFechaInstalacion()), Calendar.getInstance().setTime(formCliente.getPrimerPago()),formCliente.getDiaCobro(),formCliente.getUbicacionCliente(),Integer.parseInt(formCliente.getIdSector()),Integer.parseInt(formCliente.getIdEquipo()), Integer.parseInt(formCliente.getIdplan()), Integer.parseInt(formCliente.getIdRouter())));
-		//clienteServiceImpl.insertarCliente(new DTOClienteInternet(formCliente.getIpCliente(), cal.setTime(formCliente.getFechaInstalacion()), cal2.setTime(formCliente.getPrimerPago()), formCliente.getDiaCobro(), formCliente.getUbicacionCliente(), Integer.parseInt(formCliente.getIdSector()), Integer.parseInt(formCliente.getIdEquipo()), Integer.parseInt(formCliente.getIdplan()), Integer.parseInt(formCliente.getIdRouter())));
-		//clienteServiceImpl.insertarCliente(new DTOClienteInternet(idMk, ipCliente, fechaInstalacion, primerPago, diaCobro, ubicacion));
 		return "ListaClientesInternet.xhtml?faces-redirect=true";
 	}
 

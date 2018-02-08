@@ -102,6 +102,7 @@ public class ClienteBdMkserviceImpl implements ClienteBdMkService {
 			int idPersonaNueva=personAgregada.getId_Persona();
 			dtoDireccion.setIdPersona(idPersonaNueva);
 			dtoClienteInternet.setIdPersona(idPersonaNueva);
+			dtoClienteInternet.setEstatus(true);
 			Direccion modelDireccion=boDireccionImpl.dtoDireccionToModelDireccion(dtoDireccion);
 			direccionDaoImpl.insertarDireccionEnDB(modelDireccion);
 			ClienteInternet modelClienteInternet=boClienteServicio.dtoClienteToModelCliente(dtoClienteInternet);
@@ -119,6 +120,124 @@ public class ClienteBdMkserviceImpl implements ClienteBdMkService {
 			}
 			// TODO: handle exception
 		}
+	}
+
+	@SuppressWarnings("static-access")
+	@Transactional
+	@Override
+	public void suspenderServicioACliente(int idCliente) {
+		ClienteInternet cliente= clienteServicioDao.findClientById(idCliente);
+		String idMKCliente=cliente.getIdMk();
+		String scriptCambiarPlan="/ip/firewall/address-list/set .id=%s list=MOROSO-1";
+		String scriptSuspender="/ip/firewall/address-list/disable .id=%s";
+		String formato1=String.format(scriptCambiarPlan, idMKCliente);
+		String formato2=String.format(scriptSuspender, idMKCliente);
+		ApiConnection con;
+		Translator http = new Translator();
+		String word,en;
+		
+		Router modelRouter=new Router();
+		modelRouter=routerDaoImpl.findById(cliente.getRouter().getId());
+		String host=modelRouter.getIpDns();
+		String userRouter=modelRouter.getNombreUser();
+		String passRouter=modelRouter.getLlave();
+		try {
+			con=ApiConnection.connect(host);
+			con.login(userRouter, passRouter);
+			con.execute(formato1);
+			con.execute(formato2);
+			cliente.setHabilitado(false);
+			clienteServicioDao.actualizarCliente(idCliente, cliente);
+			System.out.println("\nDeshabilitado");
+		}catch (MikrotikApiException e) {
+			en=e.getMessage();
+			try {
+				word=http.callUrlAndParseResult("en", "es", en);
+				System.out.println("Algo salio mal... " + word);
+			}catch (Exception e1) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	@SuppressWarnings("static-access")
+	@Transactional
+	@Override
+	public void reactivarServicioACliente(int folioCliente) {
+		ClienteInternet cliente=clienteServicioDao.findClientById(folioCliente);
+		String idClienteMK=cliente.getIdMk();
+		String planAnterior=cliente.getPlan().getNombre();
+		String scritpEnable="/ip/firewall/address-list/enable .id=%s";
+		String scritpCambiarPlan="/ip/firewall/address-list/set .id=%s list=%s";
+		String formatoScriptEnable=String.format(scritpEnable, idClienteMK);
+		String formatoScriptCambiarPlan=String.format(scritpCambiarPlan, idClienteMK,planAnterior);
+		ApiConnection con;
+		Translator http = new Translator();
+		String word,en;
+		
+		Router modelRouter=new Router();
+		modelRouter=routerDaoImpl.findById(cliente.getRouter().getId());
+		String host=modelRouter.getIpDns();
+		String userRouter=modelRouter.getNombreUser();
+		String passRouter=modelRouter.getLlave();
+		
+		try {
+			con=ApiConnection.connect(host);
+			con.login(userRouter, passRouter);
+			con.execute(formatoScriptEnable);
+			con.execute(formatoScriptCambiarPlan);
+			cliente.setHabilitado(true);
+			clienteServicioDao.actualizarCliente(folioCliente,cliente);
+			System.out.println("\n====>Habilitado");
+		}catch (MikrotikApiException e) {
+			en=e.getMessage();
+			try {
+				word=http.callUrlAndParseResult("en", "es", en);
+				System.out.println("Algo salio mal... " + word);
+			}catch (Exception e1) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	@SuppressWarnings("static-access")
+	@Override
+	@Transactional
+	public void eliminarCliente(int idCliente) {
+		ClienteInternet clienteAEliminar=clienteServicioDao.findClientById(idCliente);
+		String idClienteMK=clienteAEliminar.getIdMk();
+		int idPersona=clienteAEliminar.getCliente().getId_Persona();
+		String scritpEliminarMK="/ip/firewall/address-list/remove .id=%s";
+		String formatoScriptEliminar=String.format(scritpEliminarMK, idClienteMK);
+		ApiConnection con;
+		Translator http = new Translator();
+		String word,en;
+		
+		Router modelRouter=new Router();
+		modelRouter=routerDaoImpl.findById(clienteAEliminar.getRouter().getId());
+		String host=modelRouter.getIpDns();
+		String userRouter=modelRouter.getNombreUser();
+		String passRouter=modelRouter.getLlave();
+		
+		try {
+			con=ApiConnection.connect(host);
+			con.login(userRouter, passRouter);
+			con.execute(formatoScriptEliminar);
+			clienteServicioDao.eliminarClienteEnDB(idCliente);
+			personaDaoImpl.eliminarPersonaEnDB(idPersona);
+			System.out.println("\n====>Eliminado");
+		}catch (MikrotikApiException e) {
+			en=e.getMessage();
+			try {
+				word=http.callUrlAndParseResult("en", "es", en);
+				System.out.println("Algo salio mal... " + word);
+			}catch (Exception e1) {
+				e.printStackTrace();
+			}
+		}
+		//int idDireccionCliente;
+		//Direccion direccionCliente=direccionDaoImpl.encotrarPersonaPorId(idPersona);
+		
 	}
 
 }

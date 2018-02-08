@@ -52,6 +52,9 @@ public class ClienteInternet {
 	@JoinColumn(name="Plan")
 	private Planes plan;
 	
+	@Column(name="Estatus")
+	private Boolean habilitado;
+	
 	@Column(name="Dia_Cobro")
 	private String diaCobro;
 	
@@ -68,7 +71,7 @@ public class ClienteInternet {
 	}
 
 	public ClienteInternet(Persona cliente, String idMk, Sector sector, String ip, Date fechaInslacion,
-			Dispositivos equipoInstalado, Date primerPago, Planes plan, String diaCobro, String ubicacion,
+			Dispositivos equipoInstalado, Date primerPago, Planes plan,Boolean habilitado, String diaCobro, String ubicacion,
 			Router router) {
 		super();
 		this.cliente = cliente;
@@ -79,9 +82,18 @@ public class ClienteInternet {
 		this.equipoInstalado = equipoInstalado;
 		this.primerPago = primerPago;
 		this.plan = plan;
+		this.habilitado=habilitado;
 		this.diaCobro = diaCobro;
 		this.ubicacion = ubicacion;
 		this.router = router;
+	}
+
+	public Boolean getHabilitado() {
+		return habilitado;
+	}
+
+	public void setHabilitado(Boolean habilitado) {
+		this.habilitado = habilitado;
 	}
 
 	public int getFolio() {
@@ -184,7 +196,7 @@ public class ClienteInternet {
 	public String toString() {
 		return "ClienteInternet [Folio=" + Folio + ", cliente=" + cliente + ", idMk=" + idMk + ", sector=" + sector
 				+ ", ip=" + ip + ", fechaInslacion=" + fechaInslacion + ", equipoInstalado=" + equipoInstalado
-				+ ", primerPago=" + primerPago + ", plan=" + plan + ", diaCobro=" + diaCobro + ", ubicacion="
-				+ ubicacion + ", router=" + router + "]";
+				+ ", primerPago=" + primerPago + ", plan=" + plan + ", habilitado=" + habilitado + ", diaCobro="
+				+ diaCobro + ", ubicacion=" + ubicacion + ", router=" + router + "]";
 	}
 }
