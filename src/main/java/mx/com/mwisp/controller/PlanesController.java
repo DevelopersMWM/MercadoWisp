@@ -39,6 +39,11 @@ public class PlanesController {
 		planSericeImpl.agregarPlan(new DTOPlan(formPlan.getNombrePlan(), formPlan.getBajadaPlan(),formPlan.getSubidaPlan(),formPlan.getPrecioPlan(),formPlan.getFechaCreacionPlan()));
 		return null;
 	}
+	
+	public void eliminarPlan(int idPlan) {
+		planSericeImpl.eliminarPlan(idPlan);
+	}
+	
 	public FormPlan getFormPlan() {
 		return formPlan;
 	}

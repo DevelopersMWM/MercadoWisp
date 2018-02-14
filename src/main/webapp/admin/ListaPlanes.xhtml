@@ -349,7 +349,7 @@
 							Routers</a></li>
 					<li class="active"><a href="ListaPlanes.xhtml"><i
 							class="fa fa-circle-o"></i> Planes de Internet</a></li>
-					<li><a href="Error500.xhtml"><i class="fa fa-circle-o"></i>
+					<li><a href="ListaSectores.xhtml"><i class="fa fa-circle-o"></i>
 							Zonas</a></li>
 					<li><a href="Error500.xhtml"><i class="fa fa-desktop"></i>
 							Monitoreo</a></li>
@@ -488,15 +488,19 @@
 									</h:column>
 									<h:column>
 										<f:facet name="header">Acción</f:facet>
-										<h:commandLink id="Actualizar" action="index.xhtml"
+										<!-- <h:commandLink id="Actualizar" action="index.xhtml"
 											styleClass="btn btn-success btn-xs">
 											<i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
-										</h:commandLink>
+										</h:commandLink> -->
 										<span> </span>
-										<h:commandLink id="Eliminar" action="search.xhtml"
+										<h:commandButton
+												action="#{planesController.eliminarPlan(planes.idPlan)}"
+												value="eliminar" styleClass="btn btn-danger btn-xs">
+											</h:commandButton>
+										<!-- <h:commandLink id="Eliminar" action="search.xhtml"
 											styleClass="btn btn-danger btn-xs">
 											<i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
-										</h:commandLink>
+										</h:commandLink> -->
 										
 										<!-- <h:commandButton
 											action="#{schoolBean.editSchoolDetailsById()}" value="fa fa-usd form-control-feedback"
@@ -573,7 +577,7 @@
 
 											<div class="form-group has-feedback">
 												<label for="inputNomUser3" class="col-sm-5 control-label">Mbps
-													o Kbps (Subida)</label>
+													o Kbps (Queue type Subida)</label>
 												<div class="col-sm-5">
 													<h:inputText
 														value="#{planesController.formPlan.subidaPlan}"
@@ -584,7 +588,7 @@
 
 											<div class="form-group has-feedback">
 												<label for="inputContraseña3" class="col-sm-5 control-label">Mbps
-													o Kbps (Bajada)</label>
+													o Kbps (Queue type Bajada)</label>
 												<div class="col-sm-5">
 													<h:inputText
 														value="#{planesController.formPlan.bajadaPlan}"
@@ -593,11 +597,11 @@
 												</div>
 											</div>
 
-											<div class="form-group has-feedback">
+											<!-- <div class="form-group has-feedback">
 												<label for="inputUbicacion3" class="col-sm-5 control-label">Fecha
 													de Creación</label>
 												<div class="col-sm-5">
-													<div class="input-group date">
+													<div class="input-group">
 														<p:calendar value="#{planesController.formPlan.fechaCreacionPlan}"
 															pattern="MM/dd/yyyy" />
 														<div class="input-group-addon">
@@ -605,17 +609,24 @@
 														</div>
 													</div>
 												</div>
-											</div>
+											</div> -->
 
 										</div>
+										<div class="box-footer">
+										<button type="button" class="btn btn-default pull-left"
+									data-dismiss="modal">Cerrar</button>
+								<h:commandButton value="Agregar Plan"
+									action="#{planesController.agregarPlan()}"
+									styleClass="btn btn-primary pull-right" />
+									
 										<!-- /.box-body -->
-										<div class="callout callout-success">
+										<!-- <div class="callout callout-success">
 											<h5>
 												<h:outputText id="saveResult"
 													rendered="#{not empty CreadoRouterID}"
 													value="!! Plan agregado Exitosamente !!"
 													styleClass="successText pull-center" />
-											</h5>
+											</h5> -->
 										</div>
 										<!-- <h:outputText id="saveResult" rendered="#{not empty CreadoRouterID}" value="!! Router Guardado Exitosamente !!" styleClass="btn btn-succes pull-center" /> -->
 										<!-- /.box-footer -->
@@ -624,11 +635,7 @@
 
 							</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn-default pull-left"
-									data-dismiss="modal">Cerrar</button>
-								<h:commandButton value="Agregar Plan"
-									action="#{adminController.guardarRouter}"
-									styleClass="btn btn-primary" />
+								
 								<!-- <button type="button" class="btn btn-primary">Agregar Plan</button>-->
 							</div>
 						</div>
@@ -827,7 +834,7 @@
 	<!-- ./wrapper -->
 
 	<!-- jQuery 3 -->
-	<h:outputScript name="admin/jquery/jquery.min.js" /> 
+	<h:outputScript name="admin/jquery/jquery.min.js" />
 	<!-- Bootstrap 3.3.7 -->
 	<h:outputScript name="admin/js/bootstrap.min.js" />
 	<!-- Slimscroll -->
@@ -839,19 +846,6 @@
 	<!-- AdminLTE for demo purposes -->
 	<!-- <script src="/resources/admin/js/demo.js"></script> -->
 	
-	<script type="text/javascript">
-		$(function() {
-			$('#example1').DataTable()
-			$('#example2').DataTable({
-				'paging' : true,
-				'lengthChange' : false,
-				'searching' : false,
-				'ordering' : true,
-				'info' : true,
-				'autoWidth' : false
-			})
-			// Datepicker
-		})
-	</script>
+
 </body>
 </html>

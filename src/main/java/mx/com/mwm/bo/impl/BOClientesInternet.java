@@ -32,6 +32,7 @@ public class BOClientesInternet implements BOClienteInternetInterface {
 		dtoClientes.setFechaInstalacion(cliente.getFechaInslacion());
 		dtoClientes.setEquipoInstalado(cliente.getEquipoInstalado().getNombre());
 		dtoClientes.setPrimerPago(cliente.getPrimerPago());
+		dtoClientes.setEmail(cliente.getE_mail());
 		dtoClientes.setEstatus(cliente.getHabilitado());
 		dtoClientes.setPlan(cliente.getPlan().getNombre());
 		dtoClientes.setDiaCobro(cliente.getDiaCobro());
@@ -70,9 +71,11 @@ public class BOClientesInternet implements BOClienteInternetInterface {
 		equipo.setIdEquipo(dtoCliente.getIdEquipo());
 		modelCliente.setEquipoInstalado(equipo);
 		modelCliente.setPrimerPago(dtoCliente.getPrimerPago());
+		modelCliente.setE_mail(dtoCliente.getEmail());
 		Planes plan=new Planes();
 		plan.setIdPlan(dtoCliente.getIdPlan());
 		modelCliente.setPlan(plan);
+		modelCliente.setHabilitado(dtoCliente.getEstatus());
 		modelCliente.setUbicacion(dtoCliente.getUbicacion());
 		Router router=new Router();
 		router.setId(dtoCliente.getIdRouter());

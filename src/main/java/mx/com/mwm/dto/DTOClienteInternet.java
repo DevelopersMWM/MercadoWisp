@@ -16,6 +16,7 @@ public class DTOClienteInternet implements Serializable {
 	public Date fechaInstalacion;
 	public String equipoInstalado;
 	public Date primerPago;
+	public String email;
 	public String plan;
 	public Boolean estatus;
 	public String diaCobro;
@@ -32,12 +33,13 @@ public class DTOClienteInternet implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public DTOClienteInternet(String ipCliente, Date fechaInstalacion, Date primerPago, String diaCobro,
+	public DTOClienteInternet(String ipCliente, Date fechaInstalacion, Date primerPago,String email, String diaCobro,
 			String ubicacion, int idSector, int idEquipo, int idPlan, int idRouter) {
 		super();
 		this.ipCliente = ipCliente;
 		this.fechaInstalacion = fechaInstalacion;
 		this.primerPago = primerPago;
+		this.email=email;
 		this.diaCobro = diaCobro;
 		this.ubicacion = ubicacion;
 		this.idSector = idSector;
@@ -59,13 +61,14 @@ public class DTOClienteInternet implements Serializable {
 	}*/
 
 	public DTOClienteInternet(int idCliente, String idMk, String ipCliente, Date fechaInstalacion,
-			Date primerPago, Boolean estatus,String diaCobro, String ubicacion) {
+			Date primerPago,String email, Boolean estatus,String diaCobro, String ubicacion) {
 		super();
 		this.idCliente = idCliente;
 		this.idMk = idMk;
 		this.ipCliente = ipCliente;
 		this.fechaInstalacion = fechaInstalacion;
 		this.primerPago = primerPago;
+		this.email = email;
 		this.diaCobro = diaCobro;
 		this.ubicacion = ubicacion;
 		this.estatus=estatus;
@@ -133,6 +136,14 @@ public class DTOClienteInternet implements Serializable {
 
 	public void setPrimerPago(Date primerPago) {
 		this.primerPago = primerPago;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getPlan() {
@@ -236,10 +247,10 @@ public class DTOClienteInternet implements Serializable {
 		return "DTOClienteInternet [idCliente=" + idCliente + ", NombreCliente=" + NombreCliente + ", apellidoPaterno="
 				+ apellidoPaterno + ", apellidoMaterno=" + apellidoMaterno + ", idMk=" + idMk + ", Sector=" + Sector
 				+ ", ipCliente=" + ipCliente + ", fechaInstalacion=" + fechaInstalacion + ", equipoInstalado="
-				+ equipoInstalado + ", primerPago=" + primerPago + ", plan=" + plan + ", estatus=" + estatus
-				+ ", diaCobro=" + diaCobro + ", ubicacion=" + ubicacion + ", Router=" + Router + ", idPersona="
-				+ idPersona + ", idSector=" + idSector + ", idEquipo=" + idEquipo + ", idPlan=" + idPlan + ", idRouter="
-				+ idRouter + "]";
+				+ equipoInstalado + ", primerPago=" + primerPago + ", email=" + email + ", plan=" + plan + ", estatus="
+				+ estatus + ", diaCobro=" + diaCobro + ", ubicacion=" + ubicacion + ", Router=" + Router
+				+ ", idPersona=" + idPersona + ", idSector=" + idSector + ", idEquipo=" + idEquipo + ", idPlan="
+				+ idPlan + ", idRouter=" + idRouter + "]";
 	}
 
 	@Override
@@ -252,6 +263,7 @@ public class DTOClienteInternet implements Serializable {
 		result = prime * result + ((apellidoMaterno == null) ? 0 : apellidoMaterno.hashCode());
 		result = prime * result + ((apellidoPaterno == null) ? 0 : apellidoPaterno.hashCode());
 		result = prime * result + ((diaCobro == null) ? 0 : diaCobro.hashCode());
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((equipoInstalado == null) ? 0 : equipoInstalado.hashCode());
 		result = prime * result + ((estatus == null) ? 0 : estatus.hashCode());
 		result = prime * result + ((fechaInstalacion == null) ? 0 : fechaInstalacion.hashCode());
@@ -307,6 +319,11 @@ public class DTOClienteInternet implements Serializable {
 			if (other.diaCobro != null)
 				return false;
 		} else if (!diaCobro.equals(other.diaCobro))
+			return false;
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
 			return false;
 		if (equipoInstalado == null) {
 			if (other.equipoInstalado != null)

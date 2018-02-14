@@ -75,6 +75,15 @@
     </style>
 </h:head>
 <h:body class="hold-transition skin-purple sidebar-mini">
+	<h:outputScript name="admin/js/push.min.js" />
+	<script>
+		Push.Permission.GRANTED;
+		Push.create("Hola!! Bienvenido Admin",{
+			body:"Aún falta mucho pero estamos trabajando en ello",
+			icon:"../resources/admin/img/Notificacion.png",
+			timeout: 4000
+		});
+	</script>
 	<div class="wrapper">
 
 		<header class="main-header"> <!-- Logo --> <a

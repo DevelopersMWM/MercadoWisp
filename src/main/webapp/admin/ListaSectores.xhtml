@@ -574,16 +574,14 @@
 										<h:outputText value="#{sector.torre}" />
 									</h:column>
 									<h:column>
-										<f:facet name="header">Actualizar</f:facet>
+										<f:facet name="header">Acción</f:facet>
 										<h:commandButton value="Actualizar"
-											styleClass="btn btn-primary">
-
+											styleClass="btn btn-primary btn-xs">
 										</h:commandButton>
-
-									</h:column>
-									<h:column>
-										<f:facet name="header">Eliminar</f:facet>
-										<h:commandButton value="Eliminar" styleClass="btn btn-danger" />
+										<h:commandButton
+												action="#{sectorController.eliminarSector(sector.idSector)}"
+												value="eliminar" styleClass="btn btn-danger btn-xs">
+											</h:commandButton>
 									</h:column>
 								</h:dataTable>
 							</h:form>

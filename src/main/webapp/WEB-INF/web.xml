@@ -33,4 +33,7 @@
 	<listener>
 		<listener-class>com.sun.faces.config.ConfigureListener</listener-class>
 	</listener>
+	<welcome-file-list>
+    <welcome-file>faces/admin/login.xhtml</welcome-file>
+  </welcome-file-list>
 </web-app>

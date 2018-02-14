@@ -48,6 +48,9 @@ public class ClienteInternet {
 	@Temporal(TemporalType.DATE)
 	private Date primerPago;
 	
+	@Column(name="E_mail")
+	private String e_mail;
+	
 	@ManyToOne
 	@JoinColumn(name="Plan")
 	private Planes plan;
@@ -71,7 +74,7 @@ public class ClienteInternet {
 	}
 
 	public ClienteInternet(Persona cliente, String idMk, Sector sector, String ip, Date fechaInslacion,
-			Dispositivos equipoInstalado, Date primerPago, Planes plan,Boolean habilitado, String diaCobro, String ubicacion,
+			Dispositivos equipoInstalado, Date primerPago,String e_mail, Planes plan,Boolean habilitado, String diaCobro, String ubicacion,
 			Router router) {
 		super();
 		this.cliente = cliente;
@@ -81,6 +84,7 @@ public class ClienteInternet {
 		this.fechaInslacion = fechaInslacion;
 		this.equipoInstalado = equipoInstalado;
 		this.primerPago = primerPago;
+		this.e_mail = e_mail;
 		this.plan = plan;
 		this.habilitado=habilitado;
 		this.diaCobro = diaCobro;
@@ -191,12 +195,20 @@ public class ClienteInternet {
 	public void setRouter(Router router) {
 		this.router = router;
 	}
+	
+	public String getE_mail() {
+		return e_mail;
+	}
+
+	public void setE_mail(String e_mail) {
+		this.e_mail = e_mail;
+	}
 
 	@Override
 	public String toString() {
 		return "ClienteInternet [Folio=" + Folio + ", cliente=" + cliente + ", idMk=" + idMk + ", sector=" + sector
 				+ ", ip=" + ip + ", fechaInslacion=" + fechaInslacion + ", equipoInstalado=" + equipoInstalado
-				+ ", primerPago=" + primerPago + ", plan=" + plan + ", habilitado=" + habilitado + ", diaCobro="
-				+ diaCobro + ", ubicacion=" + ubicacion + ", router=" + router + "]";
+				+ ", primerPago=" + primerPago + ", e_mail=" + e_mail + ", plan=" + plan + ", habilitado=" + habilitado
+				+ ", diaCobro=" + diaCobro + ", ubicacion=" + ubicacion + ", router=" + router + "]";
 	}
 }

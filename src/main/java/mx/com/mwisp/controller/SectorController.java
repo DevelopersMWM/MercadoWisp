@@ -41,6 +41,10 @@ public class SectorController {
 		//System.out.println("idTorre: "+formSectorImpl.getTorre());
 		return "ListaSectores.xhtml?faces-redirect=true";
 	}
+	
+	public void eliminarSector(int idSector) {
+		sectorServiceImpl.eliminarSector(idSector);
+	}
 
 	public FormSectores getFormSectorImpl() {
 		return formSectorImpl;

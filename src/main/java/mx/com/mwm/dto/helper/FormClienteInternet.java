@@ -14,6 +14,7 @@ public class FormClienteInternet implements Serializable{
 	private Date fechaInstalacion;
 	private Date primerPago;
 	private String diaCobro;
+	private String email;
 	private String ubicacionCliente;
 	//private String idPersona;
 	private String idSector;
@@ -72,6 +73,12 @@ public class FormClienteInternet implements Serializable{
 	}
 	public void setPrimerPago(Date primerPago) {
 		this.primerPago = primerPago;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getDiaCobro() {
 		return diaCobro;

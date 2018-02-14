@@ -6,4 +6,11 @@
 <application>
 	<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
 </application>
+<navigation-rule>
+		<from-view-id>/faces/admin/login.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>faces/admin/index</from-outcome>
+			<to-view-id>/faces/admin/index.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 </faces-config>

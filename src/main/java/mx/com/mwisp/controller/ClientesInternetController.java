@@ -59,7 +59,7 @@ public class ClientesInternetController {
 	}
 	
 	public String agregarCliente() {
-		clienteServiceImpl.insertarCliente(new DTOClienteInternet(formCliente.getIpCliente(),formCliente.getFechaInstalacion(),formCliente.getPrimerPago(), formCliente.getDiaCobro(), formCliente.getUbicacionCliente(), Integer.parseInt(formCliente.getIdSector()), Integer.parseInt(formCliente.getIdEquipo()), Integer.parseInt(formCliente.getIdplan()), Integer.parseInt(formCliente.getIdRouter())));
+		clienteServiceImpl.insertarCliente(new DTOClienteInternet(formCliente.getIpCliente(),formCliente.getFechaInstalacion(),formCliente.getPrimerPago(), formCliente.getEmail(),formCliente.getDiaCobro(), formCliente.getUbicacionCliente(), Integer.parseInt(formCliente.getIdSector()), Integer.parseInt(formCliente.getIdEquipo()), Integer.parseInt(formCliente.getIdplan()), Integer.parseInt(formCliente.getIdRouter())));
 		return "ListaClientesInternet.xhtml?faces-redirect=true";
 	}
 
