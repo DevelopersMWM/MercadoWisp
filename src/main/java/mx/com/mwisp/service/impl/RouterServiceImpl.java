@@ -50,6 +50,7 @@ public class RouterServiceImpl implements RouterService {
 			System.out.println("Actualmente tiene Clientes y Planes asignados a este router");
 		}else {
 			routerDaoImpl.eliminarRouterEnDB(id);
+			mensaje=new FacesMessage(FacesMessage.SEVERITY_INFO, "Router eliminado Correctamente", null);
 		}
 		FacesContext.getCurrentInstance().addMessage(null, mensaje);
 	}

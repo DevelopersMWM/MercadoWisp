@@ -25,7 +25,7 @@
 		href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'
 		rel='stylesheet' />
 
-	<title>MWM | Tabla de Sectores</title>
+	<title>MWM | Tabla de datos</title>
 
 	<h:outputStylesheet name="admin/css/bootstrap.min.css" />
 	<h:outputStylesheet name="admin/fonts/font-awesome.min.css" />
@@ -352,26 +352,26 @@
 					<li><a href="index.xhtml"><i class="fa fa-circle-o"></i>
 							Dashboard</a></li>
 				</ul></li>
-			<li class="treeview"><a href="#"> <i class="fa fa-user-o"></i>
-					<span>Clientes</span> <span class="pull-right-container"> <span
+			<li class="treeview active"><a href="#"> <i
+					class="fa fa-user-o"></i> <span>Clientes</span> <span
+					class="pull-right-container"> <span
 						class="label label-primary pull-right">4</span>
 				</span>
 			</a>
 				<ul class="treeview-menu">
-					<li><a href="ListaClientesInternet.xhtml"><i class="fa fa-users"></i>
-							Lista de clientes</a></li>
-					<li><a href="Error500.xhtml"><i
-							class="fa fa-building-o"></i> Instalaciones</a></li>
-					<li><a href="Error500.xhtml"><i
-							class="fa fa-signal"></i> Tráfico</a></li>
-					<li><a href="Error500.xhtml"><i
-							class="fa fa-area-chart"></i> Estadisticas</a></li>
-					<li><a href="ListaMensajes.xhtml"><i class="fa fa-stack-exchange"></i>
+					<li><a href="ListaClientesInternet.xhtml"><i
+							class="fa fa-users"></i> Lista de clientes</a></li>
+					<li><a href="Error500.xhtml"><i class="fa fa-building-o"></i>
+							Instalaciones</a></li>
+					<li><a href="Error500.xhtml"><i class="fa fa-signal"></i>
+							Tráfico</a></li>
+					<li><a href="Error500.xhtml"><i class="fa fa-area-chart"></i>
+							Estadisticas</a></li>
+					<li class="active"><a href="ListaMensajes.xhtml"><i class="fa fa-stack-exchange"></i>
 							Mensajes</a></li>
 				</ul></li>
-			<li class="treeview active"><a href="#"> <i
-					class="fa fa-table"></i> <span>Sistema</span> <span
-					class="pull-right-container"> <i
+			<li class="treeview"><a href="#"> <i class="fa fa-table"></i>
+					<span>Sistema</span> <span class="pull-right-container"> <i
 						class="fa fa-angle-left pull-right"></i>
 				</span>
 			</a>
@@ -380,9 +380,9 @@
 							Routers</a></li>
 					<li><a href="ListaPlanes.xhtml"><i class="fa fa-circle-o"></i>
 							Planes de Internet</a></li>
-					<li class="active"><a href="ListaSectores.xhtml"><i
+					<li><a href="ListaSectores.xhtml"><i
 							class="fa fa-circle-o"></i> Zonas</a></li>
-					<li><a href="Error500"><i class="fa fa-desktop"></i>
+					<li><a href="Error500.xhtml"><i class="fa fa-desktop"></i>
 							Monitoreo</a></li>
 					<!--<li><a href="data.xhtml"><i class="fa fa-circle-o"></i> Data tables</a></li>-->
 				</ul></li>
@@ -393,14 +393,14 @@
 				</span>
 			</a>
 				<ul class="treeview-menu">
-					<li><a href="Error500.xhtml"><i
-							class="fa fa-money"></i> Pagos Pendientes</a></li>
-					<li><a href="Error500.xhtml"><i
-							class="fa fa-book"></i> Facturas</a></li>
+					<li><a href="Error500.xhtml"><i class="fa fa-money"></i>
+							Pagos Pendientes</a></li>
+					<li><a href="Error500.xhtml"><i class="fa fa-book"></i>
+							Facturas</a></li>
 					<li><a href="Error500.xhtml"><i
 							class="fa fa-address-book-o"></i> Reporte de Pago</a></li>
-					<li><a href="Error500.xhtml"><i
-							class="fa fa-bar-chart"></i> Estadisticas</a></li>
+					<li><a href="Error500.xhtml"><i class="fa fa-bar-chart"></i>
+							Estadisticas</a></li>
 				</ul></li>
 			<li class="treeview"><a href="#"> <i class="fa fa-laptop"></i>
 					<span>Soporte Tecnico</span> <span class="pull-right-container">
@@ -408,12 +408,12 @@
 				</span>
 			</a>
 				<ul class="treeview-menu">
-					<li><a href="Error500.xhtml"><i
-							class="fa fa-flag-o"></i> Reportes</a></li>
+					<li><a href="Error500.xhtml"><i class="fa fa-flag-o"></i>
+							Reportes</a></li>
 					<li><a href="Error500.xhtml"><i class="fa fa-ticket"></i>
 							Tickets</a></li>
-					<li><a href="Error500.xhtml"><i
-							class="fa fa-server"></i> Servicios</a></li>
+					<li><a href="Error500.xhtml"><i class="fa fa-server"></i>
+							Servicios</a></li>
 				</ul></li>
 			<li><a href="Error500.xhtml"> <i class="fa fa-calendar"></i>
 					<span>Calendario</span> <span class="pull-right-container">
@@ -421,9 +421,8 @@
 						class="label pull-right bg-blue">17</small>
 				</span>
 			</a></li>
-			<li><a href="Error500.xhtml"> <i
-					class="fa fa-envelope"></i> <span>Mail</span> <span
-					class="pull-right-container"> <small
+			<li><a href="Error500.xhtml"> <i class="fa fa-envelope"></i>
+					<span>Mail</span> <span class="pull-right-container"> <small
 						class="label pull-right bg-yellow">12</small> <small
 						class="label pull-right bg-green">16</small> <small
 						class="label pull-right bg-red">5</small>
@@ -451,12 +450,12 @@
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
 			<h1>
-				Lista de <small>Sectores</small>
+				Lista de <small>Clientes</small>
 			</h1>
 			<ol class="breadcrumb">
 				<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-				<li><a href="#">sistema</a></li>
-				<li class="active">Lista Sectores</li>
+				<li><a href="#">Clientes</a></li>
+				<li class="active">Lista de Clientes</li>
 			</ol>
 			</section>
 
@@ -469,8 +468,12 @@
 							<div>
 								<button type="button" class="btn btn-primary pull-left"
 									data-toggle="modal" data-target="#modal-default">
-									Agregar Nuevo sector <i class="fa fa-plus-circle" aria-hidden="true"></i>
+									Agregar Nuevo Mensaje <i class="fa fa-plus-circle" aria-hidden="true"></i>
 								</button>
+								<!-- <h:link outcome="addServicioPersona" alt="Agregar nuevo Cliente"
+									class="btn bg-navy btn-flat margin btn-sm">Agregar Nuevo Formato de SMS
+									<i class="fa fa-plus-circle" aria-hidden="true"></i>
+								</h:link> -->
 								<div class="modal fade" id="modal-default">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -479,14 +482,13 @@
 													aria-label="Close">
 													<span aria-hidden="true">&times;</span>
 												</button>
-												<h4 class="modal-title">Agregar Nuevo Sector</h4>
+												<h4 class="modal-title">Agregar Nuevo Formado Para Mensaje</h4>
 											</div>
 											<div class="modal-body">
 												<!-- <p>One fine body&hellip;</p> -->
 												<div class="box box-success">
 													<div class="box-header with-border">
-														<h3 class="box-title">Llene los siguientes datos del
-															Sector</h3>
+														<h3 class="box-title">Llene los siguientes datos para el mensaje</h3>
 													</div>
 													<!-- /.box-header -->
 													<!-- form start -->
@@ -494,53 +496,46 @@
 														<div class="box-body">
 
 															<div class="form-group has-feedback">
-																<label for="inputNombreRouter3"
-																	class="col-sm-5 control-label">Nombre del
-																	Sector:</label>
+																<label for="inputNombreSMS"
+																	class="col-sm-5 control-label">Titulo de Mensaje:</label>
 																<div class="col-sm-5">
 																	<h:inputText
-																		value="#{sectorController.formSectorImpl.nombre}"
-																		pt:placeholder="Juan" class="form-control" />
+																		value="#{mensajesController.formMensaje.nombreParaMensaje}"
+																		pt:placeholder="Mensaje de suspención" class="form-control" />
+																	<span class="fa fa-columns form-control-feedback"></span>
+																</div>
+															</div>
+															
+															<div class="form-group has-feedback">
+																<label for="CuerpoSMS"
+																	class="col-sm-5 control-label">Mensaje:</label>
+																<div class="col-sm-5">
+																	<h:inputTextarea rows="4"
+																		value="#{mensajesController.formMensaje.cuerpoMensaje}"
+																		pt:placeholder="Ej: Su pago esta Proximo" class="form-control" />
 																	<span class="fa fa-columns form-control-feedback"></span>
 																</div>
 															</div>
 
-															<div class="form-group has-feedback">
-																<label for="inputNombreRouter"
-																	class="col-sm-5 control-label">Torre:</label>
-																<div class="col-sm-5">
-
-																	<h:selectOneMenu
-																		value="#{sectorController.formSectorImpl.idTorre}"
-																		class="form-control">
-															                <f:selectItems
-																			value="#{torreController.torresList()}" var="entry"
-																			itemValue="#{entry.idTorre}"
-																			itemLabel="#{entry.nombreTorre}" />
-            															</h:selectOneMenu>
-																	        
-
-																</div>
-															</div>
 														</div>
 														<!-- /.box-body -->
 														<div class="box-footer">
 															<!-- <button type="submit" class="btn btn-danger">Cancelar</button> -->
-															<h:commandButton value="Agregar Sector"
-																action="#{sectorController.agregarSector()}"
+															<h:commandButton value="Agregar Formato de SMS"
+																action="#{mensajesController.agregarNuevoMensaje()}"
 																styleClass="btn btn-info pull-right" />
 															<button type="button" class="btn btn-default pull-left"
 																data-dismiss="modal">Cerrar</button>
 														</div>
 
-														<div class="callout callout-success">
+														<!-- <div class="callout callout-success">
 															<h5>
 																<h:outputText id="saveResult"
 																	rendered="#{not empty CreadoPesonaNom}"
 																	value="!! Cliente agregado !!"
 																	styleClass="successText pull-center" />
 															</h5>
-														</div>
+														</div> -->
 														<!-- <h:outputText id="saveResult" rendered="#{not empty CreadoRouterID}" value="!! Router Guardado Exitosamente !!" styleClass="btn btn-succes pull-center" /> -->
 														<!-- /.box-footer -->
 													</h:form>
@@ -558,37 +553,106 @@
 							</div>
 						</div>
 						<!-- /.box-header -->
-						<div class="box-body">
-							<h:form id="FormSectores">
-								<h:dataTable id="example1" binding="#{table}"
-									value="#{sectorController.listarSectores()}" var="sector"
-									styleClass="table table-striped table-bordered tableUpdated">
-									<h:column>
-										<f:facet name="header">Id</f:facet>
-										<h:outputText value="#{sector.idSector}" />
-									</h:column>
-									<h:column>
-										<f:facet name="header">Nombre</f:facet>
-										<h:outputText value="#{sector.nombreSector}" />
-									</h:column>
-									<h:column>
-										<f:facet name="header">Torre</f:facet>
-										<h:outputText value="#{sector.torre}" />
-									</h:column>
-									<h:column>
-										<f:facet name="header">Acción</f:facet>
-										<h:commandButton value="Actualizar"
-											styleClass="btn btn-primary btn-xs">
-										</h:commandButton>
-										<h:commandButton
-												action="#{sectorController.eliminarSector(sector.idSector)}"
-												value="eliminar" styleClass="btn btn-danger btn-xs">
-											</h:commandButton>
-									</h:column>
-								</h:dataTable>
-							</h:form>
+						<div class="nav-tabs-custom">
+							<ul class="nav nav-tabs">
+								<li class="active"><a href="#tab_1" data-toggle="tab"><b>Formato de Mensajes</b></a></li>
+								<li><a href="#tab_2" data-toggle="tab"><b>SMS Enviados</b></a></li>
+							</ul>
+							<div class="tab-content">
+								<div class="tab-pane active" id="tab_1">
+								
+									<div class="box-body table-responsive no-padding">
+										<h:form id="MensajeForm">
+											<!-- h:dataTable es de JsF y aqui no inicializas producto como en tu ejemplo en el mb para acceder o si??  -->
+											<h:dataTable id="example1" binding="#{tablaMensajes}"
+												value="#{mensajesController.listaDeMensajes()}"
+												var="Mensaje"
+												styleClass="table table-striped table-bordered tableUpdated">
+												<h:column>
+													<f:facet name="header"># ID</f:facet>
+													<h:outputText value="#{Mensaje.idMensaje}" />
+												</h:column>
+												<h:column>
+													<f:facet name="header">Título</f:facet>
+													<h:outputText value="#{Mensaje.nombreDeMensaje}" />
+												</h:column>
+												<h:column>
+													<f:facet name="header">Mensaje</f:facet>
+													<h:outputText value="#{Mensaje.cuerpoDeMensaje}" />
+												</h:column>
+												<h:column>
+													<f:facet name="header">Acción</f:facet>
+													<!-- <h:commandButton value="Actualizar"
+														styleClass="btn btn-primary btn-xs">
+													</h:commandButton> -->
+													<h:commandButton action="#{mensajesController.editarMensaje()}" value="Editar"
+														styleClass="btn btn-info btn-xs">
+														<f:param name="idMensaje" value="#{Mensaje.idMensaje}"/>
+													</h:commandButton>
+													<!--  -->
+													<span></span>
+													<span></span>
+													<span></span>													
+													<h:commandButton action="#{mensajeController.eliminarMensaje(Mensaje.idMensaje)}" value="Eliminar"
+														styleClass="btn btn-danger btn-xs" />
+												</h:column>
+											</h:dataTable>
+										</h:form>
+									</div>
+									<!-- /.box-body -->
+								</div>
+								<div class="tab-pane" id="tab_2">
+								<div class="box-body table-responsive no-padding">
+									<h:form id="ActualizarSMS">
+										<h:commandButton value="Actulizar" action="#{smsClienteController.actualizarMensajes()}"
+														styleClass="btn btn-success btn-xs pull-left" />
+									</h:form>
+										<h:form id="MensajesEnviados">
+											<!-- h:dataTable es de JsF y aqui no inicializas producto como en tu ejemplo en el mb para acceder o si??  -->
+											<h:dataTable id="example2" binding="#{tablaMensajeEnviados}"
+												value="#{smsClienteController.listaSmsACliente()}"
+												var="SmsEnviado"
+												styleClass="table table-striped table-bordered tableUpdated">
+												<h:column>
+													<f:facet name="header"># De SMS</f:facet>
+													<h:outputText value="#{SmsEnviado.idSmsParacliente}" />
+												</h:column>
+												<h:column>
+													<f:facet name="header">Id SMS</f:facet>
+													<h:outputText value="#{SmsEnviado.idServicioSms}" />
+												</h:column>
+												<!-- <h:column>
+													<f:facet name="header">Id Mk</f:facet>
+													<h:outputText value="#{Cliente.idMk}" />
+												</h:column> -->
+												<h:column>
+													<f:facet name="header">Estado de SMS</f:facet>
+													<span class="label label-warning">#{SmsEnviado.status}</span>
+													<!-- <h:outputText value="#{SmsEnviado.status}" /> -->
+												</h:column>
+												<h:column>
+													<f:facet name="header">Cliente</f:facet>
+													<h:outputText value="#{SmsEnviado.cliente}" />
+												</h:column>
+												<h:column>
+													<f:facet name="header">SMS Enviado</f:facet>
+													<h:outputText value="#{SmsEnviado.mensaje}"/>
+												</h:column>
+												<h:column>
+													<f:facet name="header">Acción</f:facet>
+													<!-- <h:commandButton value="Actualizar"
+														styleClass="btn btn-primary btn-xs">
+													</h:commandButton> -->
+													
+													<h:commandButton action="#{smsClienteController.eliminarMensajeDeCliente(SmsEnviado.idSmsParacliente)}" value="Eliminar"
+														styleClass="btn btn-danger btn-xs" />
+												</h:column>
+											</h:dataTable>
+										</h:form>
+									</div>
+									</div>
+							</div>
 						</div>
-						<!-- /.box-body -->
 					</div>
 					<!-- /.box -->
 					<!-- /.col -->

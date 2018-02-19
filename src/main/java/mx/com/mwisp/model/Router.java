@@ -95,14 +95,4 @@ public class Router implements Serializable{
 		return "Router [id=" + id + ", nombre=" + nombre + ", ipDns=" + ipDns + ", nombreUser=" + nombreUser
 				+ ", llave=" + llave + ", ubicacion=" + ubicacion + "]";
 	}
-
-	
-	/*public List<Router> getRouterList() {
-		return routerList;
-	}
-
-	public void setRouterList(List<Router> routerList) {
-		this.routerList = routerList;
-	}*/
-
 }

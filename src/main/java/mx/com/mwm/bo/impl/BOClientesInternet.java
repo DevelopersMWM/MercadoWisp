@@ -32,6 +32,7 @@ public class BOClientesInternet implements BOClienteInternetInterface {
 		dtoClientes.setFechaInstalacion(cliente.getFechaInslacion());
 		dtoClientes.setEquipoInstalado(cliente.getEquipoInstalado().getNombre());
 		dtoClientes.setPrimerPago(cliente.getPrimerPago());
+		dtoClientes.setTelefono(cliente.getCliente().getTelefono());
 		dtoClientes.setEmail(cliente.getE_mail());
 		dtoClientes.setEstatus(cliente.getHabilitado());
 		dtoClientes.setPlan(cliente.getPlan().getNombre());

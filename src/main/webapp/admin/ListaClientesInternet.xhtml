@@ -367,6 +367,8 @@
 							Tráfico</a></li>
 					<li><a href="Error500.xhtml"><i class="fa fa-area-chart"></i>
 							Estadisticas</a></li>
+					<li><a href="ListaMensajes.xhtml"><i
+							class="fa fa-stack-exchange"></i> Mensajes</a></li>
 				</ul></li>
 			<li class="treeview"><a href="#"> <i class="fa fa-table"></i>
 					<span>Sistema</span> <span class="pull-right-container"> <i
@@ -475,9 +477,9 @@
 						<div class="nav-tabs-custom">
 							<ul class="nav nav-tabs">
 								<li class="active"><a href="#tab_1" data-toggle="tab"><b>Clientes
-										activos</b></a></li>
+											activos</b></a></li>
 								<li><a href="#tab_2" data-toggle="tab"><b>Clientes
-										Suspendidos</b></a></li>
+											Suspendidos</b></a></li>
 							</ul>
 							<div class="tab-content">
 								<div class="tab-pane active" id="tab_1">
@@ -494,7 +496,8 @@
 												</h:column>
 												<h:column>
 													<f:facet name="header">Nombre</f:facet>
-													<h:outputText value="#{Cliente.nombreCliente} #{Cliente.apellidoPaterno} #{Cliente.apellidoMaterno}" />
+													<h:outputText
+														value="#{Cliente.nombreCliente} #{Cliente.apellidoPaterno} #{Cliente.apellidoMaterno}" />
 												</h:column>
 												<!-- <h:column>
 													<f:facet name="header">Id Mk</f:facet>
@@ -533,7 +536,7 @@
 												</h:column>
 												<h:column>
 													<f:facet name="header">Día cobro</f:facet>
-													<h:outputText value="#{Cliente.diaCobro}" />
+														<h:outputText value="#{Cliente.diaCobro}" />
 												</h:column>
 												<!-- <h:column>
 													<f:facet name="header">Ubicacion</f:facet>
@@ -548,20 +551,36 @@
 													<!-- <h:commandButton value="Actualizar"
 														styleClass="btn btn-primary btn-xs">
 													</h:commandButton> -->
-													<h:commandButton action="#{clienteBDyMkController.suspenderServicio()}" value="Suspender"
-														styleClass="btn btn-default btn-xs">
-														<f:param name="folioCliente" value="#{Cliente.idCliente}"/>
+													<h:commandButton
+														action="#{clienteBDyMkController.suspenderServicio()}"
+														value="Suspender" styleClass="btn btn-default btn-xs">
+														<f:param name="folioCliente" value="#{Cliente.idCliente}" />
 													</h:commandButton>
-													<h:commandButton action="#{clienteBDyMkController.eliminarCliente(Cliente.idCliente)}" value="Eliminar"
-														styleClass="btn btn-danger btn-xs" />
+													<h:commandButton
+														action="#{clienteBDyMkController.eliminarCliente(Cliente.idCliente)}"
+														value="Eliminar" styleClass="btn btn-danger btn-xs" />
+													<h:commandButton value="Enviar SMS"
+														action="#{smsClienteController.mensajeACliente()}"
+														styleClass="btn btn-info btn-xs" data-toggle="modal"
+														data-target="#modal-default">
+														<f:param name="idClienteSms" value="#{Cliente.idCliente}" />
+													</h:commandButton>
+													<!-- <button type="button" class="btn btn-info btn-xs"
+														data-toggle="modal" data-target="#modal-default" value="smsClienteController.formSmsCliente.idCliente">
+														<f:param name="idClienteSms" value="#{Cliente.idCliente}" /> -->
+													<!-- <f:ajax render="formSmsCliente.idCliente" /> -->
+													<!-- Enviar SMS</button> -->
+													<!-- <h:commandButton value="Enviar SMS"
+														styleClass="btn btn-info btn-xs" data-toggle="modal" data-target="#modal-default"/> -->
 												</h:column>
 											</h:dataTable>
 										</h:form>
+
 									</div>
 									<!-- /.box-body -->
 								</div>
 								<div class="tab-pane" id="tab_2">
-								<div class="box-body table-responsive no-padding">
+									<div class="box-body table-responsive no-padding">
 										<h:form id="ClientesSuspendidos">
 											<!-- h:dataTable es de JsF y aqui no inicializas producto como en tu ejemplo en el mb para acceder o si??  -->
 											<h:dataTable id="example1" binding="#{table1}"
@@ -574,7 +593,8 @@
 												</h:column>
 												<h:column>
 													<f:facet name="header">Nombre</f:facet>
-													<h:outputText value="#{ClienteSuspend.nombreCliente} #{ClienteSuspend.apellidoPaterno} #{ClienteSuspend.apellidoMaterno}" />
+													<h:outputText
+														value="#{ClienteSuspend.nombreCliente} #{ClienteSuspend.apellidoPaterno} #{ClienteSuspend.apellidoMaterno}" />
 												</h:column>
 												<!-- <h:column>
 													<f:facet name="header">Id Mk</f:facet>
@@ -590,7 +610,8 @@
 												</h:column>
 												<h:column>
 													<f:facet name="header">Fecha Instalación</f:facet>
-													<h:outputText value="#{ClienteSuspend.fechaInstalacion.time}">
+													<h:outputText
+														value="#{ClienteSuspend.fechaInstalacion.time}">
 														<f:convertDateTime type="both" pattern="dd/MMMM/yyyy"
 															dateStyle="long" />
 														<!-- <f:convertDateTime dateStyle="long"/> -->
@@ -628,17 +649,20 @@
 													<!-- <h:commandButton value="Actualizar"
 														styleClass="btn btn-primary btn-xs">
 													</h:commandButton> -->
-													<h:commandButton action="#{clienteBDyMkController.reactivarServicio()}" value="Reactivar"
-														styleClass="btn btn-success btn-xs">
-														<f:param name="clienteFolio" value="#{ClienteSuspend.idCliente}"/>
+													<h:commandButton
+														action="#{clienteBDyMkController.reactivarServicio()}"
+														value="Reactivar" styleClass="btn btn-success btn-xs">
+														<f:param name="clienteFolio"
+															value="#{ClienteSuspend.idCliente}" />
 													</h:commandButton>
-													<h:commandButton action="#{clienteBDyMkController.eliminarCliente(ClienteSuspend.idCliente)}" value="Eliminar"
-														styleClass="btn btn-danger btn-xs" />
+													<h:commandButton
+														action="#{clienteBDyMkController.eliminarCliente(ClienteSuspend.idCliente)}"
+														value="Eliminar" styleClass="btn btn-danger btn-xs" />
 												</h:column>
 											</h:dataTable>
 										</h:form>
 									</div>
-									</div>
+								</div>
 							</div>
 						</div>
 					</div>

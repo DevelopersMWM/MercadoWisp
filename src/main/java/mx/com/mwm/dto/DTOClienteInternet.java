@@ -20,6 +20,7 @@ public class DTOClienteInternet implements Serializable {
 	public String plan;
 	public Boolean estatus;
 	public String diaCobro;
+	public String telefono;
 	public String ubicacion;
 	public String Router;
 	public int idPersona;
@@ -61,7 +62,7 @@ public class DTOClienteInternet implements Serializable {
 	}*/
 
 	public DTOClienteInternet(int idCliente, String idMk, String ipCliente, Date fechaInstalacion,
-			Date primerPago,String email, Boolean estatus,String diaCobro, String ubicacion) {
+			Date primerPago,String email, Boolean estatus,String diaCobro,String telefono, String ubicacion) {
 		super();
 		this.idCliente = idCliente;
 		this.idMk = idMk;
@@ -70,6 +71,7 @@ public class DTOClienteInternet implements Serializable {
 		this.primerPago = primerPago;
 		this.email = email;
 		this.diaCobro = diaCobro;
+		this.telefono = telefono;
 		this.ubicacion = ubicacion;
 		this.estatus=estatus;
 	}
@@ -242,15 +244,23 @@ public class DTOClienteInternet implements Serializable {
 		this.apellidoMaterno = apellidoMaterno;
 	}
 
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
 	@Override
 	public String toString() {
 		return "DTOClienteInternet [idCliente=" + idCliente + ", NombreCliente=" + NombreCliente + ", apellidoPaterno="
 				+ apellidoPaterno + ", apellidoMaterno=" + apellidoMaterno + ", idMk=" + idMk + ", Sector=" + Sector
 				+ ", ipCliente=" + ipCliente + ", fechaInstalacion=" + fechaInstalacion + ", equipoInstalado="
 				+ equipoInstalado + ", primerPago=" + primerPago + ", email=" + email + ", plan=" + plan + ", estatus="
-				+ estatus + ", diaCobro=" + diaCobro + ", ubicacion=" + ubicacion + ", Router=" + Router
-				+ ", idPersona=" + idPersona + ", idSector=" + idSector + ", idEquipo=" + idEquipo + ", idPlan="
-				+ idPlan + ", idRouter=" + idRouter + "]";
+				+ estatus + ", diaCobro=" + diaCobro + ", telefono=" + telefono + ", ubicacion=" + ubicacion
+				+ ", Router=" + Router + ", idPersona=" + idPersona + ", idSector=" + idSector + ", idEquipo="
+				+ idEquipo + ", idPlan=" + idPlan + ", idRouter=" + idRouter + "]";
 	}
 
 	@Override
@@ -277,6 +287,7 @@ public class DTOClienteInternet implements Serializable {
 		result = prime * result + ((ipCliente == null) ? 0 : ipCliente.hashCode());
 		result = prime * result + ((plan == null) ? 0 : plan.hashCode());
 		result = prime * result + ((primerPago == null) ? 0 : primerPago.hashCode());
+		result = prime * result + ((telefono == null) ? 0 : telefono.hashCode());
 		result = prime * result + ((ubicacion == null) ? 0 : ubicacion.hashCode());
 		return result;
 	}
@@ -371,6 +382,11 @@ public class DTOClienteInternet implements Serializable {
 			if (other.primerPago != null)
 				return false;
 		} else if (!primerPago.equals(other.primerPago))
+			return false;
+		if (telefono == null) {
+			if (other.telefono != null)
+				return false;
+		} else if (!telefono.equals(other.telefono))
 			return false;
 		if (ubicacion == null) {
 			if (other.ubicacion != null)
