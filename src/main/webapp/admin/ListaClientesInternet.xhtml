@@ -470,7 +470,12 @@
 									class="btn bg-navy btn-flat margin btn-sm">Agregar Nuevo Cliente
 									<i class="fa fa-plus-circle" aria-hidden="true"></i>
 								</h:link>
-
+								<h:form>
+									<h:commandButton
+										action="#{clientesInternetController.exportarAPDF()}"
+										value="Exportar Lista a PDF" styleClass="btn btn-info btn-xs">
+									</h:commandButton>
+								</h:form>
 							</div>
 						</div>
 						<!-- /.box-header -->
@@ -480,6 +485,7 @@
 											activos</b></a></li>
 								<li><a href="#tab_2" data-toggle="tab"><b>Clientes
 											Suspendidos</b></a></li>
+								<li><a href="#tab_3" data-toggle="tab"><b>Clientes Por Sector</b></a></li>
 							</ul>
 							<div class="tab-content">
 								<div class="tab-pane active" id="tab_1">
@@ -536,7 +542,7 @@
 												</h:column>
 												<h:column>
 													<f:facet name="header">Día cobro</f:facet>
-														<h:outputText value="#{Cliente.diaCobro}" />
+													<h:outputText value="#{Cliente.diaCobro}" />
 												</h:column>
 												<!-- <h:column>
 													<f:facet name="header">Ubicacion</f:facet>
@@ -663,6 +669,53 @@
 										</h:form>
 									</div>
 								</div>
+
+								<div class="tab-pane" id="tab_3">
+									<div class="box-body table-responsive no-padding">
+									<h:form id="GenerarPDF">
+										<h:commandButton value="Generar PDF de Clientes por sector" action="#{reportePorSectorController.reportePorSectorAPDF()}"
+														styleClass="btn btn-success btn-xs pull-left" />
+									</h:form>
+										<h:form id="ReportePorSector">
+											<h:dataTable id="schoolTable" binding="#{table3}"
+												value="#{reportePorSectorController.reportePorSector()}"
+												var="reporte"
+												styleClass="table table-striped table-bordered tableUpdated">
+												<h:column>
+													<f:facet name="header">Folio</f:facet>
+													<h:outputText value="#{reporte.folioCliente}" />
+												</h:column>
+												<h:column>
+													<f:facet name="header">Nombre</f:facet>
+													<h:outputText
+														value="#{reporte.nombre} #{reporte.apPat} #{reporte.apMat}" />
+												</h:column>
+												<h:column>
+													<f:facet name="header">Direccion</f:facet>
+													<h:outputText
+														value="#{reporte.numInt} calle: #{reporte.calle}, #{reporte.colonia}, #{reporte.municipio}, #{reporte.estado}" />
+												</h:column>
+												<h:column>
+													<f:facet name="header">Telefono</f:facet>
+													<h:outputText value="#{reporte.telefono}" />
+												</h:column>
+												<h:column>
+													<f:facet name="header">Sector</f:facet>
+													<h:outputText value="#{reporte.sector}" />
+												</h:column>
+												<h:column>
+													<f:facet name="header">Torre</f:facet>
+													<h:outputText value="#{reporte.torre}" />
+												</h:column>
+												<h:column>
+													<f:facet name="header">Ip</f:facet>
+													<h:outputText value="#{reporte.ip}" />
+												</h:column>
+											</h:dataTable>
+										</h:form>
+									</div>
+								</div>
+
 							</div>
 						</div>
 					</div>
